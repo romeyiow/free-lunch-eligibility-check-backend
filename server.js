@@ -6,6 +6,7 @@ const colors = require('colors'); // For colorful console output
 const cors = require('cors'); // Enable Cross-Origin Resource Sharing
 const helmet = require('helmet'); // Set security-related HTTP headers
 const morgan = require('morgan'); // HTTP request logger middleware
+const connectDB = require('./config/db'); // Import the database connection function
 
 // Import Custom Modules (Placeholders for now, uncomment/add in later phases)
 // const connectDB = require('./config/db'); // Phase 2: Database connection
@@ -22,8 +23,8 @@ const morgan = require('morgan'); // HTTP request logger middleware
 // dotenv.config() is still useful if you run locally with a .env file.
 dotenv.config();
 
-// Connect to Database (Uncomment in Phase 2)
-// connectDB();
+// Connect to Database
+connectDB(); // Call the function to establish the connection
 
 // Initialize Express App
 const app = express();
