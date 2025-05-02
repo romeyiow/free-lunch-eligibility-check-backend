@@ -1,0 +1,29 @@
+{
+    "env": {
+        "node": true, // Recognize Node.js global variables and Node.js scoping.
+        "commonjs": true, // Recognize CommonJS global variables and CommonJS scoping (i.e., require/module.exports).
+        "es2021": true // Allows modern ECMAScript syntax features (up to ES2021).
+    },
+    "extends": [
+        "eslint:recommended", // Starts with ESLint's baseline recommended rules.
+        "plugin:node/recommended", // Adds Node.js specific recommended rules (requires eslint-plugin-node).
+        "plugin:prettier/recommended" // IMPORTANT: Enables eslint-plugin-prettier, extends eslint-config-prettier, and sets prettier/prettier rule to "error". This turns off ESLint rules that conflict with Prettier and makes Prettier formatting issues show up as ESLint errors.
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest" // Use the latest supported ECMAScript version. You could use 2021 or 2022 explicitly if preferred.
+    },
+    "rules": {
+        // You can override or add specific ESLint rules here if needed.
+        // For example, if you disagree with a specific rule from the 'extends' presets:
+        // "no-console": "warn", // Allow console.log but show a warning instead of error
+        "node/no-unsupported-features/es-syntax": [
+            "error",
+            {
+                "ignores": [
+                    "modules"
+                ]
+            }
+        ] // Allows modern syntax like import/export if you plan to use ES Modules later, though we use CommonJS for now. Adjust as needed.
+      // Leave empty initially if you're happy with the recommended sets.
+    }
+}

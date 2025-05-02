@@ -1,0 +1,39 @@
+{
+  "name": "free-lunch-eligibility-check-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,json,md}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data:import": "node seeder -i",
+    "data:destroy": "node seeder -d"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3"
+  }
+}
