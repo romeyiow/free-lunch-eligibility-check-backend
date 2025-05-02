@@ -1,0 +1,12 @@
+[
+    {
+        "name": "System Admin",
+        "email": "admin@lvcc.edu.ph",
+        "password": "password123"
+    },
+    {
+        "name": "Another Admin",
+        "email": "admin2@lvcc.edu.ph",
+        "password": "password456"
+    }
+]

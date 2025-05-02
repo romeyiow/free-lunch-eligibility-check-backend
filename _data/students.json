@@ -1,0 +1,802 @@
+[
+  {
+    "studentIdNumber": "2025-0001-FAK",
+    "name": "Brenden Tillman",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0002-FAK",
+    "name": "Liliana Bednar",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0003-FAK",
+    "name": "Gustave Upton",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0004-FAK",
+    "name": "Elfrieda Zieme",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0005-FAK",
+    "name": "Anna Auer-Halvorson",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0006-FAK",
+    "name": "Nicolas Kovacek",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0007-FAK",
+    "name": "Jonas Waters-Streich",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0008-FAK",
+    "name": "Malachi Thompson",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0009-FAK",
+    "name": "Ignatius Beatty",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0010-FAK",
+    "name": "Alexandre Friesen",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0011-FAK",
+    "name": "Kitty Kub",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0012-FAK",
+    "name": "Felipa Lueilwitz",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0013-FAK",
+    "name": "Margaretta Bahringer-Johnson",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0014-FAK",
+    "name": "Bertha Pouros",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0015-FAK",
+    "name": "Amanda Schumm",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0016-FAK",
+    "name": "Triston Wisozk",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0017-FAK",
+    "name": "Fiona Collier",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0018-FAK",
+    "name": "Richard Will",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0019-FAK",
+    "name": "Enid Kessler",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0020-FAK",
+    "name": "Uriah Ledner",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0021-FAK",
+    "name": "Amina Wilderman",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0022-FAK",
+    "name": "Hannah Ullrich",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0023-FAK",
+    "name": "Blake Kessler",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0024-FAK",
+    "name": "Jovani Stracke",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0025-FAK",
+    "name": "Ressie Stanton",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0026-FAK",
+    "name": "Ruby Satterfield",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0027-FAK",
+    "name": "Vivien Herman",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0028-FAK",
+    "name": "Ceasar Klein-Baumbach",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0029-FAK",
+    "name": "Jody Howe",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0030-FAK",
+    "name": "Jonathan Grimes",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0031-FAK",
+    "name": "Maximus Fadel",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0032-FAK",
+    "name": "Chauncey Hayes",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0033-FAK",
+    "name": "Roxanne Heidenreich",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0034-FAK",
+    "name": "Mack Hansen",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0035-FAK",
+    "name": "Hillary Daugherty",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0036-FAK",
+    "name": "Patrick Casper",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0037-FAK",
+    "name": "Rebecca Stanton",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0038-FAK",
+    "name": "Johann Deckow",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0039-FAK",
+    "name": "Gabrielle Balistreri",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0040-FAK",
+    "name": "Jamaal Klocko",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0041-FAK",
+    "name": "Gerry Swift",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0042-FAK",
+    "name": "Zita DuBuque",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0043-FAK",
+    "name": "Cristal Kuhn",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0044-FAK",
+    "name": "Lester Steuber",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0045-FAK",
+    "name": "Rory Murphy",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0046-FAK",
+    "name": "Alexys Kozey",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0047-FAK",
+    "name": "Casimer Rempel",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0048-FAK",
+    "name": "Connie Durgan",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0049-FAK",
+    "name": "Jovan Bechtelar",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0050-FAK",
+    "name": "Jordon Bartoletti",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0051-FAK",
+    "name": "Kaylah O'Conner",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0052-FAK",
+    "name": "Kendall Monahan",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0053-FAK",
+    "name": "Dimitri Kohler",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0054-FAK",
+    "name": "Christine Dietrich",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0055-FAK",
+    "name": "Kendall Hane",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0056-FAK",
+    "name": "Rossie Prohaska",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0057-FAK",
+    "name": "Stuart Cummings",
+    "program": "BAB",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0058-FAK",
+    "name": "Hilbert Koepp",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0059-FAK",
+    "name": "Titus Hermiston",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0060-FAK",
+    "name": "Sanford Kerluke",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0061-FAK",
+    "name": "Kamille Waelchi",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0062-FAK",
+    "name": "Ona Nolan",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0063-FAK",
+    "name": "Albina Renner",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0064-FAK",
+    "name": "Haylee Conn",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0065-FAK",
+    "name": "Bernice Pollich",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0066-FAK",
+    "name": "Cullen Monahan",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0067-FAK",
+    "name": "Rupert Hartmann",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0068-FAK",
+    "name": "Taurean Powlowski",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0069-FAK",
+    "name": "Arvid Ruecker-Jakubowski",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0070-FAK",
+    "name": "Opal Weber-Balistreri",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0071-FAK",
+    "name": "Eudora Ortiz",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0072-FAK",
+    "name": "Afton Franecki",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0073-FAK",
+    "name": "Rhianna Tremblay",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0074-FAK",
+    "name": "Letha Mante",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0075-FAK",
+    "name": "Dino Toy",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0076-FAK",
+    "name": "Jarvis Strosin",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0077-FAK",
+    "name": "Cindy Crooks",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0078-FAK",
+    "name": "Burdette Runte",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0079-FAK",
+    "name": "Gerald Zulauf",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0080-FAK",
+    "name": "Tyreek Harris",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0081-FAK",
+    "name": "Ezra Kilback",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0082-FAK",
+    "name": "Howell Cummerata",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0083-FAK",
+    "name": "Brown O'Connell",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0084-FAK",
+    "name": "Earnest Kihn",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0085-FAK",
+    "name": "Fae Harber",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0086-FAK",
+    "name": "Skyla Bartoletti",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0087-FAK",
+    "name": "Prudence Bayer",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0088-FAK",
+    "name": "Dawn Bartell",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0089-FAK",
+    "name": "Lucie Pouros",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0090-FAK",
+    "name": "Cydney Stamm",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0091-FAK",
+    "name": "Zakary Carter",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0092-FAK",
+    "name": "Shayne Bauch",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0093-FAK",
+    "name": "Halie Gottlieb",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0094-FAK",
+    "name": "Bert Lesch",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0095-FAK",
+    "name": "Marco Gibson",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0096-FAK",
+    "name": "Lazaro Hudson",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0097-FAK",
+    "name": "Claudine McLaughlin",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0098-FAK",
+    "name": "Eric Murazik",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0099-FAK",
+    "name": "Ebony Feil",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "2025-0100-FAK",
+    "name": "Jude Beier",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  }
+]
