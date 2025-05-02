@@ -6,6 +6,8 @@ const colors = require('colors'); // For colorful console output
 const cors = require('cors'); // Enable Cross-Origin Resource Sharing
 const helmet = require('helmet'); // Set security-related HTTP headers
 const morgan = require('morgan'); // HTTP request logger middleware
+const rateLimit = require('express-rate-limit');
+const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db'); // Import the database connection function
 
 // Import Custom Modules (Placeholders for now, uncomment/add in later phases)
@@ -49,22 +51,34 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json()); // Parses incoming requests with JSON payloads
 app.use(express.urlencoded({ extended: true })); // Parses incoming requests with URL-encoded payloads
 
-// Rate Limiting Middleware (Uncomment/Configure in Phase 3)
-/*
-const rateLimit = require('express-rate-limit');
+// Rate Limiting Configuration
 const limiter = rateLimit({
-    windowMs: 10 * 60 * 1000, // 10 minutes
+    windowMs: 15 * 60 * 1000, // 15 minutes window
     max: 100, // Limit each IP to 100 requests per windowMs
-    message: { success: false, error: { message: 'Too many requests from this IP, please try again after 10 minutes' } },
-    standardHeaders: true,
-    legacyHeaders: false,
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers (legacy)
+    // Message sent when rate limit is exceeded
+    message: {
+        success: false,
+        error: {
+            message: 'Too many requests created from this IP, please try again after 15 minutes',
+        },
+    },
+    // Optional: Customize key generation (e.g., use user ID after login)
+    // keyGenerator: (req, res) => { /* ... */ },
+    // Optional: Skip certain requests (e.g., OPTIONS pre-flight requests)
+    // skip: (req, res) => { /* return true to skip */ },
 });
-app.use(limiter);
-*/
+
+// Apply the rate limiting middleware to all requests starting with /api
+// Or apply globally with just: app.use(limiter);
+app.use('/api', limiter); // Apply limiter specifically to API routes
 
 // --- API Routes ---
 // Define API Version Prefix for consistency and future-proofing
 const API_VERSION = '/api/v1';
+const authRoutes = require('./routes/authRoutes'); // Import the router
+
 
 // Basic Health Check Route (Good practice for monitoring)
 app.get(`${API_VERSION}/health`, (req, res) => {
@@ -77,7 +91,7 @@ app.get(`${API_VERSION}/health`, (req, res) => {
 });
 
 // Mount Routers (Uncomment and add specific routers in later phases)
-// app.use(`${API_VERSION}/auth`, authRoutes);
+app.use(`${API_VERSION}/auth`, authRoutes);
 // app.use(`${API_VERSION}/students`, studentRoutes);
 // app.use(`${API_VERSION}/schedules`, scheduleRoutes);
 // app.use(`${API_VERSION}/eligibility`, eligibilityRoutes);
@@ -86,8 +100,8 @@ app.get(`${API_VERSION}/health`, (req, res) => {
 
 // --- Error Handling Middleware (Uncomment/Add in Phase 3) ---
 // Should be placed AFTER all routes
-// app.use(notFound); // Handles 404 errors (route not found)
-// app.use(errorHandler); // Handles all other errors passed via next(error)
+app.use(notFound); // Handles 404 errors (route not found)
+app.use(errorHandler); // Handles all other errors passed via next(error)
 
 // --- Start Server ---
 const PORT = process.env.PORT || 5001; // Use port from env var or default

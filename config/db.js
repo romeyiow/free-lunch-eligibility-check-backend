@@ -14,8 +14,9 @@ const connectDB = async () => {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
             // Mongoose connection options to avoid deprecation warnings
             // These might change slightly with newer Mongoose versions, but are generally safe
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+
+            // useNewUrlParser: true,
+            // useUnifiedTopology: true,
             // useCreateIndex: true, // No longer needed/supported in Mongoose 6+
             // useFindAndModify: false // No longer needed/supported in Mongoose 6+
         });
