@@ -1,67 +1,140 @@
 // controllers/studentController.js
-const Student = require('../models/StudentModel'); // Import the Student model
-// const asyncHandler = require('../middleware/asyncHandler'); // Import asyncHandler
-const asyncHandler = require('express-async-handler'); // Import asyncHandler
-const { body, validationResult } = require('express-validator'); // Import validation tools
+const Student = require('../models/StudentModel');
+const asyncHandler = require('express-async-handler');
+const { body, validationResult } = require('express-validator');
 
 // --- Controller Functions ---
 
 // @desc    Add a new student
 // @route   POST /api/v1/students
 // @access  Private (Admin Only)
-// We wrap async functions with asyncHandler to avoid repetitive try...catch blocks
 const addStudent = asyncHandler(async (req, res, next) => {
-    // 1. Check for validation errors from express-validator middleware
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        // If errors exist, return 400 Bad Request with error details
         res.status(400);
-        // Use next() to pass a structured error to the global errorHandler
         return next(new Error(errors.array().map(err => err.msg).join(', ')));
     }
 
-    // 2. Extract student data from validated request body
     const { studentIdNumber, name, program, yearLevel, section, profilePictureUrl } = req.body;
-
-    // 3. Check if student with the same ID Number already exists
     const studentExists = await Student.findOne({ studentIdNumber: studentIdNumber.trim() });
 
     if (studentExists) {
-        res.status(400); // Bad Request or 409 Conflict could also be used
+        res.status(400);
         return next(new Error(`Student with ID ${studentIdNumber} already exists.`));
     }
 
-    // 4. (Deferred Complex Validation): Add check for ACT program year level restriction here later if needed
-    // Example placeholder:
     if (program.toUpperCase() === 'ACT' && parseInt(yearLevel, 10) > 2) {
         res.status(400);
         return next(new Error('ACT program is only available for Year 1 and 2.'));
     }
 
-
-    // 5. Create new student instance
     const student = new Student({
         studentIdNumber: studentIdNumber.trim(),
         name: name.trim(),
         program: program.trim().toUpperCase(),
         yearLevel: parseInt(yearLevel, 10),
-        section: section ? section.trim().toUpperCase() : undefined, // Handle optional section
-        profilePictureUrl: profilePictureUrl ? profilePictureUrl.trim() : undefined, // Handle optional picture URL
+        section: section ? section.trim().toUpperCase() : undefined,
+        profilePictureUrl: profilePictureUrl ? profilePictureUrl.trim() : undefined,
     });
 
-    // 6. Save the new student to the database
     const createdStudent = await student.save();
 
-    // 7. Send success response
-    res.status(201).json({ // 201 Created status code is appropriate
+    res.status(201).json({
         success: true,
         message: 'Student added successfully',
-        data: createdStudent, // Return the created student data
+        data: createdStudent,
     });
 });
+
+
+// @desc    Get all students with filtering, sorting, pagination, and search
+// @route   GET /api/v1/students
+// @access  Private (Admin Only)
+const getStudents = asyncHandler(async (req, res, next) => {
+    // --- Filtering ---
+    let query = {}; // Mongoose query object
+    if (req.query.program) {
+        query.program = req.query.program.toUpperCase();
+    }
+    if (req.query.yearLevel) {
+        const year = parseInt(req.query.yearLevel, 10);
+        if (!isNaN(year)) {
+            query.yearLevel = year;
+        }
+    }
+    if (req.query.section) {
+        query.section = req.query.section.toUpperCase();
+    }
+
+    // --- Searching ---
+    // Search by name (case-insensitive) or studentIdNumber
+    if (req.query.search) {
+        const searchRegex = new RegExp(req.query.search, 'i'); // 'i' for case-insensitive
+        query.$or = [ // Use $or to match either name or studentIdNumber
+            { name: searchRegex },
+            { studentIdNumber: searchRegex }
+        ];
+    }
+
+    // --- Sorting ---
+    let sort = {}; // Mongoose sort object
+    if (req.query.sortBy) {
+        const order = req.query.order === 'desc' ? -1 : 1; // Default to ascending (1)
+        sort[req.query.sortBy] = order;
+    } else {
+        sort.name = 1; // Default sort by name ascending
+    }
+
+    // --- Pagination ---
+    const page = parseInt(req.query.page, 10) || 1; // Default to page 1
+    const limit = parseInt(req.query.limit, 10) || 10; // Default to 10 items per page
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit; // Not directly used in query, but useful for metadata
+
+    // --- Database Query ---
+    // Get total count matching the filter/search criteria for pagination metadata
+    const total = await Student.countDocuments(query);
+
+    // Execute the main query with filter, search, sort, and pagination
+    const students = await Student.find(query)
+        .sort(sort)
+        .skip(startIndex)
+        .limit(limit);
+
+    // --- Pagination Metadata ---
+    const pagination = {
+        currentPage: page,
+        totalPages: Math.ceil(total / limit),
+        limit,
+        totalItems: total,
+    };
+    // Add next/prev page info (optional, but helpful for frontend)
+    if (endIndex < total) {
+        pagination.next = {
+            page: page + 1,
+            limit,
+        };
+    }
+    if (startIndex > 0) {
+        pagination.prev = {
+            page: page - 1,
+            limit,
+        };
+    }
+
+    // --- Response ---
+    res.status(200).json({
+        success: true,
+        count: students.length, // Number of items on the current page
+        pagination,
+        data: students,
+    });
+});
+
 
 // --- Export Controller Functions ---
 module.exports = {
     addStudent,
-    // Add other student controller functions here later (getStudents, getStudentById, etc.)
+    getStudents, // Export the new function
+    // Add other student controller functions here later (getStudentById, etc.)
 };
