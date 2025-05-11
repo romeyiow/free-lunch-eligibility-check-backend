@@ -1,7 +1,7 @@
 // routes/studentRoutes.js
 const express = require('express');
 // Import necessary controller functions
-const { addStudent, getStudents } = require('../controllers/studentController');
+const { addStudent, getStudents, getStudentById } = require('../controllers/studentController');
 const { protect } = require('../middleware/authMiddleware');
 const { body } = require('express-validator');
 
@@ -38,9 +38,12 @@ router.get(
     getStudents // Call the getStudents controller function
 );
 
-
-// Add other routes here later (GET /:id, PUT /:id, DELETE /:id)
-
+// GET /api/v1/students/:id - Get a single student by ID
+router.get(
+    '/:id', // Uses a URL parameter ':id'
+    protect, // Ensure only logged-in admins can access
+    getStudentById // Call the getStudentById controller function
+);
 
 // --- Export Router ---
 module.exports = router;

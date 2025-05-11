@@ -1,4 +1,6 @@
 // controllers/studentController.js
+
+const mongoose = require('mongoose');
 const Student = require('../models/StudentModel');
 const asyncHandler = require('express-async-handler');
 const { body, validationResult } = require('express-validator');
@@ -132,9 +134,36 @@ const getStudents = asyncHandler(async (req, res, next) => {
 });
 
 
+
+// @desc    Get single student by ID
+// @route   GET /api/v1/students/:id
+// @access  Private (Admin Only)
+const getStudentById = asyncHandler(async (req, res, next) => {
+    // Check if the provided ID is a valid MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        res.status(400); // Bad Request for invalid ID format
+        return next(new Error(`Invalid student ID format: ${req.params.id}`));
+    }
+
+    // Find the student by the ID provided in the URL parameters
+    const student = await Student.findById(req.params.id);
+
+    // Check if a student was found
+    if (student) {
+        res.status(200).json({
+            success: true,
+            data: student,
+        });
+    } else {
+        // If no student found for that ID, return 404 Not Found
+        res.status(404);
+        return next(new Error(`Student not found with ID: ${req.params.id}`));
+    }
+});
+
 // --- Export Controller Functions ---
 module.exports = {
     addStudent,
-    getStudents, // Export the new function
-    // Add other student controller functions here later (getStudentById, etc.)
+    getStudents,
+    getStudentById, // Add this line
 };
