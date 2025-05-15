@@ -79,7 +79,7 @@ const deleteData = async () => {
     try {
         console.log('Destroying all data...'.red);
         await Admin.deleteMany();
-        await Student.deleteMany();
+        // await Student.deleteMany();
         // await Schedule.deleteMany(); // Uncomment when created
         // await MealRecord.deleteMany(); // Uncomment when created
 
