@@ -161,9 +161,129 @@ const getStudentById = asyncHandler(async (req, res, next) => {
     }
 });
 
+// @desc    Update a student by ID
+// @route   PUT /api/v1/students/:id
+// @access  Private (Admin Only)
+const updateStudent = asyncHandler(async (req, res, next) => {
+    // 1. Check for validation errors from express-validator middleware
+    // (Validation rules will be applied in the route definition)
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(400);
+        // Join error messages if multiple, or take the first one
+        const errorMessages = errors.array().map(err => err.msg).join(', ');
+        return next(new Error(errorMessages || 'Validation failed'));
+    }
+
+    // 2. Check if the provided ID is a valid MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        res.status(400);
+        return next(new Error(`Invalid student ID format: ${req.params.id}`));
+    }
+
+    // 3. Find the student by ID
+    let student = await Student.findById(req.params.id);
+
+    // 4. Check if student exists
+    if (!student) {
+        res.status(404);
+        return next(new Error(`Student not found with ID: ${req.params.id}`));
+    }
+
+    // 5. Extract updated data from request body
+    const { studentIdNumber, name, program, yearLevel, section, profilePictureUrl } = req.body;
+
+    // 6. Check for potential Student ID Number conflict (if changed)
+    // Only check if studentIdNumber is provided in the body AND it's different from the current one
+    if (studentIdNumber && studentIdNumber.trim() !== student.studentIdNumber) {
+        const existingStudentWithNewId = await Student.findOne({
+             studentIdNumber: studentIdNumber.trim(),
+             _id: { $ne: req.params.id } // Exclude the current student document
+        });
+        if (existingStudentWithNewId) {
+            res.status(400); // Or 409 Conflict
+            return next(new Error(`Student ID ${studentIdNumber.trim()} is already assigned to another student.`));
+        }
+        student.studentIdNumber = studentIdNumber.trim();
+    }
+
+    // 7. Validate ACT program year level restriction if program or yearLevel is being updated
+    // Determine what the new program/yearLevel would be if updated
+    const newProgram = (program !== undefined) ? program.trim().toUpperCase() : student.program;
+    const newYearLevel = (yearLevel !== undefined) ? parseInt(yearLevel, 10) : student.yearLevel;
+
+    if (newProgram === 'ACT' && newYearLevel > 2) {
+        res.status(400);
+        return next(new Error('ACT program is only available for Year 1 and 2.'));
+    }
+
+    // 8. Update student fields (only update fields that are provided in the request body)
+    if (name !== undefined) student.name = name.trim();
+    if (program !== undefined) student.program = newProgram; // Use the validated newProgram
+    if (yearLevel !== undefined) student.yearLevel = newYearLevel; // Use the validated newYearLevel
+
+    // For optional fields, allow them to be explicitly set to null or empty to effectively clear them,
+    // or update them if a new value is provided.
+    if (section !== undefined) { // If section is part of the request body
+        student.section = (section === null || String(section).trim() === '') ? undefined : String(section).trim().toUpperCase();
+    }
+    if (profilePictureUrl !== undefined) { // If profilePictureUrl is part of the request body
+        student.profilePictureUrl = (profilePictureUrl === null || String(profilePictureUrl).trim() === '') ? undefined : String(profilePictureUrl).trim();
+    }
+
+
+    // 9. Save the updated student document
+    const updatedStudent = await student.save();
+
+    // 10. Send success response
+    res.status(200).json({ // 200 OK for successful update
+        success: true,
+        message: 'Student updated successfully',
+        data: updatedStudent,
+    });
+});
+
+
+// @desc    Delete a student by ID
+// @route   DELETE /api/v1/students/:id
+// @access  Private (Admin Only)
+const deleteStudent = asyncHandler(async (req, res, next) => {
+    // 1. Check if the provided ID is a valid MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        res.status(400); // Bad Request for invalid ID format
+        return next(new Error(`Invalid student ID format: ${req.params.id}`));
+    }
+
+    // 2. Find the student by ID
+    const student = await Student.findById(req.params.id);
+
+    // 3. Check if student exists
+    if (!student) {
+        res.status(404);
+        return next(new Error(`Student not found with ID: ${req.params.id}`));
+    }
+
+    // 4. Delete the student document
+    // You can use student.deleteOne() if you already fetched the document,
+    // or Student.findByIdAndDelete(req.params.id) to find and delete in one operation.
+    await student.deleteOne();
+    // OR: await Student.findByIdAndDelete(req.params.id); // This also works
+
+    // 5. Send success response
+    // HTTP 200 OK with a message or HTTP 204 No Content (typically with an empty body) are common for DELETE.
+    // Let's use 200 OK with a message for clarity.
+    res.status(200).json({
+        success: true,
+        message: `Student with ID ${req.params.id} deleted successfully.`,
+        data: {}, // Often, no data is returned on delete, or the deleted object can be returned.
+    });
+});
+
 // --- Export Controller Functions ---
 module.exports = {
     addStudent,
     getStudents,
-    getStudentById, // Add this line
+    getStudentById,
+    updateStudent,
+    deleteStudent
 };
