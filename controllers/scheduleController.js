@@ -153,10 +153,91 @@ const getSchedules = asyncHandler(async (req, res, next) => {
     }
 });
 
+// @desc    Update a specific daily schedule entry by its ID
+// @route   PUT /api/v1/schedules/:id
+// @access  Private (Admin Only)
+const updateScheduleEntry = asyncHandler(async (req, res, next) => {
+    // 1. Check for validation errors from express-validator (for isEligible field)
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.status(400);
+        return next(new Error(errors.array().map(err => err.msg).join(', ')));
+    }
+
+    // 2. Validate the schedule entry ID from URL parameter
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        res.status(400);
+        return next(new Error(`Invalid schedule entry ID format: ${req.params.id}`));
+    }
+
+    // 3. Extract isEligible from request body
+    const { isEligible } = req.body;
+
+    // Note: program, yearLevel, dayOfWeek are not updatable via this endpoint.
+    // To change those, one would typically delete the old entry and add a new one,
+    // or have a more complex update logic if such changes are allowed.
+    // This endpoint is focused on toggling the eligibility for an existing day.
+
+    // 4. Find the schedule entry by ID and update it
+    // findByIdAndUpdate will return the document *before* update by default unless { new: true }
+    const scheduleEntry = await Schedule.findByIdAndUpdate(
+        req.params.id,
+        { isEligible: isEligible }, // Only update the isEligible field
+        {
+            new: true, // Return the updated document
+            runValidators: true, // Ensure model validations are run (though less critical for just a boolean update)
+        }
+    );
+
+    // 5. Check if the schedule entry was found and updated
+    if (!scheduleEntry) {
+        res.status(404);
+        return next(new Error(`Schedule entry not found with ID: ${req.params.id}`));
+    }
+
+    // 6. Send success response
+    res.status(200).json({
+        success: true,
+        message: 'Schedule entry updated successfully',
+        data: scheduleEntry,
+    });
+});
+
+// @desc    Delete a specific daily schedule entry by its ID
+// @route   DELETE /api/v1/schedules/:id
+// @access  Private (Admin Only)
+const deleteScheduleEntry = asyncHandler(async (req, res, next) => {
+    // 1. Validate the schedule entry ID from URL parameter
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        res.status(400);
+        return next(new Error(`Invalid schedule entry ID format: ${req.params.id}`));
+    }
+
+    // 2. Find the schedule entry by ID to ensure it exists before attempting delete
+    const scheduleEntry = await Schedule.findById(req.params.id);
+
+    if (!scheduleEntry) {
+        res.status(404);
+        return next(new Error(`Schedule entry not found with ID: ${req.params.id}`));
+    }
+
+    // 3. Delete the schedule entry
+    await scheduleEntry.deleteOne();
+    // OR: await Schedule.findByIdAndDelete(req.params.id);
+
+    // 4. Send success response
+    res.status(200).json({
+        success: true,
+        message: `Schedule entry for ${scheduleEntry.program} Year ${scheduleEntry.yearLevel} on ${scheduleEntry.dayOfWeek} deleted successfully.`,
+        data: {}, // No data to return usually
+    });
+});
+
 
 // --- Export Controller Functions ---
 module.exports = {
     addScheduleEntry,
     getSchedules,
-    // updateScheduleEntry and deleteScheduleEntry will be added next
+    updateScheduleEntry,
+    deleteScheduleEntry, 
 };

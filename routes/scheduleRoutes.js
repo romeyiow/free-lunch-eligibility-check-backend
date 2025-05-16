@@ -1,6 +1,7 @@
 // routes/scheduleRoutes.js
 const express = require('express');
-const { addScheduleEntry, getSchedules } = require('../controllers/scheduleController');
+// Update this line near the top
+const { addScheduleEntry, getSchedules, updateScheduleEntry, deleteScheduleEntry } = require('../controllers/scheduleController');
 const { protect } = require('../middleware/authMiddleware');
 const { body } = require('express-validator');
 
@@ -20,6 +21,10 @@ const scheduleValidationRules = [
     body('scheduleDays.*.isEligible', 'Each schedule day must have an isEligible boolean value').isBoolean(),
 ];
 
+const updateScheduleValidationRules = [
+    body('isEligible', 'isEligible field must be a boolean and is required for update').exists().isBoolean(),
+];
+
 // --- Route Definitions ---
 
 // POST /api/v1/schedules - Add new schedule entries
@@ -37,7 +42,19 @@ router.get(
     getSchedules
 );
 
-// PUT /api/v1/schedules/:id - Update a specific schedule entry (will be added next)
-// DELETE /api/v1/schedules/:id - Delete a specific schedule entry (will be added next)
+// PUT /api/v1/schedules/:id - Update a specific daily schedule entry
+router.put(
+    '/:id',
+    protect,
+    updateScheduleValidationRules, // Apply validation for the update payload
+    updateScheduleEntry
+);
+
+// DELETE /api/v1/schedules/:id - Delete a specific daily schedule entry
+router.delete(
+    '/:id',
+    protect,
+    deleteScheduleEntry
+);
 
 module.exports = router;
