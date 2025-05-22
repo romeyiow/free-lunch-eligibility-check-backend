@@ -82,6 +82,7 @@ const studentRoutes = require('./routes/studentRoutes'); // Import student route
 const scheduleRoutes = require('./routes/scheduleRoutes'); // Import schedule routes
 const eligibilityRoutes = require('./routes/eligibilityRoutes'); // Import eligibility routes
 const recordRoutes = require('./routes/recordRoutes'); // Import meal record routes
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 // Basic Health Check Route (Good practice for monitoring)
 app.get(`${API_VERSION}/health`, (req, res) => {
@@ -99,7 +100,7 @@ app.use(`${API_VERSION}/students`, studentRoutes);
 app.use(`${API_VERSION}/schedules`, scheduleRoutes);
 app.use(`${API_VERSION}/eligibility`, eligibilityRoutes);
 app.use(`${API_VERSION}/meal-records`, recordRoutes); 
-// app.use(`${API_VERSION}/dashboard`, dashboardRoutes);
+app.use(`${API_VERSION}/dashboard`, dashboardRoutes);
 
 
 // --- Error Handling Middleware (Uncomment/Add in Phase 3) ---
