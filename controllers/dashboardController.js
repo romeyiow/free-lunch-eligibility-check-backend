@@ -176,8 +176,97 @@ const getPerformanceSummary = asyncHandler(async (req, res, next) => {
     });
 });
 
+// @desc    Get program/year breakdown (allotted, claimed, unclaimed, ratios)
+// @route   GET /api/v1/dashboard/program-breakdown
+// @access  Private (Admin Only)
+const getProgramBreakdown = asyncHandler(async (req, res, next) => {
+    const { filterPeriod, value, groupBy } = req.query; // groupBy could be 'program' or 'programYear'
+
+    if (!filterPeriod) {
+        res.status(400);
+        return next(new Error("Filter period (e.g., 'daily', 'weekly', 'monthly', 'semestral') is required."));
+    }
+
+    const { startDate, endDate, error: dateError } = getFilterDateRange(filterPeriod, value);
+
+    if (dateError) {
+        res.status(400);
+        return next(new Error(dateError));
+    }
+
+    // Define the match stage for the aggregation based on the date range
+    const matchStage = {
+        dateChecked: { $gte: startDate, $lte: endDate },
+        status: { $ne: 'INELIGIBLE_STUDENT_NOT_FOUND' }
+    };
+
+    // Define the grouping stage based on whether we group by program or program & year
+    // The UI schema for "Claimed - Unclaimed per Course" implies grouping by Program.
+    // The "Vertical Bar Graph" in System Design is less clear but might imply Program & Year.
+    // Let's default to grouping by Program, and potentially allow 'programYear' via query param later if needed.
+
+    let groupByIdFields = { program: '$programAtTimeOfRecord' }; // Default grouping
+    let projectFields = {
+        _id: 0,
+        program: '$_id.program', // The program name from the group _id
+        // yearLevel: '$_id.yearLevel' // If grouping by yearLevel as well
+    };
+
+    // Based on Acceptance Criteria "Claimed - Unclaimed per Course", it seems to be per Program.
+    // If the "Vertical Bar Graph" needs per year, we might adjust or add another endpoint/param.
+    // For now, let's stick to per Program.
+
+    const aggregationPipeline = [
+        { $match: matchStage },
+        {
+            $group: {
+                _id: groupByIdFields,
+                claimed: {
+                    $sum: { $cond: [{ $eq: ['$status', 'CLAIMED'] }, 1, 0] }
+                },
+                unclaimed: { // Students found but not eligible per schedule
+                    $sum: { $cond: [{ $eq: ['$status', 'INELIGIBLE_NOT_SCHEDULED'] }, 1, 0] }
+                },
+                // Simplified "allotted": unique students who had any valid record for this program in this period
+                uniqueStudentsWithRecord: { $addToSet: '$student' }
+            }
+        },
+        {
+            $project: {
+                ...projectFields,
+                allotted: { $size: '$uniqueStudentsWithRecord' },
+                claimed: 1,
+                unclaimed: 1,
+                claimedRatio: {
+                    $cond: [
+                        { $eq: [{ $size: '$uniqueStudentsWithRecord' }, 0] }, // Avoid division by zero
+                        0,
+                        { $round: [{ $multiply: [{ $divide: ['$claimed', { $size: '$uniqueStudentsWithRecord' }] }, 100] }, 2] }
+                    ]
+                },
+                unclaimedRatio: {
+                    $cond: [
+                        { $eq: [{ $size: '$uniqueStudentsWithRecord' }, 0] },
+                        0,
+                        { $round: [{ $multiply: [{ $divide: ['$unclaimed', { $size: '$uniqueStudentsWithRecord' }] }, 100] }, 2] }
+                    ]
+                }
+            }
+        },
+        { $sort: { program: 1 } } // Sort by program name
+    ];
+
+    const programBreakdown = await MealRecord.aggregate(aggregationPipeline);
+
+    res.status(200).json({
+        success: true,
+        filterDetails: { filterPeriod, value, startDate, endDate },
+        data: programBreakdown
+    });
+});
+
 
 module.exports = {
     getPerformanceSummary,
-    // getProgramBreakdown will be added next
+    getProgramBreakdown, 
 };

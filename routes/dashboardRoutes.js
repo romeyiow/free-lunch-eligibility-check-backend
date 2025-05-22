@@ -1,6 +1,6 @@
 // routes/dashboardRoutes.js
 const express = require('express');
-const { getPerformanceSummary } = require('../controllers/dashboardController');
+const { getPerformanceSummary, getProgramBreakdown } = require('../controllers/dashboardController');
 const { protect } = require('../middleware/authMiddleware'); // Admin protection
 
 const router = express.Router();
@@ -12,6 +12,10 @@ router.get(
     getPerformanceSummary
 );
 
-// GET /api/v1/dashboard/program-breakdown - will be added next
-
+// GET /api/v1/dashboard/program-breakdown - Get data for program/year bar charts
+router.get(
+    '/program-breakdown',
+    protect, // Ensure only logged-in admins can access
+    getProgramBreakdown
+);
 module.exports = router;

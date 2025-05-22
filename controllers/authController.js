@@ -70,6 +70,20 @@ const getAdminProfile = (req, res, next) => {
     }
 };
 
+// @desc    Log out current admin (cosmetic for stateless JWT)
+// @route   POST /api/v1/auth/logout
+// @access  Private (Requires JWT)
+const logoutAdmin = asyncHandler(async (req, res, next) => {
+    // For stateless JWTs, true logout is handled client-side by deleting the token.
+    // This backend endpoint can confirm the logout action and is protected
+    // to ensure only an authenticated user can "log out".
+    // If we were using sessions or a token blocklist, more logic would go here.
+
+    res.status(200).json({
+        success: true,
+        message: 'Admin logged out successfully. Please clear token on client-side.',
+    });
+});
 
 // ... (keep testError function for now) ...
 // Simulate an error for testing error handler
@@ -85,7 +99,6 @@ const testError = (req, res, next) => {
 module.exports = {
     loginAdmin,
     getAdminProfile,
-    testError, // Keep testError if needed
-    // Add other functions here later: getAdminProfile, forgotPassword, resetPassword
-};
-
+    // testError, // If you still have this
+    logoutAdmin,
+}
