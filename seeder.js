@@ -10,8 +10,8 @@ dotenv.config();
 // Load Mongoose Models
 const Admin = require('./models/AdminModel');
 const Student = require('./models/StudentModel');
+const MealRecord = require('./models/MealRecordModel');
 // const Schedule = require('./models/ScheduleModel'); // Uncomment when created
-// const MealRecord = require('./models/MealRecordModel'); // Uncomment when created
 
 // Connect to MongoDB Database
 const connectDB = async () => {
@@ -54,7 +54,7 @@ const importData = async () => {
         await Admin.deleteMany();
         await Student.deleteMany();
         // await Schedule.deleteMany(); // Uncomment when created
-        // await MealRecord.deleteMany(); // Uncomment when created
+        await MealRecord.deleteMany(); // Uncomment when created
         console.log('Existing data cleared.'.yellow);
 
         // Insert new data using the models
