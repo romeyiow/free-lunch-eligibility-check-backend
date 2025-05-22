@@ -80,6 +80,8 @@ const API_VERSION = '/api/v1';
 const authRoutes = require('./routes/authRoutes'); // Import the router
 const studentRoutes = require('./routes/studentRoutes'); // Import student routes
 const scheduleRoutes = require('./routes/scheduleRoutes'); // Import schedule routes
+const eligibilityRoutes = require('./routes/eligibilityRoutes'); // Import eligibility routes
+
 
 // Basic Health Check Route (Good practice for monitoring)
 app.get(`${API_VERSION}/health`, (req, res) => {
@@ -95,7 +97,7 @@ app.get(`${API_VERSION}/health`, (req, res) => {
 app.use(`${API_VERSION}/auth`, authRoutes);
 app.use(`${API_VERSION}/students`, studentRoutes);
 app.use(`${API_VERSION}/schedules`, scheduleRoutes);
-// app.use(`${API_VERSION}/eligibility`, eligibilityRoutes);
+app.use(`${API_VERSION}/eligibility`, eligibilityRoutes);
 // app.use(`${API_VERSION}/meal-records`, recordRoutes);
 // app.use(`${API_VERSION}/dashboard`, dashboardRoutes);
 

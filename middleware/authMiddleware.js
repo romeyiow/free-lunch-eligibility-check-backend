@@ -60,7 +60,29 @@ const protect = async (req, res, next) => {
 };
 
 
-// ... (keep notFound and errorHandler exports) ...
+/**
+ * Protects routes intended for Kitchen Staff by verifying a static API Key.
+ */
+const protectKitchen = (req, res, next) => {
+    const apiKey = req.headers['x-api-key']; // Or 'apikey', 'Authorization', etc. Choose a header name.
+
+    if (!process.env.KITCHEN_STAFF_API_KEY) {
+        console.error('FATAL ERROR: KITCHEN_STAFF_API_KEY is not defined in environment variables.'.red.bold);
+        res.status(500); // Internal Server Error
+        return next(new Error('Server configuration error: API key not set.'));
+    }
+
+    if (apiKey && apiKey === process.env.KITCHEN_STAFF_API_KEY) {
+        // API Key is valid
+        // Optionally, you could attach some identifier for the kitchen client if needed
+        // req.kitchenClient = { id: 'kitchen_terminal_1' };
+        next();
+    } else {
+        res.status(401); // Unauthorized
+        return next(new Error('Unauthorized: Invalid or missing API Key.'));
+    }
+};
+
 /**
  * Handles requests that don't match any defined routes (404 Not Found).
  * Creates an Error object and passes it to the next middleware (errorHandler).
@@ -100,8 +122,10 @@ const errorHandler = (err, req, res, next) => {
         },
     });
 };
+
 module.exports = {
     protect,
+    protectKitchen, // Add this line
     notFound,
     errorHandler
 };
