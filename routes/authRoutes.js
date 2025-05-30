@@ -7,11 +7,12 @@ const router = express.Router(); // Create an Express router instance
 // Define routes and link them to controller functions
 router.post('/login', loginAdmin);
 router.get('/me', protect, getAdminProfile); // Apply protect middleware here!
-router.get('/testerror', testError); // Add route for testing error handling
 router.post(
     '/logout',
     protect, // Requires user to be logged in to log out
     logoutAdmin
 );
+
+// router.get('/testerror', testError); // Add route for testing error handling
 
 module.exports = router; // Export the router
