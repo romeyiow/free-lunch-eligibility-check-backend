@@ -1,4 +1,4 @@
-GET https://congenial-space-parakeet-6p49p6jrvgj2495-5001.app.github.dev/api/v1/health 
+GET http://localhost:5001/api/v1/health 
 
 
 ###
@@ -14,3 +14,12 @@ Content-Type: application/json
 ### 
 GET https://congenial-space-parakeet-6p49p6jrvgj2495-5001.app.github.dev/api/v1/auth/me
 Authorization: Bearer {{'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTRjNzFiNGZkYTBkMmUyOTI1MTM3MCIsImlhdCI6MTc0NjE5NDIwNiwiZXhwIjoxNzQ4Nzg2MjA2fQ.eGQ3HpkErjIR_7sLZbioZw3HWw6cCJtZAC6JWP749us'}}
+
+
+###
+POST http://localhost:5001/api/v1/auth/request-password-reset
+
+Content-Type: application/json
+{
+  "email": "admin@lvcc.edu.ph"
+}

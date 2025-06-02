@@ -1,18 +1,23 @@
 // routes/authRoutes.js
 const express = require('express');
 const { protect } = require('../middleware/authMiddleware');
-const { loginAdmin, getAdminProfile, testError, logoutAdmin } = require('../controllers/authController');
-const router = express.Router(); // Create an Express router instance
+// Make sure to destructure the new controller functions
+const {
+    loginAdmin,
+    getAdminProfile,
+    logoutAdmin,
+    requestPasswordReset,
+    resetPasswordWithCode // Add the new controller function here
+} = require('../controllers/authController');
+const router = express.Router();
 
 // Define routes and link them to controller functions
 router.post('/login', loginAdmin);
-router.get('/me', protect, getAdminProfile); // Apply protect middleware here!
-router.post(
-    '/logout',
-    protect, // Requires user to be logged in to log out
-    logoutAdmin
-);
+router.get('/me', protect, getAdminProfile);
+router.post('/logout', protect, logoutAdmin);
 
-// router.get('/testerror', testError); // Add route for testing error handling
+// Password Reset Routes
+router.post('/request-password-reset', requestPasswordReset);
+router.post('/reset-password', resetPasswordWithCode); // NEW ROUTE for resetting password
 
-module.exports = router; // Export the router
+module.exports = router;
