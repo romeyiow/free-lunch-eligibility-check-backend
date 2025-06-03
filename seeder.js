@@ -52,7 +52,7 @@ const importData = async () => {
         // Using deleteMany without arguments deletes all documents in the collection
         console.log('Clearing existing data...'.yellow);
         await Admin.deleteMany();
-        await Student.deleteMany();
+        // await Student.deleteMany();
         // await Schedule.deleteMany(); // Uncomment when created
         await MealRecord.deleteMany(); // Uncomment when created
         console.log('Existing data cleared.'.yellow);
@@ -61,7 +61,7 @@ const importData = async () => {
         // The 'save' middleware in AdminModel will automatically hash passwords
         console.log('Importing new data...'.blue);
         await Admin.create(admins);
-        await Student.create(students);
+        // await Student.create(students);
         // await Schedule.create(schedules); // Uncomment when created
         // await MealRecord.create(mealRecords); // Uncomment when created
 

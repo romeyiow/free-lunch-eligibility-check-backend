@@ -7,7 +7,8 @@ const {
     getAdminProfile,
     logoutAdmin,
     requestPasswordReset,
-    resetPasswordWithCode // Add the new controller function here
+    resetPasswordWithCode,
+    googleLogin // Import the new controller
 } = require('../controllers/authController');
 const router = express.Router();
 
@@ -19,5 +20,9 @@ router.post('/logout', protect, logoutAdmin);
 // Password Reset Routes
 router.post('/request-password-reset', requestPasswordReset);
 router.post('/reset-password', resetPasswordWithCode); // NEW ROUTE for resetting password
+
+
+// NEW ROUTE for Google Sign-In
+router.post('/google-login', googleLogin);
 
 module.exports = router;

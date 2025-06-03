@@ -1,7 +1,11 @@
 // Import Core Modules
+
+const dotenv = require('dotenv');
+dotenv.config();
+
+
 const path = require('path'); // Node.js module for working with file paths
 const express = require('express');
-const dotenv = require('dotenv');
 const colors = require('colors'); // For colorful console output
 const cors = require('cors'); // Enable Cross-Origin Resource Sharing
 const helmet = require('helmet'); // Set security-related HTTP headers
@@ -10,20 +14,8 @@ const rateLimit = require('express-rate-limit');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db'); // Import the database connection function
 
-// Import Custom Modules (Placeholders for now, uncomment/add in later phases)
-// const connectDB = require('./config/db'); // Phase 2: Database connection
-// const { notFound, errorHandler } = require('./middleware/errorMiddleware'); // Phase 3: Error Handling
-// const authRoutes = require('./routes/authRoutes'); // Phase 3/5: Auth routes
-// const studentRoutes = require('./routes/studentRoutes'); // Phase 6: Student routes
-// const scheduleRoutes = require('./routes/scheduleRoutes'); // Phase 6: Schedule routes
-// const eligibilityRoutes = require('./routes/eligibilityRoutes'); // Phase 6: Eligibility routes
-// const recordRoutes = require('./routes/recordRoutes'); // Phase 6: Meal Record routes
-// const dashboardRoutes = require('./routes/dashboardRoutes'); // Phase 6: Dashboard routes
+require('./config/firebaseAdmin');
 
-// Load Environment Variables
-// Note: In Codespaces, secrets are automatically loaded into process.env
-// dotenv.config() is still useful if you run locally with a .env file.
-dotenv.config();
 
 // Connect to Database
 connectDB(); // Call the function to establish the connection

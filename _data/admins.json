@@ -1,12 +1,17 @@
 [
     {
         "name": "System Admin",
-        "email": "admin@lvcc.edu.ph",
-        "password": "password123"
+        "email": "admin@laverdad.edu.ph",
+        "password": "demopassword"
     },
     {
         "name": "Another Admin",
-        "email": "admin2@lvcc.edu.ph",
-        "password": "password456"
+        "email": "admin2@laverdad.edu.ph",
+        "password": "demopassword"
+    },
+    {
+        "name": "Jerome Imperial",
+        "email": "jeromeimperial@student.laverdad.edu.ph",
+        "password": "demopassword"
     }
 ]

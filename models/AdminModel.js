@@ -14,8 +14,8 @@ const adminSchema = new mongoose.Schema(
             required: [true, 'Please add an email'],
             unique: true,
             match: [
-                /.+@lvcc\.edu\.ph$/,
-                'Please use a valid La Verdad email address (@lvcc.edu.ph)',
+                /.+@(student\.)?laverdad\.edu\.ph$/,
+                'Please use a valid La Verdad email address (@laverdad.edu.ph)',
             ],
             lowercase: true,
             trim: true,
