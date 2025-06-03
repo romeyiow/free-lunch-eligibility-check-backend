@@ -235,15 +235,11 @@ const googleLogin = asyncHandler(async (req, res, next) => {
         // --- Custom Logic: Find or Create Admin based on Google Email ---
         // For this project, we expect admins to use @lvcc.edu.ph emails.
 
-        if (
-            !email ||
-            !(
-                email.toLowerCase().endsWith('@laverdad.edu.ph') ||
-                email.toLowerCase().endsWith('@student.laverdad.edu.ph')
-            )
-        ) {
+        const lvccEmailRegex = /.+@(student\.)?laverdad\.edu\.ph$/i; // Case insensitive
+
+        if (!email || !lvccEmailRegex.test(email.toLowerCase())) { // <<< UPDATED CHECK
             res.status(403); // Forbidden
-            throw new Error('Access denied. Only La Verdad Christian College accounts are permitted.');
+            throw new Error('Access denied. Only La Verdad Christian College affiliated accounts are permitted.');
         }
 
         let admin = await Admin.findOne({ email: email.toLowerCase() });
