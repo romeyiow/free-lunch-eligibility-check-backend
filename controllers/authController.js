@@ -1,7 +1,7 @@
 // controllers/authController.js
 const colors = require('colors');
 const Admin = require('../models/AdminModel');
-const generateToken = require('../utils/generateToken'); 
+const generateToken = require('../utils/generateToken');
 const asyncHandler = require('express-async-handler');
 const sendEmail = require('../utils/sendEmail'); // Import the sendEmail utility
 const crypto = require('crypto');
@@ -172,7 +172,7 @@ const resetPasswordWithCode = asyncHandler(async (req, res, next) => {
     // 2. Find the admin by email and select the reset token fields
     // We need to explicitly select these fields because their schema definition has `select: false`
     const admin = await Admin.findOne({ email: email.toLowerCase() })
-                             .select('+passwordResetToken +passwordResetExpires');
+        .select('+passwordResetToken +passwordResetExpires');
 
     // 3. Verify admin, reset code, and expiry
     if (!admin) {
@@ -235,7 +235,13 @@ const googleLogin = asyncHandler(async (req, res, next) => {
         // --- Custom Logic: Find or Create Admin based on Google Email ---
         // For this project, we expect admins to use @lvcc.edu.ph emails.
 
-        if (!email || !email.toLowerCase().endsWith('@lvcc.edu.ph')) {
+        if (
+            !email ||
+            !(
+                email.toLowerCase().endsWith('@laverdad.edu.ph') ||
+                email.toLowerCase().endsWith('@student.laverdad.edu.ph')
+            )
+        ) {
             res.status(403); // Forbidden
             throw new Error('Access denied. Only La Verdad Christian College accounts are permitted.');
         }
@@ -260,7 +266,7 @@ const googleLogin = asyncHandler(async (req, res, next) => {
             //     // profilePictureUrl: picture,
             // });
             // console.log(`New admin auto-created via Google Sign-In: ${email}`.green);
-            
+
             // For now, if admin doesn't exist, deny login.
             res.status(403); // Forbidden, or 401 Unauthorized
             throw new Error('Admin account not found. Please contact support if you believe this is an error.');
