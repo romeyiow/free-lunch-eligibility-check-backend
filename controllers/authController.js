@@ -1,8 +1,7 @@
 // controllers/authController.js
 const colors = require('colors');
 const Admin = require('../models/AdminModel');
-// generateToken is not used in this specific function, but likely in others
-// const generateToken = require('../utils/generateToken'); 
+const generateToken = require('../utils/generateToken'); 
 const asyncHandler = require('express-async-handler');
 const sendEmail = require('../utils/sendEmail'); // Import the sendEmail utility
 const crypto = require('crypto');
