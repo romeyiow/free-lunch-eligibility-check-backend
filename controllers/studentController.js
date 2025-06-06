@@ -69,37 +69,42 @@ const getStudents = asyncHandler(async (req, res, next) => {
     }
 
     // --- Searching ---
-    // Search by name (case-insensitive) or studentIdNumber
     if (req.query.search) {
-        const searchRegex = new RegExp(req.query.search, 'i'); // 'i' for case-insensitive
-        query.$or = [ // Use $or to match either name or studentIdNumber
+        const searchRegex = new RegExp(req.query.search, 'i');
+        query.$or = [
             { name: searchRegex },
             { studentIdNumber: searchRegex }
         ];
     }
 
     // --- Sorting ---
-    let sort = {}; // Mongoose sort object
-    if (req.query.sortBy) {
-        const order = req.query.order === 'desc' ? -1 : 1; // Default to ascending (1)
-        sort[req.query.sortBy] = order;
+    let sortOptions = {};
+    const { sortBy, order } = req.query; // Get sortBy and order from query params
+
+    if (sortBy) {
+        // These keys should match your StudentModel fields you want to allow sorting on
+        const allowedSortKeys = ['name', 'program', 'yearLevel', 'studentIdNumber', 'createdAt', 'updatedAt'];
+        if (allowedSortKeys.includes(sortBy)) {
+            sortOptions[sortBy] = (order === 'desc' || order === -1 || order === '-1') ? -1 : 1;
+        } else {
+            console.warn(`Invalid sortBy key: ${sortBy}. Defaulting to sort by name.`);
+            sortOptions.name = 1; // Default sort if invalid key
+        }
     } else {
-        sort.name = 1; // Default sort by name ascending
+        // Default sort if no sortBy is provided
+        sortOptions.name = 1; // Default: sort by name ascending
     }
 
     // --- Pagination ---
-    const page = parseInt(req.query.page, 10) || 1; // Default to page 1
-    const limit = parseInt(req.query.limit, 10) || 10; // Default to 10 items per page
+    const page = parseInt(req.query.page, 10) || 1;
+    const limit = parseInt(req.query.limit, 10) || 10;
     const startIndex = (page - 1) * limit;
-    const endIndex = page * limit; // Not directly used in query, but useful for metadata
+    const endIndex = page * limit;
 
     // --- Database Query ---
-    // Get total count matching the filter/search criteria for pagination metadata
     const total = await Student.countDocuments(query);
-
-    // Execute the main query with filter, search, sort, and pagination
     const students = await Student.find(query)
-        .sort(sort)
+        .sort(sortOptions) // Use the new dynamic sortOptions
         .skip(startIndex)
         .limit(limit);
 
@@ -110,29 +115,21 @@ const getStudents = asyncHandler(async (req, res, next) => {
         limit,
         totalItems: total,
     };
-    // Add next/prev page info (optional, but helpful for frontend)
     if (endIndex < total) {
-        pagination.next = {
-            page: page + 1,
-            limit,
-        };
+        pagination.next = { page: page + 1, limit };
     }
     if (startIndex > 0) {
-        pagination.prev = {
-            page: page - 1,
-            limit,
-        };
+        pagination.prev = { page: page - 1, limit };
     }
 
     // --- Response ---
     res.status(200).json({
         success: true,
-        count: students.length, // Number of items on the current page
+        count: students.length,
         pagination,
         data: students,
     });
 });
-
 
 
 // @desc    Get single student by ID
@@ -197,8 +194,8 @@ const updateStudent = asyncHandler(async (req, res, next) => {
     // Only check if studentIdNumber is provided in the body AND it's different from the current one
     if (studentIdNumber && studentIdNumber.trim() !== student.studentIdNumber) {
         const existingStudentWithNewId = await Student.findOne({
-             studentIdNumber: studentIdNumber.trim(),
-             _id: { $ne: req.params.id } // Exclude the current student document
+            studentIdNumber: studentIdNumber.trim(),
+            _id: { $ne: req.params.id } // Exclude the current student document
         });
         if (existingStudentWithNewId) {
             res.status(400); // Or 409 Conflict
