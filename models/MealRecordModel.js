@@ -7,7 +7,7 @@ const MEAL_RECORD_STATUSES = [
     'INELIGIBLE_NOT_SCHEDULED',     // Student was not scheduled for eligibility on this day
     'INELIGIBLE_STUDENT_NOT_FOUND', // Student ID scanned/entered was not found in the masterlist
     // Future potential statuses:
-    // 'ELIGIBLE_BUT_NOT_CLAIMED',  // If system logs all eligible students daily and tracks non-claims
+    'ELIGIBLE_BUT_NOT_CLAIMED',  // If system logs all eligible students daily and tracks non-claims
     // 'INELIGIBLE_SYSTEM_ERROR'    // If there was an error during the check
 ];
 
