@@ -1,6 +1,7 @@
 // controllers/recordController.js
 const MealRecord = require('../models/MealRecordModel');
 const Student = require('../models/StudentModel'); // Needed for searching by student name
+const Schedule = require('../models/ScheduleModel'); 
 const asyncHandler = require('express-async-handler');
 const mongoose = require('mongoose');
 
@@ -113,6 +114,86 @@ const getMealRecords = asyncHandler(async (req, res, next) => {
     });
 });
 
+// @desc    Generate records for eligible students who did not claim a meal
+// @route   POST /api/v1/meal-records/generate-unclaimed
+// @access  Private (Admin Only)
+const generateUnclaimedRecords = asyncHandler(async (req, res, next) => {
+    const { date } = req.body;
+    if (!date) {
+        res.status(400);
+        return next(new Error('A specific date (YYYY-MM-DD) is required in the request body.'));
+    }
+
+    const targetDate = new Date(date);
+    if (isNaN(targetDate.getTime())) {
+        res.status(400);
+        return next(new Error('Invalid date format. Please use YYYY-MM-DD.'));
+    }
+
+    // Set date range for the entire target day in UTC
+    const startDate = new Date(targetDate);
+    startDate.setUTCHours(0, 0, 0, 0);
+    const endDate = new Date(targetDate);
+    endDate.setUTCHours(23, 59, 59, 999);
+    
+    const dayOfWeek = startDate.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' });
+    const validDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    if (!validDays.includes(dayOfWeek)) {
+        res.status(400);
+        return next(new Error('Invalid day calculated from the provided date.'));
+    }
+
+    // 1. Find all students scheduled to be eligible on that day
+    const eligibleSchedules = await Schedule.find({ dayOfWeek: dayOfWeek, isEligible: true }).select('program yearLevel');
+    if (eligibleSchedules.length === 0) {
+        return res.status(200).json({
+            success: true,
+            message: `No programs were scheduled as eligible on ${dayOfWeek}. No records generated.`,
+            createdCount: 0,
+        });
+    }
+    const eligibilityCriteria = eligibleSchedules.map(s => ({ program: s.program, yearLevel: s.yearLevel }));
+    const allEligibleStudents = await Student.find({ $or: eligibilityCriteria }).select('_id studentIdNumber program yearLevel');
+
+    // 2. Find all students who already have a meal record (claimed or otherwise) on that day
+    const studentsWithRecords = await MealRecord.find({
+        dateChecked: { $gte: startDate, $lte: endDate }
+    }).distinct('student');
+    const studentsWithRecordsSet = new Set(studentsWithRecords.map(id => id.toString()));
+
+    // 3. Determine which eligible students do NOT have a record
+    const studentsToMarkAsUnclaimed = allEligibleStudents.filter(student =>
+        !studentsWithRecordsSet.has(student._id.toString())
+    );
+
+    if (studentsToMarkAsUnclaimed.length === 0) {
+        return res.status(200).json({
+            success: true,
+            message: 'All eligible students for the specified date have been accounted for. No new records generated.',
+            createdCount: 0,
+        });
+    }
+
+    // 4. Create "ELIGIBLE_BUT_NOT_CLAIMED" records for them
+    const recordsToInsert = studentsToMarkAsUnclaimed.map(student => ({
+        student: student._id,
+        studentIdNumber: student.studentIdNumber,
+        programAtTimeOfRecord: student.program,
+        yearLevelAtTimeOfRecord: student.yearLevel,
+        dateChecked: startDate, // Set to the start of the day for consistency
+        status: 'ELIGIBLE_BUT_NOT_CLAIMED',
+    }));
+
+    const result = await MealRecord.insertMany(recordsToInsert);
+
+    res.status(201).json({
+        success: true,
+        message: `Successfully generated ${result.length} 'unclaimed' meal records for ${date}.`,
+        createdCount: result.length,
+    });
+});
+
 module.exports = {
     getMealRecords,
+    generateUnclaimedRecords, // <-- Export the new function
 };
