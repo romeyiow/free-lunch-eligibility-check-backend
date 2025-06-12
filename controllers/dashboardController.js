@@ -4,7 +4,6 @@ const asyncHandler = require('express-async-handler');
 const getPeriodRange = (periodType, value) => {
     let startDate, endDate;
     const now = new Date();
-    // Use the provided value for the year, or default to the current year
     const referenceYear = value ? new Date(value).getFullYear() : now.getFullYear();
 
     switch (periodType.toLowerCase()) {
@@ -19,16 +18,16 @@ const getPeriodRange = (periodType, value) => {
         }
         case 'weekly': {
             const weekRefDate = value ? new Date(value) : now;
-            if (isNaN(weekRefDate.getTime())) return { error: 'Invalid date for week period. Provide a YYYY-MM-DD date for any day in the target week.' };
+            if (isNaN(weekRefDate.getTime())) return { error: 'Invalid date for week period. Provide a YYYY-MM-DD date.' };
             
             startDate = new Date(weekRefDate);
-            const dayOfWeek = startDate.getUTCDay(); // Sunday = 0, Monday = 1
+            const dayOfWeek = startDate.getUTCDay();
             const diffToMonday = (dayOfWeek === 0) ? -6 : 1 - dayOfWeek;
             startDate.setUTCDate(startDate.getUTCDate() + diffToMonday);
             startDate.setUTCHours(0, 0, 0, 0);
 
             endDate = new Date(startDate);
-            endDate.setUTCDate(startDate.getUTCDate() + 6); // End on Sunday
+            endDate.setUTCDate(startDate.getUTCDate() + 6);
             endDate.setUTCHours(23, 59, 59, 999);
             break;
         }
@@ -37,7 +36,7 @@ const getPeriodRange = (periodType, value) => {
             if (value && value.includes('-')) {
                 const parts = value.split('-');
                 year = parseInt(parts[0], 10);
-                month = parseInt(parts[1], 10) - 1; // JS month is 0-indexed
+                month = parseInt(parts[1], 10) - 1;
             } else {
                 year = now.getFullYear();
                 month = now.getMonth();
@@ -48,18 +47,13 @@ const getPeriodRange = (periodType, value) => {
             break;
         }
         case 'semestral': {
-            // value is '1st' or '2nd'. The academic year starts in September.
-            // Let's establish the academic year based on the reference year.
-            // If we are before September of referenceYear, the academic year is (refYear - 1) to refYear.
-            // If we are in or after September, the academic year is refYear to (refYear + 1).
             const academicYearStart = now.getUTCMonth() >= 8 ? referenceYear : referenceYear - 1;
-
-            if (value === '1st') { // Sept (academicYearStart) to Jan (academicYearStart + 1)
-                startDate = new Date(Date.UTC(academicYearStart, 8, 1)); // September 1st
-                endDate = new Date(Date.UTC(academicYearStart + 1, 1, 0, 23, 59, 59, 999)); // End of Jan
-            } else if (value === '2nd') { // Feb (academicYearStart + 1) to July (academicYearStart + 1)
-                startDate = new Date(Date.UTC(academicYearStart + 1, 1, 1)); // February 1st
-                endDate = new Date(Date.UTC(academicYearStart + 1, 7, 0, 23, 59, 59, 999)); // End of July
+            if (value === '1st') {
+                startDate = new Date(Date.UTC(academicYearStart, 8, 1));
+                endDate = new Date(Date.UTC(academicYearStart + 1, 1, 0, 23, 59, 59, 999));
+            } else if (value === '2nd') {
+                startDate = new Date(Date.UTC(academicYearStart + 1, 1, 1));
+                endDate = new Date(Date.UTC(academicYearStart + 1, 7, 0, 23, 59, 59, 999));
             } else { return { error: "Invalid semester value. Use '1st' or '2nd'." }; }
             break;
         }
@@ -110,79 +104,74 @@ const getPerformanceSummary = asyncHandler(async (req, res, next) => {
     if (normalizedFilterPeriod === 'daily') {
         const range = getPeriodRange('daily', value);
         if (range.error) return res.status(400).json({ success: false, error: range.error });
-
         const summary = await calculateSummaryForSinglePeriod(range.startDate, range.endDate);
-        responseData.push({ 
-            id: range.startDate.toISOString().split('T')[0], 
-            name: range.startDate.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' }), 
-            ...summary 
-        });
+        responseData.push({ id: range.startDate.toISOString().split('T')[0], name: range.startDate.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' }), ...summary });
         filterDetailsForResponse.startDate = range.startDate;
         filterDetailsForResponse.endDate = range.endDate;
     } 
     else if (normalizedFilterPeriod === 'weekly') {
         const weekRange = getPeriodRange('weekly', value);
         if (weekRange.error) return res.status(400).json({ success: false, error: weekRange.error });
-
         filterDetailsForResponse.startDate = weekRange.startDate;
         filterDetailsForResponse.endDate = weekRange.endDate;
-
         const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
         for (let i = 0; i < days.length; i++) {
             const currentDayStart = new Date(weekRange.startDate);
             currentDayStart.setUTCDate(weekRange.startDate.getUTCDate() + i);
             const currentDayEnd = new Date(currentDayStart);
             currentDayEnd.setUTCHours(23, 59, 59, 999);
-            
             const daySummary = await calculateSummaryForSinglePeriod(currentDayStart, currentDayEnd);
-            responseData.push({ id: i + 1, name: days[i], ...daySummary });
+            responseData.push({ id: currentDayStart.toISOString().split('T')[0], name: days[i], ...daySummary });
         }
     } 
     else if (normalizedFilterPeriod === 'monthly') {
         const monthRange = getPeriodRange('monthly', value);
         if (monthRange.error) return res.status(400).json({ success: false, error: monthRange.error });
-
         filterDetailsForResponse.startDate = monthRange.startDate;
         filterDetailsForResponse.endDate = monthRange.endDate;
-
         let weekStart = new Date(monthRange.startDate);
         let weekCounter = 1;
         while (weekStart <= monthRange.endDate) {
             const weekRange = getPeriodRange('weekly', weekStart.toISOString().split('T')[0]);
             const effectiveStart = weekRange.startDate < monthRange.startDate ? monthRange.startDate : weekRange.startDate;
             const effectiveEnd = weekRange.endDate > monthRange.endDate ? monthRange.endDate : weekRange.endDate;
-
             const weeklySummary = await calculateSummaryForSinglePeriod(effectiveStart, effectiveEnd);
-            responseData.push({ id: weekCounter, name: `Week ${weekCounter}`, ...weeklySummary });
-
+            responseData.push({ id: `week-${weekCounter}`, name: `Week ${weekCounter}`, ...weeklySummary });
             weekStart = new Date(weekRange.endDate);
             weekStart.setUTCDate(weekRange.endDate.getUTCDate() + 1);
             weekCounter++;
         }
     } 
     else if (normalizedFilterPeriod === 'semestral') {
-        const semRange = getPeriodRange('semestral', value);
-        if (semRange.error) return res.status(400).json({ success: false, error: semRange.error });
-        
-        filterDetailsForResponse.startDate = semRange.startDate;
-        filterDetailsForResponse.endDate = semRange.endDate;
-
-        const startMonth = semRange.startDate.getUTCMonth();
-        const startYear = semRange.startDate.getUTCFullYear();
-        const endMonth = semRange.endDate.getUTCMonth();
-        const endYear = semRange.endDate.getUTCFullYear();
-        
-        for (let yr = startYear; yr <= endYear; yr++) {
-            const mStart = (yr === startYear) ? startMonth : 0;
-            const mEnd = (yr === endYear) ? endMonth : 11;
-            for (let m = mStart; m <= mEnd; m++) {
-                const monthStartDate = new Date(Date.UTC(yr, m, 1));
-                const monthName = monthStartDate.toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' });
-                const monthEndDate = new Date(Date.UTC(yr, m + 1, 0, 23, 59, 59, 999));
-                
-                const monthlySummary = await calculateSummaryForSinglePeriod(monthStartDate, monthEndDate);
-                responseData.push({ id: `${yr}-${m + 1}`, name: monthName, ...monthlySummary });
+        if (value) { // Handles drill-down for a specific semester
+            const semRange = getPeriodRange('semestral', value);
+            if (semRange.error) return res.status(400).json({ success: false, error: semRange.error });
+            filterDetailsForResponse.startDate = semRange.startDate;
+            filterDetailsForResponse.endDate = semRange.endDate;
+            const startMonth = semRange.startDate.getUTCMonth();
+            const startYear = semRange.startDate.getUTCFullYear();
+            const endMonth = semRange.endDate.getUTCMonth();
+            const endYear = semRange.endDate.getUTCFullYear();
+            for (let yr = startYear; yr <= endYear; yr++) {
+                const mStart = (yr === startYear) ? startMonth : 0;
+                const mEnd = (yr === endYear) ? endMonth : 11;
+                for (let m = mStart; m <= mEnd; m++) {
+                    const monthStartDate = new Date(Date.UTC(yr, m, 1));
+                    const monthName = monthStartDate.toLocaleDateString('en-US', { month: 'long', timeZone: 'UTC' });
+                    const monthEndDate = new Date(Date.UTC(yr, m + 1, 0, 23, 59, 59, 999));
+                    const monthlySummary = await calculateSummaryForSinglePeriod(monthStartDate, monthEndDate);
+                    responseData.push({ id: `${yr}-${m + 1}`, name: monthName, ...monthlySummary });
+                }
             }
+        } else { // Handles the initial overview request
+            const sem1Range = getPeriodRange('semestral', '1st');
+            const sem2Range = getPeriodRange('semestral', '2nd');
+            const [sem1Summary, sem2Summary] = await Promise.all([
+                calculateSummaryForSinglePeriod(sem1Range.startDate, sem1Range.endDate),
+                calculateSummaryForSinglePeriod(sem2Range.startDate, sem2Range.endDate)
+            ]);
+            responseData.push({ id: '1st', name: '1st Semester', ...sem1Summary });
+            responseData.push({ id: '2nd', name: '2nd Semester', ...sem2Summary });
         }
     } else {
         return res.status(400).json({ success: false, error: "Invalid filter period for summary." });
@@ -197,33 +186,25 @@ const getPerformanceSummary = asyncHandler(async (req, res, next) => {
 
 const getProgramBreakdown = asyncHandler(async (req, res, next) => {
     const { filterPeriod, value, program, groupBy } = req.query;
-
-    if (!filterPeriod) {
-        return res.status(400).json({ success: false, error: "Filter period is required." });
-    }
+    if (!filterPeriod) { return res.status(400).json({ success: false, error: "Filter period is required." }); }
     
-    const range = getPeriodRange(filterPeriod.toLowerCase(), value);
-    if (range.error) {
-        return res.status(400).json({ success: false, error: range.error });
-    }
+    // For Semestral overview, if no value, default to '1st' for context, or handle as needed.
+    const effectiveValue = (filterPeriod.toLowerCase() === 'semestral' && !value) ? '1st' : value;
+
+    const range = getPeriodRange(filterPeriod.toLowerCase(), effectiveValue);
+    if (range.error) { return res.status(400).json({ success: false, error: range.error }); }
 
     const matchStage = {
         dateChecked: { $gte: range.startDate, $lte: range.endDate },
         status: { $in: ['CLAIMED', 'ELIGIBLE_BUT_NOT_CLAIMED'] }
     };
 
-    // If a specific program is requested, add it to the match stage
-    if (program) {
-        matchStage.programAtTimeOfRecord = program.toUpperCase();
-    }
+    if (program) { matchStage.programAtTimeOfRecord = program.toUpperCase(); }
 
-    // Determine the grouping key based on the 'groupBy' query param
     let groupKey;
     if (groupBy === 'yearLevel' && program) {
-        // Group by year level (and append ' year' for frontend-friendly naming)
         groupKey = { $concat: [{ $toString: "$yearLevelAtTimeOfRecord" }, " year"] };
     } else {
-        // Default to grouping by program name
         groupKey = '$programAtTimeOfRecord';
     }
 
@@ -238,18 +219,13 @@ const getProgramBreakdown = asyncHandler(async (req, res, next) => {
         },
         {
             $project: {
-                _id: 0,
-                name: '$_id', // Use 'name' for frontend compatibility
-                claimed: 1,
-                unclaimed: 1,
+                _id: 0, name: '$_id', claimed: 1, unclaimed: 1,
                 allotted: { $add: ['$claimed', '$unclaimed'] }
             }
         },
         { $sort: { name: 1 } }
     ];
-
     const breakdownData = await MealRecord.aggregate(aggregationPipeline);
-
     res.status(200).json({
         success: true,
         filterDetails: { filterPeriod, value, program, groupBy, startDate: range.startDate.toISOString(), endDate: range.endDate.toISOString() },

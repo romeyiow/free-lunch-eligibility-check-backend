@@ -3,222 +3,154 @@ const path = require('path');
 const mongoose = require('mongoose');
 const colors = require('colors');
 const dotenv = require('dotenv');
-const { faker } = require('@faker-js/faker'); // For generating meal record dates
 
 dotenv.config();
 
-// Load Mongoose Models
+// Load models
 const Admin = require('./models/AdminModel');
+const Program = require('./models/ProgramModel');
 const Student = require('./models/StudentModel');
-const MealRecord = require('./models/MealRecordModel');
 const Schedule = require('./models/ScheduleModel');
+const MealRecord = require('./models/MealRecordModel');
 
+// Connect to DB
+mongoose.connect(process.env.MONGO_URI, {});
 
-// Connect to MongoDB Database
-const connectDB = async () => {
+// Read JSON files
+const admins = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'admins.json'), 'utf-8'));
+const programs = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'programs.json'), 'utf-8'));
+const students = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'students.json'), 'utf-8'));
+const scheduleTemplates = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'schedules.json'), 'utf-8'));
+
+// --- Helper Functions ---
+
+const getDayOfWeekString = (date) => {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return days[date.getUTCDay()];
+};
+
+// --- Main Seeder Functions ---
+
+const importData = async () => {
     try {
-        if (!process.env.MONGO_URI) {
-            throw new Error('FATAL ERROR: MONGO_URI environment variable is not set.');
-        }
-        await mongoose.connect(process.env.MONGO_URI);
-        console.log('MongoDB Connected for Seeder...'.green);
-    } catch (error) {
-        console.error(`Seeder DB Connection Error: ${error.message}`.red.bold);
-        process.exit(1); // Exit if DB connection fails
-    }
-};
+        console.log('--- Deleting existing data... ---'.cyan);
+        await MealRecord.deleteMany();
+        await Schedule.deleteMany();
+        await Student.deleteMany();
+        await Program.deleteMany();
+        await Admin.deleteMany();
+        console.log('--- Existing data deleted. ---'.green);
 
-// --- Data for Seeding ---
-let adminsData = [];
-let studentsData = [];
-// We will generate schedule and meal record data programmatically
+        console.log('--- Seeding new data... ---'.cyan);
+        
+        // 1. Seed Admins and Programs
+        await Admin.create(admins);
+        const seededPrograms = await Program.create(programs);
+        console.log('Admins & Programs Imported...'.green);
+        
+        // 2. Seed Students
+        await Student.create(students);
+        console.log('Students Imported...'.green);
 
-try {
-    adminsData = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'admins.json'), 'utf-8'));
-    studentsData = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'students.json'), 'utf-8'));
-} catch (err) {
-    console.error(`Error reading base data files: ${err.message}`.red);
-    process.exit(1);
-}
+        // 3. Process and Seed Schedules
+        const schedulesToCreate = [];
+        const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        
+        for (const template of scheduleTemplates) {
+            const programInfo = seededPrograms.find(p => p.name === template.program);
+            if (!programInfo) continue;
 
-const DAYS_OF_WEEK_SEED = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; // Exclude Sunday
-
-// --- Generate Schedule Data ---
-const generateScheduleData = () => {
-    const schedules = [];
-    const programs = ['BSA', 'BSAIS', 'BSIS', 'BSSW', 'BAB', 'ACT'];
-    
-    programs.forEach(program => {
-        const maxYear = (program === 'ACT') ? 2 : 4;
-        for (let year = 1; year <= maxYear; year++) {
-            DAYS_OF_WEEK_SEED.forEach(day => {
-                schedules.push({
-                    program: program,
-                    yearLevel: year,
+            const yearLevels = template.program === 'ACT' ? [1, 2] : [1, 2, 3, 4];
+            
+            // This part of the logic now assumes the template applies to all year levels
+            // The logic from your revised schedules.json is now primary
+             for (const day of allDays) {
+                schedulesToCreate.push({
+                    program: template.program,
+                    yearLevel: template.yearLevel,
                     dayOfWeek: day,
-                    isEligible: true, // Default: all are eligible on these days. Change if needed.
+                    isEligible: template.eligibleDays.includes(day),
                 });
-            });
-        }
-    });
-    return schedules;
-};
-
-// --- Generate Meal Record Data ---
-// This is more complex as it should ideally respect schedules and student existence.
-// For simplicity, we'll generate some random records.
-// --- NEW Generate Meal Record Data (More Deliberate) ---
-const generateMealRecordDataForSpecificStudents = async (numStudentsToProcess = 90, numMonths = 3) => {
-    const mealRecords = [];
-    // Fetch ALL students and ALL schedules once
-    const allStudents = await Student.find().select('_id studentIdNumber name program yearLevel section');
-    const allSchedules = await Schedule.find();
-
-    if (allStudents.length === 0) {
-        console.warn('No students found in DB to generate meal records for.'.yellow);
-        return [];
-    }
-    if (allSchedules.length === 0) {
-        console.warn('No schedules found in DB. Meal records might not accurately reflect eligibility.'.yellow);
-    }
-
-    // Select a subset of students to process (e.g., the first 90 or a random 90)
-    const studentsToProcess = allStudents.slice(0, Math.min(numStudentsToProcess, allStudents.length));
-    console.log(`Generating meal records for ${studentsToProcess.length} students over ${numMonths} months.`.blue);
-
-    const today = new Date();
-    const startDate = new Date(today);
-    startDate.setMonth(today.getMonth() - numMonths); // Go back N months
-    startDate.setDate(1); // Start from the 1st of that month
-    startDate.setHours(0, 0, 0, 0);
-
-    for (const student of studentsToProcess) {
-        // Iterate over each day in the last numMonths
-        for (let d = new Date(startDate); d <= today; d.setDate(d.getDate() + 1)) {
-            const currentDate = new Date(d); // Create a new Date object for each iteration
-            currentDate.setHours(12, 0, 0, 0); // Set to midday to avoid timezone issues with date comparisons
-
-            const dayOfWeekName = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
-
-            // Skip Sundays
-            if (dayOfWeekName === 'Sunday') {
-                continue;
             }
+        }
+        await Schedule.create(schedulesToCreate);
+        console.log('Schedules Imported...'.green);
 
-            let recordStatus = 'INELIGIBLE_NOT_SCHEDULED'; // Default
+        // 4. Generate Historical Meal Records for the last 90 days
+        console.log('Generating historical meal records...'.cyan);
+        const allStudents = await Student.find();
+        const mealRecordsToCreate = [];
+        const today = new Date();
+        
+        for (let i = 0; i < 90; i++) { // Loop for the past 90 days
+            const currentDate = new Date();
+            currentDate.setUTCDate(today.getUTCDate() - i);
+            currentDate.setUTCHours(12, 0, 0, 0); // Set to noon UTC for consistency
+            
+            const dayOfWeek = getDayOfWeekString(currentDate);
 
-            // Find if there's a schedule entry for this student, for this specific day of the week
-            const scheduleEntry = allSchedules.find(s =>
-                s.program === student.program &&
-                s.yearLevel === student.yearLevel &&
-                s.dayOfWeek === dayOfWeekName
+            // Find students eligible on this specific day
+            const eligibleSchedules = await Schedule.find({ dayOfWeek: dayOfWeek, isEligible: true }).select('program yearLevel');
+            const eligibleCriteria = eligibleSchedules.map(s => ({ program: s.program, yearLevel: s.yearLevel }));
+            
+            if (eligibleCriteria.length === 0) continue;
+
+            const studentsEligibleToday = allStudents.filter(student => 
+                eligibleCriteria.some(crit => crit.program === student.program && crit.yearLevel === student.yearLevel)
             );
 
-            if (scheduleEntry) {
-                if (scheduleEntry.isEligible) {
-                    // Student was scheduled and eligible
-                    // Randomly decide if they claimed or not
-                    recordStatus = faker.datatype.boolean(0.8) ? 'CLAIMED' : 'ELIGIBLE_BUT_NOT_CLAIMED'; // 80% chance of claimed
-                } else {
-                    // Student was scheduled but not eligible for that day (e.g. holiday marked in schedule)
-                    recordStatus = 'INELIGIBLE_NOT_SCHEDULED';
+            for (const student of studentsEligibleToday) {
+                 // Randomly decide if the student claimed the meal (e.g., 80% chance)
+                if (Math.random() < 0.8) {
+                    mealRecordsToCreate.push({
+                        student: student._id,
+                        studentIdNumber: student.studentIdNumber,
+                        programAtTimeOfRecord: student.program,
+                        yearLevelAtTimeOfRecord: student.yearLevel,
+                        dateChecked: currentDate,
+                        status: 'CLAIMED',
+                    });
                 }
-            } else {
-                // No specific schedule entry found for this program/year/day combination
-                // This implies they were not scheduled to be eligible.
-                recordStatus = 'INELIGIBLE_NOT_SCHEDULED';
+                 // We will use the POST /generate-unclaimed endpoint to create unclaimed records later.
             }
-            
-            // Denormalize student name parts
-            const nameParts = student.name ? student.name.split(" ") : ["N/A", ""];
-            const firstName = nameParts[0];
-            const lastName = nameParts.slice(1).join(" ");
-
-            mealRecords.push({
-                student: student._id,
-                studentIdNumber: student.studentIdNumber,
-                // Store denormalized name parts for easier display in MealHistory if student doc is not populated deeply
-                denormalizedStudentName: student.name, 
-                denormalizedStudentFirstName: firstName,
-                denormalizedStudentLastName: lastName,
-                programAtTimeOfRecord: student.program,
-                yearLevelAtTimeOfRecord: student.yearLevel,
-                sectionAtTimeOfRecord: student.section, // Add section
-                dateChecked: new Date(currentDate), // Use the specific date of the loop
-                status: recordStatus,
-            });
-        }
-    }
-    return mealRecords;
-};
-
-// Import data into DB
-const importData = async () => {
-    await connectDB();
-    try {
-        console.log('Clearing existing data...'.yellow);
-        await Admin.deleteMany();
-        await Student.deleteMany();
-        await Schedule.deleteMany();
-        await MealRecord.deleteMany();
-        console.log('Existing data cleared.'.yellow);
-
-        console.log('Importing Admins and Students...'.blue);
-        await Admin.create(adminsData);
-        const createdStudents = await Student.create(studentsData);
-        console.log(`${createdStudents.length} Students Imported!`.green);
-
-        const scheduleSeedData = generateScheduleData();
-        const createdSchedules = await Schedule.create(scheduleSeedData);
-        console.log(`${createdSchedules.length} Schedule Entries Imported!`.green);
-
-        if (createdStudents.length > 0 && createdSchedules.length > 0) {
-            console.log('Generating Meal Records... This might take a moment.'.cyan);
-            const mealRecordSeedData = await generateMealRecordDataForSpecificStudents(90, 3); // 90 students, 3 months
-            if (mealRecordSeedData.length > 0) {
-                await MealRecord.create(mealRecordSeedData);
-                console.log(`${mealRecordSeedData.length} Meal Records Imported!`.green);
-            } else {
-                console.log('No meal records generated.'.yellow);
-            }
-        } else {
-            console.log('Skipping meal record generation due to missing students or schedules.'.yellow);
         }
         
-        console.log('Data Imported Successfully!'.green.inverse);
-        process.exit(0);
+        if (mealRecordsToCreate.length > 0) {
+            await MealRecord.create(mealRecordsToCreate);
+            console.log(`${mealRecordsToCreate.length} historical meal records created.`.green);
+        } else {
+            console.log('No historical meal records were generated.'.yellow);
+        }
+        
+        console.log('--- Data Import Complete ---'.green.bold);
+        process.exit();
     } catch (err) {
-        console.error(`Data Import Error: ${err}`.red.inverse);
-        console.error(err.stack); // Log full stack for better debugging
+        console.error(`${err}`.red.bold);
         process.exit(1);
     }
 };
 
-// Delete all data from DB
-const deleteData = async () => {
-    await connectDB();
+
+const destroyData = async () => {
     try {
-        console.log('Destroying all data...'.red);
-        await Admin.deleteMany();
-        await Student.deleteMany();
-        await Schedule.deleteMany();
         await MealRecord.deleteMany();
-        console.log('Data Destroyed Successfully!'.red.inverse);
-        process.exit(0);
+        await Schedule.deleteMany();
+        await Student.deleteMany();
+        await Program.deleteMany();
+        await Admin.deleteMany();
+        console.log('Data Destroyed!'.red.bold);
+        process.exit();
     } catch (err) {
-        console.error(`Data Destruction Error: ${err}`.red.inverse);
+        console.error(`${err}`.red.bold);
         process.exit(1);
     }
 };
 
-// Process command line arguments
 if (process.argv[2] === '-i') {
     importData();
 } else if (process.argv[2] === '-d') {
-    deleteData();
-}else {
-    console.log('Usage: node seeder.js [-i | -d]'.yellow);
-    console.log('  -i: Import data from _data/*.json files');
-    console.log('  -d: Destroy all data in related collections');
-    process.exit(0); // Exit gracefully if no valid flag provided
+    destroyData();
+} else {
+    console.log('Please use the -i flag to import data or -d to destroy data.'.yellow);
+    process.exit();
 }

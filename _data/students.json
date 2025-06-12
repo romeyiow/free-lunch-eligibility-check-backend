@@ -1,1202 +1,1202 @@
 [
   {
-    "studentIdNumber": "25-02650LBZ",
-    "name": "Lila Bayer",
+    "studentIdNumber": "25-52230SST",
+    "name": "Sheila Senger",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-22400CSG",
+    "name": "Casimir Swift",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-18146TKT",
+    "name": "Trystan Kuvalis",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-43629DBL",
+    "name": "Donnell Bednar",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-53844WHZ",
+    "name": "Winfield Harvey",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-17194DHZ",
+    "name": "Delpha Halvorson-Gutmann",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-61445APJ",
+    "name": "Adrain Pfannerstill",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-59623ACQ",
+    "name": "Aniya Cummerata",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-80344RFV",
+    "name": "Ryleigh Farrell",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-17297KHH",
+    "name": "Kaleigh Hammes",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-47568EEM",
+    "name": "Eldora Emard",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-68478DWY",
+    "name": "Damion Weber",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-48006NGE",
+    "name": "Nathanael Gulgowski",
     "program": "ACT",
     "yearLevel": 1,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-83707EMC",
-    "name": "Emmalee MacGyver",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "A",
+    "studentIdNumber": "25-77726PJX",
+    "name": "Penelope Jacobson",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-77179DAV",
-    "name": "Dorris Adams",
-    "program": "BSSW",
+    "studentIdNumber": "25-57024FBV",
+    "name": "Fabiola Barrows",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-47105MRG",
+    "name": "Meggie Rolfson",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-22463ZKG",
+    "name": "Zola Kreiger",
+    "program": "BSAIS",
     "yearLevel": 2,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-24583MMO",
-    "name": "Melyna Mante",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-43974LHT",
-    "name": "Lowell Heller",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-79369MVG",
-    "name": "Monique Veum",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-43172MFJ",
-    "name": "Maida Fahey",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-46895GFN",
-    "name": "Garth Flatley",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-65476PCX",
-    "name": "Pearl Collins",
+    "studentIdNumber": "25-76103JEQ",
+    "name": "Jarret Erdman",
     "program": "ACT",
     "yearLevel": 1,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-24545ZGP",
-    "name": "Zane Grimes",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-50241KSO",
-    "name": "Katherine Spencer",
-    "program": "BSAIS",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-01821DFT",
-    "name": "Demond Flatley-Grant",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-96469DRW",
-    "name": "Dino Rempel",
-    "program": "BSAIS",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-39976TRJ",
-    "name": "Tressie Rempel",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-52349JHJ",
-    "name": "Joey Heidenreich",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-66277JCX",
-    "name": "Jayden Crona",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-62528RDP",
-    "name": "Rylee Dickens",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-42151IOT",
-    "name": "Isabell O'Connell",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-09231ZKD",
-    "name": "Zelma Kreiger",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-81692VLK",
-    "name": "Violette Lang",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-11294AFY",
-    "name": "Arturo Funk",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-36878FRD",
-    "name": "Freeda Ritchie",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-23475ABE",
-    "name": "Alivia Buckridge",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-09903LDO",
-    "name": "Lue Daniel",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-46747MBS",
-    "name": "Mose Block",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-86899LGS",
-    "name": "Luciano Goodwin",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-76897CHY",
-    "name": "Cyrus Heidenreich",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-58118MAA",
-    "name": "Maybell Abshire",
-    "program": "BSSW",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-24408MWF",
-    "name": "Monty Wolff",
-    "program": "BSSW",
-    "yearLevel": 4,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-88506LLS",
-    "name": "Lacy Langosh",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-36745ESW",
-    "name": "Eugenia Stiedemann",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-65966ARB",
-    "name": "Ambrose Reichel",
+    "studentIdNumber": "25-71486JHL",
+    "name": "Jazmyne Harber",
     "program": "BSAIS",
     "yearLevel": 4,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-74184KSQ",
-    "name": "Kenton Schiller",
-    "program": "ACT",
-    "yearLevel": 2,
+    "studentIdNumber": "25-25467BJZ",
+    "name": "Bulah Jaskolski",
+    "program": "BSA",
+    "yearLevel": 1,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-62534ARS",
-    "name": "Arjun Russel",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-45207CBT",
-    "name": "Caesar Bartoletti",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-01001SPA",
-    "name": "Sasha Pagac",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-19232LPP",
-    "name": "Ludie Prosacco",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-27396SUB",
-    "name": "Stephen Ullrich",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-30287VOM",
-    "name": "Vallie Orn",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-57547WHJ",
-    "name": "Wendell Herzog",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-25398NGH",
-    "name": "Nathaniel Gorczany",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-59298MSJ",
-    "name": "Marlin Schmidt",
-    "program": "BSA",
-    "yearLevel": 3,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-36947JKA",
-    "name": "Joshua Kozey",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-29146APZ",
-    "name": "Ariel Pacocha",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-01792BPS",
-    "name": "Baron Pacocha",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-90637BPC",
-    "name": "Brad Purdy",
-    "program": "BSAIS",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-76895OKG",
-    "name": "Oren Kreiger",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-84169JKT",
-    "name": "Juwan Kerluke",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-95360MSX",
-    "name": "Meta Simonis",
-    "program": "BSIS",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-43886KHI",
-    "name": "Kailyn Hills",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-75003AFO",
-    "name": "Ana Franey",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-35102WHC",
-    "name": "Walker Hessel",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-30260RBJ",
-    "name": "Rhoda Bode",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-73487PSH",
-    "name": "Patricia Schimmel",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-40988SRX",
-    "name": "Sabina Raynor",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-38568KCR",
-    "name": "Keanu Cruickshank",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-20202EGF",
-    "name": "Earnestine Gerlach",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-68562AHE",
-    "name": "Anjali Howell",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-02198CHJ",
-    "name": "Cody Heidenreich-Boehm",
-    "program": "BSSW",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-65036BKZ",
-    "name": "Brown Kshlerin",
-    "program": "BSA",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-00239JMZ",
-    "name": "Jammie Moore",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-30507MFX",
-    "name": "Minnie Fritsch",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-43961ISQ",
-    "name": "Iva Schaefer",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-75935PST",
-    "name": "Paris Schultz",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-77861ABO",
-    "name": "Amina Balistreri",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-48489FSN",
-    "name": "Fatima Shields",
+    "studentIdNumber": "25-69926THQ",
+    "name": "Therese Heller",
     "program": "ACT",
     "yearLevel": 1,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-18096PDN",
-    "name": "Patrick Douglas",
-    "program": "BSIS",
-    "yearLevel": 3,
+    "studentIdNumber": "25-30988OHU",
+    "name": "Ora Hills",
+    "program": "BSSW",
+    "yearLevel": 4,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-88331QKL",
-    "name": "Queen Koch",
-    "program": "BSSW",
-    "yearLevel": 4,
+    "studentIdNumber": "25-03046BFH",
+    "name": "Beau Feil",
+    "program": "BSAIS",
+    "yearLevel": 1,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-25563MLO",
-    "name": "Magdalen Luettgen",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-89408JBT",
-    "name": "Jadon Bins",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-30648GSN",
-    "name": "Gunner Swift",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-56100BDH",
-    "name": "Bertha Deckow",
+    "studentIdNumber": "25-10302MSA",
+    "name": "Mitchell Schinner-Denesik",
     "program": "BSA",
     "yearLevel": 3,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-88344TAW",
-    "name": "Thalia Adams",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-11640LHE",
-    "name": "Lorena Hyatt",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-05713ASU",
-    "name": "Addison Schimmel",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-96524PMG",
-    "name": "Porter Medhurst",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-84375LKD",
-    "name": "Lindsey Koss",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-76365NWG",
-    "name": "Nat Watsica",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-74372MBB",
-    "name": "Modesto Becker",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-75239DCN",
-    "name": "Darwin Conroy",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-39890CDT",
-    "name": "Casey Denesik",
+    "studentIdNumber": "25-92160BJG",
+    "name": "Briana Jacobson",
     "program": "BSA",
     "yearLevel": 3,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-18725EYM",
-    "name": "Elouise Yost",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-65935MWX",
-    "name": "Moriah Wolf",
-    "program": "BSSW",
-    "yearLevel": 4,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-64907MMR",
-    "name": "Maryjane Medhurst",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-33761ASF",
-    "name": "Anita Streich",
-    "program": "BSAIS",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-57358ADR",
-    "name": "Alessandra Dickens",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-45172SRA",
-    "name": "Selmer Rosenbaum",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-34900XCH",
-    "name": "Xavier Cremin",
-    "program": "BSIS",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-27985JME",
-    "name": "Johnathon Monahan",
-    "program": "BSSW",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-20184CLE",
-    "name": "Caitlyn Little",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-62399HLO",
-    "name": "Humberto Lueilwitz",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-50468FHC",
-    "name": "Fritz Hamill",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-04362FBW",
-    "name": "Faye Beier",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-32401AFL",
-    "name": "Adelbert Farrell",
-    "program": "BSAIS",
-    "yearLevel": 3,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-95818KRS",
-    "name": "Kaylee Rempel-Watsica",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-76592MDN",
-    "name": "Magali D'Amore",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-42921GTB",
-    "name": "Geovanni Tromp",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-98126LLM",
-    "name": "Lily Lang",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-19588MFH",
-    "name": "Mose Fay",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-79694TBA",
-    "name": "Tracy Bechtelar",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-25824RBM",
-    "name": "Raegan Bechtelar",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-44734MNC",
-    "name": "Maxie Nader",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-99935JSS",
-    "name": "Jocelyn Strosin",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-06288MTM",
-    "name": "Mariela Thiel",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-64392DHI",
-    "name": "Darien Hermann",
-    "program": "BSAIS",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-42834HOL",
-    "name": "Herminio Osinski",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-99182CKI",
-    "name": "Clark Kuhn",
+    "studentIdNumber": "25-55012ABF",
+    "name": "Alanis Bartell",
     "program": "BSA",
     "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-52081ARY",
-    "name": "Arjun Rath",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-31764DDF",
-    "name": "Darren Daugherty",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-74212DJG",
-    "name": "Davion Jakubowski",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-60586TTB",
-    "name": "Teagan Turcotte",
-    "program": "BSSW",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-40258AWZ",
-    "name": "Althea Wyman",
-    "program": "BSIS",
-    "yearLevel": 4,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-33771JTH",
-    "name": "Jordon Torphy",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-34947LSD",
-    "name": "Lizzie Schoen",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-72895SUJ",
-    "name": "Sidney Ullrich",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-30851TBM",
-    "name": "Terrill Baumbach",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-21989JCP",
-    "name": "Juston Cole",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-26959MHV",
-    "name": "Maci Heaney",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-97733RAI",
-    "name": "Rickie Aufderhar",
-    "program": "BSA",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-37210ROF",
-    "name": "Roosevelt O'Connell",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-45562SBK",
-    "name": "Sydnie Brown",
-    "program": "BSAIS",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-91218GBO",
-    "name": "Gussie Baumbach",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-85316ACI",
-    "name": "Ada Cronin",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-70180MWO",
-    "name": "Michel Wisoky",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-58762CKF",
-    "name": "Consuelo Kirlin",
+    "studentIdNumber": "25-99902OAQ",
+    "name": "Ocie Ankunding",
     "program": "BAB",
     "yearLevel": 1,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-05703FCU",
-    "name": "Fabiola Cummerata",
-    "program": "BSAIS",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-99893CSR",
-    "name": "Collin Schulist",
-    "program": "BSSW",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-55248CNG",
-    "name": "Clifford Nitzsche",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-02512SKA",
-    "name": "Stephanie Kessler",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-74941AMP",
-    "name": "Ayana Mayert",
-    "program": "BSIS",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-02189RPR",
-    "name": "Rossie Powlowski-Smitham",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-94530SSG",
-    "name": "Sylvan Sanford",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-63809ALG",
-    "name": "Allen Luettgen",
+    "studentIdNumber": "25-39439JCW",
+    "name": "Judson Crooks",
     "program": "BSA",
     "yearLevel": 4,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-12407LLJ",
-    "name": "Linnea Labadie",
+    "studentIdNumber": "25-81970CJO",
+    "name": "Constantin Johnston",
     "program": "BAB",
-    "yearLevel": 3,
-    "section": "C",
+    "yearLevel": 1,
+    "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-78576TDE",
-    "name": "Tyree Doyle",
+    "studentIdNumber": "25-58098WGH",
+    "name": "Wilmer Gerhold",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-23385SJI",
+    "name": "Schuyler Jakubowski",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-46853JSM",
+    "name": "Jordyn Sipes",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-38797TRM",
+    "name": "Taya Runte",
     "program": "ACT",
     "yearLevel": 1,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-25160LMA",
-    "name": "Linnea Mueller",
-    "program": "BAB",
+    "studentIdNumber": "25-42953GKT",
+    "name": "Gunnar Klocko",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-32009DLZ",
+    "name": "Dewayne Lockman",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-50141JHG",
+    "name": "Jedediah Howe",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-68104DSL",
+    "name": "Dewitt Sauer",
+    "program": "BSAIS",
     "yearLevel": 1,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-41573CHM",
-    "name": "Cicero Heaney",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "C",
+    "studentIdNumber": "25-74329DMK",
+    "name": "Destini Mayert",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-28965SHR",
-    "name": "Shanel Hudson",
-    "program": "BSSW",
+    "studentIdNumber": "25-41904WDO",
+    "name": "Willy Daniel-Rogahn",
+    "program": "BAB",
     "yearLevel": 4,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-17089DHF",
-    "name": "Dane Hayes",
+    "studentIdNumber": "25-05482BSW",
+    "name": "Bud Smitham",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-81476GTI",
+    "name": "Gilbert Torp",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-91702HKC",
+    "name": "Haley Kassulke",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-57709FRZ",
+    "name": "Freddy Reilly",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-09380CHW",
+    "name": "Casimer Heller-Swift",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-51886TMC",
+    "name": "Tatyana McKenzie",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-67625JCA",
+    "name": "Jalon Collins-Funk",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-59011KOZ",
+    "name": "Kade O'Hara",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-35992RRJ",
+    "name": "Ramiro Reynolds",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-68466CSN",
+    "name": "Candelario Schimmel",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-94214VBX",
+    "name": "Vilma Botsford",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-66394LER",
+    "name": "Lonny Erdman",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-63492ARP",
+    "name": "Adelia Rath",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-43124LKQ",
+    "name": "Lyda Keeling",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-07225JPV",
+    "name": "Jeremie Prosacco",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-70099KHJ",
+    "name": "Kariane Hagenes",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-77476WHH",
+    "name": "Wiley Howe",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-49770BLF",
+    "name": "Brock Lueilwitz",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-66791KPC",
+    "name": "Karen Predovic",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-71252TSR",
+    "name": "Troy Schulist",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-83992BSF",
+    "name": "Brice Simonis",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-46765GLC",
+    "name": "Gerald Leannon",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-96936LKD",
+    "name": "Lexie Koelpin",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-45794BBL",
+    "name": "Bell Barton",
+    "program": "BSSW",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-10685SGC",
+    "name": "Shana Gorczany",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-22218DUQ",
+    "name": "Dolly Upton",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-39976KDG",
+    "name": "Keven Denesik",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-38669CSF",
+    "name": "Cortney Stokes",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-67780KSF",
+    "name": "Kenton Schaden",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-86429SDM",
+    "name": "Sylvester Dooley",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-61642FSQ",
+    "name": "Frieda Satterfield",
     "program": "BSAIS",
     "yearLevel": 4,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-31748CDF",
-    "name": "Connie Daniel",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-40501ELR",
-    "name": "Elvie Larkin",
-    "program": "BSAIS",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-38385LTS",
-    "name": "Liana Trantow",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-05510BMV",
-    "name": "Brycen Marks",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-53032CAH",
-    "name": "Carlie Altenwerth",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-97447HSK",
-    "name": "Hal Schaefer",
-    "program": "BAB",
+    "studentIdNumber": "25-21339RAS",
+    "name": "Robin Abshire",
+    "program": "ACT",
     "yearLevel": 1,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-34970SMQ",
-    "name": "Sydnie Mueller",
+    "studentIdNumber": "25-13742CBS",
+    "name": "Cathryn Bogisich",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-04706AMS",
+    "name": "Art Macejkovic",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-48334LRA",
+    "name": "Lupe Reinger",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-40357KRK",
+    "name": "Kane Rath",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-04308AKD",
+    "name": "Anjali Kris",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-64030KBQ",
+    "name": "Kenna Bartell",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-16970MRJ",
+    "name": "Murl Reinger",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-71983BMK",
+    "name": "Bruce McGlynn",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-27223LVO",
+    "name": "Ladarius Veum",
     "program": "BSSW",
     "yearLevel": 4,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-57686HKQ",
-    "name": "Harmony Kris",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "C",
+    "studentIdNumber": "25-98184RCM",
+    "name": "Robert Cummerata",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-09999ESA",
-    "name": "Emilie Schuster",
+    "studentIdNumber": "25-91605APA",
+    "name": "Armand Prosacco",
     "program": "BSA",
     "yearLevel": 3,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-87366OBM",
-    "name": "Ola Bergstrom",
+    "studentIdNumber": "25-20632KKE",
+    "name": "Kurtis Kemmer",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-43696RMY",
+    "name": "Rhianna Miller",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-92641BWG",
+    "name": "Bradford Willms",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-50556ITA",
+    "name": "Isac Treutel",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-47812VSU",
+    "name": "Valentin Shanahan",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-52432KRC",
+    "name": "Kayli Ryan",
+    "program": "BAB",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-00018CNM",
+    "name": "Caitlyn Nikolaus",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-79997MHP",
+    "name": "Mariela Hammes",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-09021GHQ",
+    "name": "Gunnar Hettinger",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-98379HGR",
+    "name": "Hal Gutkowski",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-78971YHP",
+    "name": "Yasmeen Hyatt",
     "program": "BSSW",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-45571BTP",
+    "name": "Bryon Trantow",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-37308DPU",
+    "name": "Dudley Purdy",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-64368KBV",
+    "name": "Keagan Botsford",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-57189FSF",
+    "name": "Fabian Swaniawski",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-61895SKX",
+    "name": "Shea Kreiger-Doyle",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-10816MBQ",
+    "name": "Milan Bins",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-96177ABR",
+    "name": "Albina Barton",
+    "program": "BAB",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-53873ZAQ",
+    "name": "Zachariah Armstrong",
+    "program": "BAB",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-52132NML",
+    "name": "Nikki Mayert",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-91408MYU",
+    "name": "Maeve Yundt",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-76360MTH",
+    "name": "Madyson Tremblay",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-37758OSJ",
+    "name": "Ona Schowalter",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-91385MHH",
+    "name": "Melvin Haley-Nitzsche",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-79705LCE",
+    "name": "Lauriane Conroy",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-97999LBS",
+    "name": "Leila Bogan",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-79230ZEH",
+    "name": "Zachary Emmerich",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-28139EHQ",
+    "name": "Emmett Homenick",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-88060NHE",
+    "name": "Nick Hirthe",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-40610BKC",
+    "name": "Brayan King",
+    "program": "BSSW",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-18253AOY",
+    "name": "Ashleigh Ondricka-Davis",
+    "program": "BAB",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-35580DRC",
+    "name": "Destin Rippin-Boyer",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-89709ALZ",
+    "name": "Ahmad Lebsack",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-95904FSE",
+    "name": "Faye Schimmel",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-78803BSG",
+    "name": "Brandyn Schumm",
+    "program": "BSAIS",
     "yearLevel": 2,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-91259AWB",
-    "name": "Adriana Wilkinson",
+    "studentIdNumber": "25-52948OSF",
+    "name": "Octavia Schoen",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-69713NCO",
+    "name": "Nicholaus Crist",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-68270ACC",
+    "name": "Arianna Corkery",
+    "program": "BSSW",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-93623BVI",
+    "name": "Burnice VonRueden",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-99409AZY",
+    "name": "Albina Zulauf",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-62653AGU",
+    "name": "Allan Graham",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-64692EBI",
+    "name": "Eulah Bruen",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-27415DOA",
+    "name": "Daniela Ortiz",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-88299LMG",
+    "name": "Lulu Muller",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-86867TML",
+    "name": "Tracey Marquardt",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-07135VWK",
+    "name": "Viva Windler",
     "program": "BSSW",
     "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-48415SSG",
+    "name": "Stacy Stiedemann",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-92892BSA",
+    "name": "Bill Shields",
+    "program": "BSIS",
+    "yearLevel": 2,
     "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-85572LBU",
+    "name": "Loy Bahringer",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-80593VGE",
+    "name": "Virgie Gerlach",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-73992LVW",
+    "name": "Lawson Vandervort",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-44843BMC",
+    "name": "Bridie Murray",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-11699DSS",
+    "name": "Darrion Schumm-Hahn",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-15879RPN",
+    "name": "Ruben Pacocha",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-72087NAJ",
+    "name": "Nelson Aufderhar-Kris",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-37303AGQ",
+    "name": "Annie Greenholt",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-65176AGP",
+    "name": "Anastasia Goyette",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-97522RTG",
+    "name": "Rahul Trantow",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-89927KSN",
+    "name": "Kiara Spencer",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-43245EHN",
+    "name": "Elian Howe",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-87632COH",
+    "name": "Clarabelle O'Conner",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-78508ECH",
+    "name": "Electa Conroy",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-96611GLO",
+    "name": "Gwen Larson",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-70618HDY",
+    "name": "Heber Dibbert",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-80742PHW",
+    "name": "Pattie Huels",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-63356KAA",
+    "name": "Kiley Anderson",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-60595KRS",
+    "name": "Kiera Rohan",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-23101VHS",
+    "name": "Viola Harvey",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   }
 ]

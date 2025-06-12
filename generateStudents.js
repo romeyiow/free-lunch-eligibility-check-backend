@@ -1,14 +1,26 @@
-// generateStudents.js
 const fs = require('fs');
 const path = require('path');
 const { faker } = require('@faker-js/faker');
 
-const ALLOWED_PROGRAMS = ['BSA', 'BSAIS', 'BSIS', 'BSSW', 'BAB', 'ACT'];
-const SECTIONS = ['A', 'B', 'C', 'D']; // Can randomize or assign systematically
-const NUM_STUDENTS = 150; // Generate more students
+// --- Load programs from our single source of truth ---
+const programsFilePath = path.join(__dirname, '_data', 'programs.json');
+let ALLOWED_PROGRAMS = [];
+try {
+    const programsData = fs.readFileSync(programsFilePath, 'utf-8');
+    const programs = JSON.parse(programsData);
+    ALLOWED_PROGRAMS = programs.map(p => p.name); // Extract just the names (e.g., "BSIS")
+} catch (error) {
+    console.error(`Error: Could not read or parse programs.json at ${programsFilePath}`.red.bold);
+    console.error("Please ensure the file exists and is valid before generating students.".red);
+    process.exit(1); // Exit if programs can't be loaded
+}
+// ----------------------------------------------------
+
+const SECTIONS = ['A', 'B', 'C', 'D'];
+const NUM_STUDENTS = 150;
 
 const students = [];
-const usedStudentNumbers = new Set(); // To ensure unique student numbers within the XXX part
+const usedStudentNumbers = new Set();
 
 console.log(`Generating ${NUM_STUDENTS} student records...`);
 
@@ -17,11 +29,8 @@ for (let i = 0; i < NUM_STUDENTS; i++) {
     const lastName = faker.person.lastName();
     const fullName = `${firstName} ${lastName}`;
     
-    // Generate initials (simple approach, can be improved for multiple last names)
     const firstInitial = firstName.charAt(0).toUpperCase();
     const lastInitial = lastName.charAt(0).toUpperCase();
-    // For a third initial, we could use a middle name if available, or a second letter of last name
-    // For simplicity, let's use a random uppercase letter if no middle initial.
     const middleInitialOrRandom = faker.string.alpha(1).toUpperCase(); 
     const initials = `${firstInitial}${lastInitial}${middleInitialOrRandom}`;
 
@@ -34,14 +43,12 @@ for (let i = 0; i < NUM_STUDENTS; i++) {
     }
     const section = faker.helpers.arrayElement(SECTIONS);
 
-    // Generate student ID: "YY-XXXXXIIL" (YY-SerialNumberInitials)
-    // YY - last two digits of current year for simplicity, or a fixed year range
     const yearPrefix = new Date().getFullYear().toString().slice(-2); 
     
     let serialNumberPart;
     do {
-        serialNumberPart = faker.string.numeric(5); // 5-digit random serial
-    } while (usedStudentNumbers.has(serialNumberPart)); // Ensure somewhat unique within the generated batch
+        serialNumberPart = faker.string.numeric(5);
+    } while (usedStudentNumbers.has(serialNumberPart));
     usedStudentNumbers.add(serialNumberPart);
 
     const studentIdNumber = `${yearPrefix}-${serialNumberPart}${initials}`;
@@ -52,7 +59,7 @@ for (let i = 0; i < NUM_STUDENTS; i++) {
         program,
         yearLevel,
         section,
-        profilePictureUrl: '/images/default-avatar.png', // Default avatar
+        profilePictureUrl: '/images/default-avatar.png',
     });
 }
 
