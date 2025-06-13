@@ -1,28 +1,26 @@
-// routes/authRoutes.js
 const express = require('express');
 const { protect } = require('../middleware/authMiddleware');
-// Make sure to destructure the new controller functions
+
 const {
     loginAdmin,
     getAdminProfile,
     logoutAdmin,
     requestPasswordReset,
     resetPasswordWithCode,
-    googleLogin // Import the new controller
+    googleLogin,
+    changePassword
 } = require('../controllers/authController');
 const router = express.Router();
 
-// Define routes and link them to controller functions
+
 router.post('/login', loginAdmin);
-router.get('/me', protect, getAdminProfile);
-router.post('/logout', protect, logoutAdmin);
-
-// Password Reset Routes
-router.post('/request-password-reset', requestPasswordReset);
-router.post('/reset-password', resetPasswordWithCode); // NEW ROUTE for resetting password
-
-
-// NEW ROUTE for Google Sign-In
 router.post('/google-login', googleLogin);
+router.post('/request-password-reset', requestPasswordReset);
+router.post('/reset-password', resetPasswordWithCode);
+
+router.use(protect); // Protect all routes below this middleware
+router.get('/me', getAdminProfile);
+router.post('/logout', logoutAdmin);
+router.put('/change-password', changePassword); 
 
 module.exports = router;

@@ -298,12 +298,55 @@ const googleLogin = asyncHandler(async (req, res, next) => {
     }
 });
 
+// @desc    Change admin password while logged in
+// @route   PUT /api/v1/auth/change-password
+// @access  Private (Requires JWT)
+const changePassword = asyncHandler(async (req, res, next) => {
+    const { oldPassword, newPassword } = req.body;
+
+    if (!oldPassword || !newPassword) {
+        res.status(400);
+        throw new Error('Please provide both old and new passwords.');
+    }
+
+    if (newPassword.length < 6) {
+        res.status(400);
+        throw new Error('New password must be at least 6 characters long.');
+    }
+    
+    // The user's document is attached to req.admin by the 'protect' middleware.
+    // We need to fetch it again with the password field to perform the check.
+    const admin = await Admin.findById(req.admin._id).select('+password');
+
+    if (!admin) {
+        // This should not happen if protect middleware is working
+        res.status(404);
+        throw new Error('Admin not found.');
+    }
+
+    // Check if the old password matches
+    if (!(await admin.matchPassword(oldPassword))) {
+        res.status(401); // Unauthorized
+        throw new Error('Incorrect old password.');
+    }
+
+    // Set the new password. The 'pre-save' hook in the model will hash it.
+    admin.password = newPassword;
+    await admin.save();
+
+    res.status(200).json({
+        success: true,
+        message: 'Password changed successfully.',
+    });
+});
+
+
 module.exports = {
-    // ... (other exported functions)
     loginAdmin,
     getAdminProfile,
     logoutAdmin,
     requestPasswordReset,
     resetPasswordWithCode,
-    googleLogin, // Add the new function
+    googleLogin,
+    changePassword,
 };
