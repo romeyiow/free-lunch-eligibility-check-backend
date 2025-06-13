@@ -314,23 +314,25 @@ const changePassword = asyncHandler(async (req, res, next) => {
         throw new Error('New password must be at least 6 characters long.');
     }
     
-    // The user's document is attached to req.admin by the 'protect' middleware.
-    // We need to fetch it again with the password field to perform the check.
+    // --- THIS IS THE NEW CHECK ---
+    if (oldPassword === newPassword) {
+        res.status(400);
+        throw new Error('New password cannot be the same as the old password.');
+    }
+    // ----------------------------
+
     const admin = await Admin.findById(req.admin._id).select('+password');
 
     if (!admin) {
-        // This should not happen if protect middleware is working
         res.status(404);
         throw new Error('Admin not found.');
     }
 
-    // Check if the old password matches
     if (!(await admin.matchPassword(oldPassword))) {
-        res.status(401); // Unauthorized
+        res.status(401);
         throw new Error('Incorrect old password.');
     }
 
-    // Set the new password. The 'pre-save' hook in the model will hash it.
     admin.password = newPassword;
     await admin.save();
 
@@ -339,7 +341,6 @@ const changePassword = asyncHandler(async (req, res, next) => {
         message: 'Password changed successfully.',
     });
 });
-
 
 module.exports = {
     loginAdmin,
