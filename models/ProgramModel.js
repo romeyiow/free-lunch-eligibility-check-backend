@@ -14,7 +14,12 @@ const programSchema = new mongoose.Schema(
             required: [true, 'Please add a full description (e.g., Bachelor of Science in Information Systems)'],
             trim: true,
         },
-        // You can add more fields here if needed, like 'department'
+        color: {
+            type: String,
+            required: [true, 'Please add a hex color code for the program (e.g., #46050A)'],
+            default: '#FFFFFF', // Default to white
+            trim: true,
+        }
     },
     {
         timestamps: true,
