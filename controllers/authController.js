@@ -98,7 +98,7 @@ const requestPasswordReset = asyncHandler(async (req, res, next) => {
         console.log(`Password reset requested for non-existent or non-admin email: ${email}`.yellow);
         return res.status(200).json({
             success: true,
-            message: 'If an account with that email exists, instructions to reset your password have been sent.',
+        message: 'If an account with that email exists, instructions to reset your password have been sent.',
         });
     }
 
@@ -233,53 +233,36 @@ const googleLogin = asyncHandler(async (req, res, next) => {
         const { email, name, picture } = decodedToken; // Extract user info from token
 
         // --- Custom Logic: Find or Create Admin based on Google Email ---
-        // For this project, we expect admins to use @lvcc.edu.ph emails.
-
         const lvccEmailRegex = /.+@(student\.)?laverdad\.edu\.ph$/i; // Case insensitive
 
-        if (!email || !lvccEmailRegex.test(email.toLowerCase())) { // <<< UPDATED CHECK
+        if (!email || !lvccEmailRegex.test(email.toLowerCase())) { 
             res.status(403); // Forbidden
             throw new Error('Access denied. Only La Verdad Christian College affiliated accounts are permitted.');
         }
 
         let admin = await Admin.findOne({ email: email.toLowerCase() });
 
-        if (admin) {
-            // Admin exists, login successful.
-            // Optionally, update their name or profile picture if it changed in Google
-            // admin.name = name; (if you want to sync name)
-            // admin.profilePictureUrl = picture; (if you have this field and want to sync)
-            // await admin.save(); // if updated
-        } else {
-            // Admin does not exist with this @lvcc.edu.ph email.
-            // Decision: Do we auto-create? For an admin panel, usually not.
-            // Let's assume for now that admins must be pre-registered or added manually.
-            // If auto-creation was desired:
-            // admin = await Admin.create({
-            //     email: email.toLowerCase(),
-            //     name: name, // Or a default name
-            //     // password: 'some-very-random-strong-password-not-used-for-login', // If password is required by model but won't be used for this login type
-            //     // profilePictureUrl: picture,
-            // });
-            // console.log(`New admin auto-created via Google Sign-In: ${email}`.green);
-
-            // For now, if admin doesn't exist, deny login.
-            res.status(403); // Forbidden, or 401 Unauthorized
+        if (!admin) {
+            res.status(403);
             throw new Error('Admin account not found. Please contact support if you believe this is an error.');
         }
 
-        // Generate your application's JWT for this admin
+        admin.name = name;
+        admin.profilePictureUrl = picture;
+        await admin.save();
+
+    // Generate your application's JWT for this admin
         const appToken = generateToken(admin._id);
 
         res.status(200).json({
             success: true,
             message: 'Google Sign-In successful.',
-            token: appToken, // Your application's JWT
+        token: appToken, // Your application's JWT
             admin: {
                 _id: admin._id,
                 name: admin.name,
                 email: admin.email,
-                // profilePictureUrl: admin.profilePictureUrl, // if you have this field
+                profilePictureUrl: admin.profilePictureUrl
             },
         });
 
@@ -294,9 +277,10 @@ const googleLogin = asyncHandler(async (req, res, next) => {
         if (!res.headersSent) { // If we haven't already sent a response
             res.status(error.statusCode || 500);
         }
-        throw error; // Let asyncHandler pass it to your global errorHandler
+    throw error; // Let asyncHandler pass it to your global errorHandler
     }
 });
+
 
 // @desc    Change admin password while logged in
 // @route   PUT /api/v1/auth/change-password
@@ -313,7 +297,7 @@ const changePassword = asyncHandler(async (req, res, next) => {
         res.status(400);
         throw new Error('New password must be at least 6 characters long.');
     }
-    
+
     // --- THIS IS THE NEW CHECK ---
     if (oldPassword === newPassword) {
         res.status(400);

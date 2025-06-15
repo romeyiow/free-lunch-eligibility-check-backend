@@ -26,7 +26,6 @@ const adminSchema = new mongoose.Schema(
             minlength: [6, 'Password must be at least 6 characters long'],
             select: false,
         },
-        // New fields for password reset
         passwordResetToken: {
             type: String,
             select: false, // Usually, we don't want to send this out unless specifically requested
@@ -35,6 +34,10 @@ const adminSchema = new mongoose.Schema(
             type: Date,
             select: false,
         },
+           profilePictureUrl: {
+            type: String,
+            trim: true,
+        }
         // role: {
         //   type: String,
         //   enum: ['admin', 'superadmin'],
