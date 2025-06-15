@@ -98,7 +98,7 @@ const requestPasswordReset = asyncHandler(async (req, res, next) => {
         console.log(`Password reset requested for non-existent or non-admin email: ${email}`.yellow);
         return res.status(200).json({
             success: true,
-        message: 'If an account with that email exists, instructions to reset your password have been sent.',
+            message: 'If an account with that email exists, instructions to reset your password have been sent.',
         });
     }
 
@@ -235,7 +235,7 @@ const googleLogin = asyncHandler(async (req, res, next) => {
         // --- Custom Logic: Find or Create Admin based on Google Email ---
         const lvccEmailRegex = /.+@(student\.)?laverdad\.edu\.ph$/i; // Case insensitive
 
-        if (!email || !lvccEmailRegex.test(email.toLowerCase())) { 
+        if (!email || !lvccEmailRegex.test(email.toLowerCase())) {
             res.status(403); // Forbidden
             throw new Error('Access denied. Only La Verdad Christian College affiliated accounts are permitted.');
         }
@@ -247,17 +247,18 @@ const googleLogin = asyncHandler(async (req, res, next) => {
             throw new Error('Admin account not found. Please contact support if you believe this is an error.');
         }
 
+        const highResPictureUrl = picture ? picture.replace('=s96-c', '=s256-c') : null;
         admin.name = name;
-        admin.profilePictureUrl = picture;
+        admin.profilePictureUrl = highResPictureUrl; // Save the new URL
         await admin.save();
 
-    // Generate your application's JWT for this admin
+        // Generate your application's JWT for this admin
         const appToken = generateToken(admin._id);
 
         res.status(200).json({
             success: true,
             message: 'Google Sign-In successful.',
-        token: appToken, // Your application's JWT
+            token: appToken, // Your application's JWT
             admin: {
                 _id: admin._id,
                 name: admin.name,
@@ -277,7 +278,7 @@ const googleLogin = asyncHandler(async (req, res, next) => {
         if (!res.headersSent) { // If we haven't already sent a response
             res.status(error.statusCode || 500);
         }
-    throw error; // Let asyncHandler pass it to your global errorHandler
+        throw error; // Let asyncHandler pass it to your global errorHandler
     }
 });
 
@@ -298,13 +299,10 @@ const changePassword = asyncHandler(async (req, res, next) => {
         throw new Error('New password must be at least 6 characters long.');
     }
 
-    // --- THIS IS THE NEW CHECK ---
     if (oldPassword === newPassword) {
         res.status(400);
         throw new Error('New password cannot be the same as the old password.');
     }
-    // ----------------------------
-
     const admin = await Admin.findById(req.admin._id).select('+password');
 
     if (!admin) {
