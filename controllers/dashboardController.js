@@ -74,7 +74,7 @@ const getPerformanceSummary = asyncHandler(async (req, res) => {
 
     switch (filterPeriod.toLowerCase()) {
         case 'daily': {
-            const weekRange = getPeriodRange('weekly'); // Get current week
+            const weekRange = getPeriodRange('weekly');
             const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
             for (let i = 0; i < 7; i++) {
                 const currentDay = new Date(weekRange.startDate);
@@ -85,13 +85,20 @@ const getPerformanceSummary = asyncHandler(async (req, res) => {
             break;
         }
         case 'weekly': {
-            const monthRange = getPeriodRange('monthly'); // Get current month
+            const monthRange = getPeriodRange('monthly');
             let weekStart = new Date(monthRange.startDate);
             let weekCounter = 1;
             while (weekStart <= monthRange.endDate) {
                 const weekRange = getPeriodRange('weekly', weekStart.toISOString());
                 const summary = await calculateSummaryForSinglePeriod(weekRange.startDate, weekRange.endDate);
-                responseData.push({ id: `week-${weekCounter}`, name: `Week ${weekCounter}`, ...summary });
+                
+                // THIS IS THE FIX: The ID is now the actual start date of the week.
+                responseData.push({ 
+                    id: weekRange.startDate.toISOString().split('T')[0], 
+                    name: `Week ${weekCounter}`, 
+                    ...summary 
+                });
+                
                 weekStart.setUTCDate(weekStart.getUTCDate() + 7);
                 weekCounter++;
             }
@@ -103,7 +110,7 @@ const getPerformanceSummary = asyncHandler(async (req, res) => {
                 const monthRange = getPeriodRange('monthly', `${year}-${m + 1}`);
                 const summary = await calculateSummaryForSinglePeriod(monthRange.startDate, monthRange.endDate);
                 const monthName = new Date(Date.UTC(year, m)).toLocaleString('en-US', { month: 'long', timeZone: 'UTC' });
-                responseData.push({ id: `${year}-${m + 1}`, name: monthName, ...summary });
+                responseData.push({ id: `${year}-${m+1}`, name: monthName, ...summary });
             }
             break;
         }
