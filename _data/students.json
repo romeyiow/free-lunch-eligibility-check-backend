@@ -1,1202 +1,1352 @@
 [
   {
-    "studentIdNumber": "25-52230SST",
-    "name": "Sheila Senger",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-22400CSG",
-    "name": "Casimir Swift",
-    "program": "BSAIS",
-    "yearLevel": 4,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-18146TKT",
-    "name": "Trystan Kuvalis",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-43629DBL",
-    "name": "Donnell Bednar",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-53844WHZ",
-    "name": "Winfield Harvey",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-17194DHZ",
-    "name": "Delpha Halvorson-Gutmann",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-61445APJ",
-    "name": "Adrain Pfannerstill",
-    "program": "BSSW",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-59623ACQ",
-    "name": "Aniya Cummerata",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-80344RFV",
-    "name": "Ryleigh Farrell",
+    "studentIdNumber": "25-71992JHI",
+    "name": "Jennifer Hilpert-Stroman",
+    "email": "jenniferhilpert-stroman@student.laverdad.edu.ph",
     "program": "BSIS",
     "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-17297KHH",
-    "name": "Kaleigh Hammes",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-47568EEM",
-    "name": "Eldora Emard",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-68478DWY",
-    "name": "Damion Weber",
-    "program": "BAB",
-    "yearLevel": 2,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-48006NGE",
-    "name": "Nathanael Gulgowski",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-77726PJX",
-    "name": "Penelope Jacobson",
-    "program": "BSIS",
-    "yearLevel": 4,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-57024FBV",
-    "name": "Fabiola Barrows",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-47105MRG",
-    "name": "Meggie Rolfson",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-22463ZKG",
-    "name": "Zola Kreiger",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-76103JEQ",
-    "name": "Jarret Erdman",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-71486JHL",
-    "name": "Jazmyne Harber",
-    "program": "BSAIS",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-25467BJZ",
-    "name": "Bulah Jaskolski",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-69926THQ",
-    "name": "Therese Heller",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-30988OHU",
-    "name": "Ora Hills",
-    "program": "BSSW",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-03046BFH",
-    "name": "Beau Feil",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-10302MSA",
-    "name": "Mitchell Schinner-Denesik",
-    "program": "BSA",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-92160BJG",
-    "name": "Briana Jacobson",
-    "program": "BSA",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-55012ABF",
-    "name": "Alanis Bartell",
-    "program": "BSA",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-99902OAQ",
-    "name": "Ocie Ankunding",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-39439JCW",
-    "name": "Judson Crooks",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-81970CJO",
-    "name": "Constantin Johnston",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-58098WGH",
-    "name": "Wilmer Gerhold",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-23385SJI",
-    "name": "Schuyler Jakubowski",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-46853JSM",
-    "name": "Jordyn Sipes",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-38797TRM",
-    "name": "Taya Runte",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-42953GKT",
-    "name": "Gunnar Klocko",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-32009DLZ",
-    "name": "Dewayne Lockman",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-50141JHG",
-    "name": "Jedediah Howe",
-    "program": "BSAIS",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-68104DSL",
-    "name": "Dewitt Sauer",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-74329DMK",
-    "name": "Destini Mayert",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-41904WDO",
-    "name": "Willy Daniel-Rogahn",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-05482BSW",
-    "name": "Bud Smitham",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-81476GTI",
-    "name": "Gilbert Torp",
-    "program": "BSSW",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-91702HKC",
-    "name": "Haley Kassulke",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-57709FRZ",
-    "name": "Freddy Reilly",
-    "program": "BSSW",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-09380CHW",
-    "name": "Casimer Heller-Swift",
-    "program": "BSAIS",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-51886TMC",
-    "name": "Tatyana McKenzie",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-67625JCA",
-    "name": "Jalon Collins-Funk",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-59011KOZ",
-    "name": "Kade O'Hara",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-35992RRJ",
-    "name": "Ramiro Reynolds",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-68466CSN",
-    "name": "Candelario Schimmel",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-94214VBX",
-    "name": "Vilma Botsford",
-    "program": "BSIS",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-66394LER",
-    "name": "Lonny Erdman",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-63492ARP",
-    "name": "Adelia Rath",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-43124LKQ",
-    "name": "Lyda Keeling",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-07225JPV",
-    "name": "Jeremie Prosacco",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-70099KHJ",
-    "name": "Kariane Hagenes",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-77476WHH",
-    "name": "Wiley Howe",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-49770BLF",
-    "name": "Brock Lueilwitz",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-66791KPC",
-    "name": "Karen Predovic",
-    "program": "BSSW",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-71252TSR",
-    "name": "Troy Schulist",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-83992BSF",
-    "name": "Brice Simonis",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-46765GLC",
-    "name": "Gerald Leannon",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-96936LKD",
-    "name": "Lexie Koelpin",
-    "program": "BSA",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-45794BBL",
-    "name": "Bell Barton",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-10685SGC",
-    "name": "Shana Gorczany",
-    "program": "BSA",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-22218DUQ",
-    "name": "Dolly Upton",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-39976KDG",
-    "name": "Keven Denesik",
-    "program": "BSIS",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-38669CSF",
-    "name": "Cortney Stokes",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-67780KSF",
-    "name": "Kenton Schaden",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-86429SDM",
-    "name": "Sylvester Dooley",
-    "program": "BSA",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-61642FSQ",
-    "name": "Frieda Satterfield",
-    "program": "BSAIS",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-21339RAS",
-    "name": "Robin Abshire",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-13742CBS",
-    "name": "Cathryn Bogisich",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-04706AMS",
-    "name": "Art Macejkovic",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-48334LRA",
-    "name": "Lupe Reinger",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-40357KRK",
-    "name": "Kane Rath",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-04308AKD",
-    "name": "Anjali Kris",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-64030KBQ",
-    "name": "Kenna Bartell",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-16970MRJ",
-    "name": "Murl Reinger",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-71983BMK",
-    "name": "Bruce McGlynn",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-27223LVO",
-    "name": "Ladarius Veum",
-    "program": "BSSW",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-98184RCM",
-    "name": "Robert Cummerata",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-91605APA",
-    "name": "Armand Prosacco",
-    "program": "BSA",
-    "yearLevel": 3,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-20632KKE",
-    "name": "Kurtis Kemmer",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-43696RMY",
-    "name": "Rhianna Miller",
-    "program": "BSAIS",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-92641BWG",
-    "name": "Bradford Willms",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-50556ITA",
-    "name": "Isac Treutel",
-    "program": "BSAIS",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-47812VSU",
-    "name": "Valentin Shanahan",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-52432KRC",
-    "name": "Kayli Ryan",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-00018CNM",
-    "name": "Caitlyn Nikolaus",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-79997MHP",
-    "name": "Mariela Hammes",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-09021GHQ",
-    "name": "Gunnar Hettinger",
-    "program": "BSIS",
-    "yearLevel": 4,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-98379HGR",
-    "name": "Hal Gutkowski",
+    "studentIdNumber": "25-96350FKC",
+    "name": "Fanny Kuvalis-Howe",
+    "email": "fannykuvalis-howe@student.laverdad.edu.ph",
     "program": "BAB",
     "yearLevel": 1,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-78971YHP",
-    "name": "Yasmeen Hyatt",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-45571BTP",
-    "name": "Bryon Trantow",
-    "program": "BSSW",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-37308DPU",
-    "name": "Dudley Purdy",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-64368KBV",
-    "name": "Keagan Botsford",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-57189FSF",
-    "name": "Fabian Swaniawski",
-    "program": "BSSW",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-61895SKX",
-    "name": "Shea Kreiger-Doyle",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-10816MBQ",
-    "name": "Milan Bins",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-96177ABR",
-    "name": "Albina Barton",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-53873ZAQ",
-    "name": "Zachariah Armstrong",
-    "program": "BAB",
-    "yearLevel": 4,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-52132NML",
-    "name": "Nikki Mayert",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-91408MYU",
-    "name": "Maeve Yundt",
+    "studentIdNumber": "25-67851ZMW",
+    "name": "Zackary Mayert",
+    "email": "zackarymayert@student.laverdad.edu.ph",
     "program": "BSA",
     "yearLevel": 2,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-76360MTH",
-    "name": "Madyson Tremblay",
-    "program": "BSAIS",
+    "studentIdNumber": "25-29484PLD",
+    "name": "Paxton Little",
+    "email": "paxtonlittle@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-38994ESV",
+    "name": "Eudora Sanford",
+    "email": "eudorasanford@student.laverdad.edu.ph",
+    "program": "BAB",
     "yearLevel": 4,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-37758OSJ",
-    "name": "Ona Schowalter",
+    "studentIdNumber": "25-94557JKW",
+    "name": "Jaleel Koss",
+    "email": "jaleelkoss@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-55756PDM",
+    "name": "Pat Dickens",
+    "email": "patdickens@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-65201IZH",
+    "name": "Issac Zulauf",
+    "email": "issaczulauf@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-99718MKN",
+    "name": "Marquis Klein",
+    "email": "marquisklein@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-44118GWS",
+    "name": "Garrick Witting",
+    "email": "garrickwitting@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-02623RLY",
+    "name": "Rollin Lind",
+    "email": "rollinlind@student.laverdad.edu.ph",
     "program": "BAB",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-91691EEW",
+    "name": "Elwyn Effertz",
+    "email": "elwyneffertz@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-82214AMH",
+    "name": "Alisha Marquardt",
+    "email": "alishamarquardt@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-67220EHH",
+    "name": "Elizabeth Hauck",
+    "email": "elizabethhauck@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-78540BBF",
+    "name": "Barton Bode",
+    "email": "bartonbode@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-84088DLI",
+    "name": "David Lindgren",
+    "email": "davidlindgren@student.laverdad.edu.ph",
+    "program": "BSA",
     "yearLevel": 1,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-91385MHH",
-    "name": "Melvin Haley-Nitzsche",
+    "studentIdNumber": "25-31777AZS",
+    "name": "Adell Zulauf",
+    "email": "adellzulauf@student.laverdad.edu.ph",
     "program": "BSAIS",
-    "yearLevel": 4,
+    "yearLevel": 3,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-79705LCE",
-    "name": "Lauriane Conroy",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "B",
+    "studentIdNumber": "25-77072MHN",
+    "name": "Mac Homenick",
+    "email": "machomenick@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-97999LBS",
-    "name": "Leila Bogan",
-    "program": "BSIS",
+    "studentIdNumber": "25-97887EMG",
+    "name": "Efren McClure",
+    "email": "efrenmcclure@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-29422SPZ",
+    "name": "Sam Pacocha-Champlin",
+    "email": "sampacocha-champlin@student.laverdad.edu.ph",
+    "program": "BAB",
     "yearLevel": 1,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-79230ZEH",
-    "name": "Zachary Emmerich",
+    "studentIdNumber": "25-13384FTO",
+    "name": "Fabiola Torp",
+    "email": "fabiolatorp@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-61957LFD",
+    "name": "Lindsay Feeney",
+    "email": "lindsayfeeney@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-20876LHB",
+    "name": "Lacey Hettinger",
+    "email": "laceyhettinger@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-20891LRK",
+    "name": "Lincoln Ratke",
+    "email": "lincolnratke@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-61466SMC",
+    "name": "Sophie Murray-Effertz",
+    "email": "sophiemurray-effertz@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-16990PGW",
+    "name": "Percy Gleichner",
+    "email": "percygleichner@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-68242LCD",
+    "name": "Leilani Cronin",
+    "email": "leilanicronin@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-94139ASU",
+    "name": "Arno Satterfield",
+    "email": "arnosatterfield@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-02582JRR",
+    "name": "Jaydon Runolfsson",
+    "email": "jaydonrunolfsson@student.laverdad.edu.ph",
     "program": "ACT",
     "yearLevel": 1,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-28139EHQ",
-    "name": "Emmett Homenick",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-88060NHE",
-    "name": "Nick Hirthe",
-    "program": "BSSW",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-40610BKC",
-    "name": "Brayan King",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-18253AOY",
-    "name": "Ashleigh Ondricka-Davis",
+    "studentIdNumber": "25-00155EKG",
+    "name": "Enrique Kunze",
+    "email": "enriquekunze@student.laverdad.edu.ph",
     "program": "BAB",
-    "yearLevel": 4,
-    "section": "D",
+    "yearLevel": 1,
+    "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-35580DRC",
-    "name": "Destin Rippin-Boyer",
+    "studentIdNumber": "25-37816DHC",
+    "name": "Delaney Homenick",
+    "email": "delaneyhomenick@student.laverdad.edu.ph",
     "program": "BSIS",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-89709ALZ",
-    "name": "Ahmad Lebsack",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-95904FSE",
-    "name": "Faye Schimmel",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "C",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-78803BSG",
-    "name": "Brandyn Schumm",
-    "program": "BSAIS",
-    "yearLevel": 2,
+    "yearLevel": 3,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-52948OSF",
-    "name": "Octavia Schoen",
+    "studentIdNumber": "25-54385ABU",
+    "name": "Angelo Bauch",
+    "email": "angelobauch@student.laverdad.edu.ph",
     "program": "BSA",
     "yearLevel": 1,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-69713NCO",
-    "name": "Nicholaus Crist",
-    "program": "BSIS",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-68270ACC",
-    "name": "Arianna Corkery",
-    "program": "BSSW",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-93623BVI",
-    "name": "Burnice VonRueden",
+    "studentIdNumber": "25-67769NWA",
+    "name": "Noah Welch",
+    "email": "noahwelch@student.laverdad.edu.ph",
     "program": "ACT",
     "yearLevel": 2,
-    "section": "B",
+    "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-99409AZY",
-    "name": "Albina Zulauf",
-    "program": "BSIS",
-    "yearLevel": 3,
-    "section": "B",
+    "studentIdNumber": "25-61180CBZ",
+    "name": "Charlene Bechtelar",
+    "email": "charlenebechtelar@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-62653AGU",
-    "name": "Allan Graham",
-    "program": "BAB",
+    "studentIdNumber": "25-21203VVQ",
+    "name": "Vella VonRueden",
+    "email": "vellavonrueden@student.laverdad.edu.ph",
+    "program": "ACT",
     "yearLevel": 1,
-    "section": "A",
+    "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-64692EBI",
-    "name": "Eulah Bruen",
-    "program": "BSIS",
-    "yearLevel": 4,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-27415DOA",
-    "name": "Daniela Ortiz",
+    "studentIdNumber": "25-01242VBI",
+    "name": "Vivian Bayer",
+    "email": "vivianbayer@student.laverdad.edu.ph",
     "program": "BSAIS",
     "yearLevel": 2,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-88299LMG",
-    "name": "Lulu Muller",
-    "program": "BAB",
-    "yearLevel": 2,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-86867TML",
-    "name": "Tracey Marquardt",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-07135VWK",
-    "name": "Viva Windler",
-    "program": "BSSW",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-48415SSG",
-    "name": "Stacy Stiedemann",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-92892BSA",
-    "name": "Bill Shields",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-85572LBU",
-    "name": "Loy Bahringer",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-80593VGE",
-    "name": "Virgie Gerlach",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-73992LVW",
-    "name": "Lawson Vandervort",
-    "program": "ACT",
-    "yearLevel": 1,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-44843BMC",
-    "name": "Bridie Murray",
-    "program": "BSAIS",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-11699DSS",
-    "name": "Darrion Schumm-Hahn",
-    "program": "BSAIS",
-    "yearLevel": 2,
-    "section": "D",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-15879RPN",
-    "name": "Ruben Pacocha",
+    "studentIdNumber": "25-65389ECI",
+    "name": "Elisa Corkery",
+    "email": "elisacorkery@student.laverdad.edu.ph",
     "program": "BSA",
-    "yearLevel": 1,
+    "yearLevel": 3,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-72087NAJ",
-    "name": "Nelson Aufderhar-Kris",
-    "program": "ACT",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-37303AGQ",
-    "name": "Annie Greenholt",
+    "studentIdNumber": "25-25186TSP",
+    "name": "Troy Smith",
+    "email": "troysmith@student.laverdad.edu.ph",
     "program": "BSA",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-75278HJI",
+    "name": "Hailie Jakubowski",
+    "email": "hailiejakubowski@student.laverdad.edu.ph",
+    "program": "ACT",
     "yearLevel": 1,
     "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-65176AGP",
-    "name": "Anastasia Goyette",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-97522RTG",
-    "name": "Rahul Trantow",
-    "program": "BAB",
-    "yearLevel": 1,
-    "section": "B",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-89927KSN",
-    "name": "Kiara Spencer",
+    "studentIdNumber": "25-45817KSL",
+    "name": "Kelley Schmitt",
+    "email": "kelleyschmitt@student.laverdad.edu.ph",
     "program": "BSSW",
     "yearLevel": 4,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-43245EHN",
-    "name": "Elian Howe",
-    "program": "BSSW",
+    "studentIdNumber": "25-14606TWF",
+    "name": "Tracey Walker",
+    "email": "traceywalker@student.laverdad.edu.ph",
+    "program": "BSA",
     "yearLevel": 1,
-    "section": "A",
+    "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-87632COH",
-    "name": "Clarabelle O'Conner",
+    "studentIdNumber": "25-71657SAI",
+    "name": "Sydni Anderson",
+    "email": "sydnianderson@student.laverdad.edu.ph",
     "program": "BSIS",
     "yearLevel": 4,
     "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-78508ECH",
-    "name": "Electa Conroy",
+    "studentIdNumber": "25-17741PRS",
+    "name": "Pearlie Raynor",
+    "email": "pearlieraynor@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-81414CJR",
+    "name": "Ceasar Jaskolski",
+    "email": "ceasarjaskolski@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-60829EKZ",
+    "name": "Elena Kuhlman",
+    "email": "elenakuhlman@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-43498GCR",
+    "name": "Golda Casper",
+    "email": "goldacasper@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-89609LLM",
+    "name": "Lavada Little",
+    "email": "lavadalittle@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-00484CMF",
+    "name": "Cornelius Mohr",
+    "email": "corneliusmohr@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-76438CGM",
+    "name": "Colton Gerlach",
+    "email": "coltongerlach@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-92630DBZ",
+    "name": "Daren Brakus",
+    "email": "darenbrakus@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-93975SKT",
+    "name": "Sunny Kshlerin",
+    "email": "sunnykshlerin@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-10107DMU",
+    "name": "Darrion Morar",
+    "email": "darrionmorar@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-78411MLG",
+    "name": "Mathew Littel",
+    "email": "mathewlittel@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-12453IRX",
+    "name": "Isobel Rowe",
+    "email": "isobelrowe@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-75049ICT",
+    "name": "Irving Connelly-Stanton",
+    "email": "irvingconnelly-stanton@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-54037ECA",
+    "name": "Elta Cronin",
+    "email": "eltacronin@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-30945SPH",
+    "name": "Stefan Prohaska",
+    "email": "stefanprohaska@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-55014IAU",
+    "name": "Isaac Abernathy",
+    "email": "isaacabernathy@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-90994BRP",
+    "name": "Brittany Rau",
+    "email": "brittanyrau@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-05741NSM",
+    "name": "Ned Schultz",
+    "email": "nedschultz@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-37485MRX",
+    "name": "Maverick Rice",
+    "email": "maverickrice@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-19858BRE",
+    "name": "Bette Runte",
+    "email": "betterunte@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-69510MPR",
+    "name": "Marcella Purdy",
+    "email": "marcellapurdy@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-81235RLD",
+    "name": "Rosanna Lubowitz",
+    "email": "rosannalubowitz@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-63779BFK",
+    "name": "Barbara Fadel",
+    "email": "barbarafadel@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-65361AME",
+    "name": "Abelardo Murphy",
+    "email": "abelardomurphy@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-87409KTG",
+    "name": "Katarina Tromp",
+    "email": "katarinatromp@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-49038SJC",
+    "name": "Syble Johnson",
+    "email": "syblejohnson@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-13482KSM",
+    "name": "Kira Schowalter",
+    "email": "kiraschowalter@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-59592GAT",
+    "name": "Garth Ankunding",
+    "email": "garthankunding@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-00710NHO",
+    "name": "Natalia Haag",
+    "email": "nataliahaag@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-42289CVN",
+    "name": "Constance Veum",
+    "email": "constanceveum@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-18568KGH",
+    "name": "Kyla Gulgowski-Cormier",
+    "email": "kylagulgowski-cormier@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-51769RRF",
+    "name": "Remington Rosenbaum",
+    "email": "remingtonrosenbaum@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-64231JKG",
+    "name": "Jacinthe Kozey-Huels",
+    "email": "jacinthekozey-huels@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-60983MSL",
+    "name": "Mustafa Swift",
+    "email": "mustafaswift@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-95166CBS",
+    "name": "Celia Beier",
+    "email": "celiabeier@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-47143FBJ",
+    "name": "Fatima Bednar",
+    "email": "fatimabednar@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-42715RZR",
+    "name": "Rosella Zieme",
+    "email": "rosellazieme@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-02898SBS",
+    "name": "Sydnie Beier",
+    "email": "sydniebeier@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-51546RHB",
+    "name": "Rogelio Heathcote",
+    "email": "rogelioheathcote@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-49432HKV",
+    "name": "Hassan Kertzmann",
+    "email": "hassankertzmann@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-17697MAZ",
+    "name": "Maritza Auer",
+    "email": "maritzaauer@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-59078BLW",
+    "name": "Bette Leffler",
+    "email": "betteleffler@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-56476RJG",
+    "name": "Ruby Jones",
+    "email": "rubyjones@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-52830RMA",
+    "name": "Ron Mayert",
+    "email": "ronmayert@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-10077BWE",
+    "name": "Bill Wehner",
+    "email": "billwehner@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-73146HSU",
+    "name": "Hayden Schimmel",
+    "email": "haydenschimmel@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-23031CKY",
+    "name": "Cydney Keeling",
+    "email": "cydneykeeling@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-54229ELM",
+    "name": "Elinore Littel",
+    "email": "elinorelittel@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-22727AVB",
+    "name": "Ashley Von",
+    "email": "ashleyvon@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-22661RWB",
+    "name": "Ransom Walsh",
+    "email": "ransomwalsh@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-64592VRH",
+    "name": "Valentin Rice",
+    "email": "valentinrice@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-76332GRN",
+    "name": "Gianni Reynolds",
+    "email": "giannireynolds@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-91752LWR",
+    "name": "Lacey Wiza",
+    "email": "laceywiza@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-42204TLI",
+    "name": "Tristin Lubowitz",
+    "email": "tristinlubowitz@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-86975LBA",
+    "name": "Leopold Bernier",
+    "email": "leopoldbernier@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-37508JKB",
+    "name": "Joan Kautzer",
+    "email": "joankautzer@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-12577DCH",
+    "name": "Darrick Considine",
+    "email": "darrickconsidine@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-73735ENF",
+    "name": "Erica Nikolaus",
+    "email": "ericanikolaus@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-09367TBQ",
+    "name": "Triston Becker",
+    "email": "tristonbecker@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-41587FLE",
+    "name": "Fatima Langosh",
+    "email": "fatimalangosh@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-21387MRO",
+    "name": "Mariah Romaguera-Sipes",
+    "email": "mariahromaguera-sipes@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-65834NLN",
+    "name": "Nyah Larson",
+    "email": "nyahlarson@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-08950USB",
+    "name": "Ulices Schumm",
+    "email": "ulicesschumm@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-34446MCR",
+    "name": "Mona Cummerata",
+    "email": "monacummerata@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-28773MKB",
+    "name": "Mafalda Kautzer",
+    "email": "mafaldakautzer@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-14787STH",
+    "name": "Sienna Toy",
+    "email": "siennatoy@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-13522AME",
+    "name": "Aylin Mosciski",
+    "email": "aylinmosciski@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-66914JPW",
+    "name": "Johan Prosacco",
+    "email": "johanprosacco@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-74394MKV",
+    "name": "Mario Kuhic-Bailey",
+    "email": "mariokuhic-bailey@student.laverdad.edu.ph",
     "program": "BAB",
     "yearLevel": 2,
     "section": "C",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-96611GLO",
-    "name": "Gwen Larson",
+    "studentIdNumber": "25-97024SMR",
+    "name": "Sydnee Marquardt",
+    "email": "sydneemarquardt@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-66754CKF",
+    "name": "Camilla Kunde",
+    "email": "camillakunde@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-14562DGU",
+    "name": "Dawn Grady",
+    "email": "dawngrady@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 3,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-39594AMW",
+    "name": "Ana Moen",
+    "email": "anamoen@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-01827ACF",
+    "name": "Alfreda Champlin",
+    "email": "alfredachamplin@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-83299LSE",
+    "name": "Lonie Stamm",
+    "email": "loniestamm@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-16647BHM",
+    "name": "Betty Hessel",
+    "email": "bettyhessel@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-52351MTT",
+    "name": "Mustafa Towne",
+    "email": "mustafatowne@student.laverdad.edu.ph",
+    "program": "BAB",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-36796MBI",
+    "name": "Maximo Bailey",
+    "email": "maximobailey@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-14319CBQ",
+    "name": "Cayla Block",
+    "email": "caylablock@student.laverdad.edu.ph",
     "program": "BSIS",
     "yearLevel": 2,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-70618HDY",
-    "name": "Heber Dibbert",
+    "studentIdNumber": "25-93163ABH",
+    "name": "Aric Berge",
+    "email": "aricberge@student.laverdad.edu.ph",
     "program": "ACT",
+    "yearLevel": 1,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-40947DHG",
+    "name": "Dan Heathcote",
+    "email": "danheathcote@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-40115RWT",
+    "name": "Rebecca Wisozk",
+    "email": "rebeccawisozk@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-28222YSH",
+    "name": "Yolanda Streich",
+    "email": "yolandastreich@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-12275MMN",
+    "name": "Mustafa Marks",
+    "email": "mustafamarks@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-61066MTS",
+    "name": "Marianne Towne",
+    "email": "mariannetowne@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-55957JST",
+    "name": "Jayce Steuber",
+    "email": "jaycesteuber@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-12936CJW",
+    "name": "Cathryn Jerde",
+    "email": "cathrynjerde@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-32790PHQ",
+    "name": "Patrick Howe",
+    "email": "patrickhowe@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-37715FKV",
+    "name": "Flossie Koelpin",
+    "email": "flossiekoelpin@student.laverdad.edu.ph",
+    "program": "BSSW",
     "yearLevel": 1,
     "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-80742PHW",
-    "name": "Pattie Huels",
-    "program": "BAB",
-    "yearLevel": 3,
-    "section": "A",
+    "studentIdNumber": "25-72926AKY",
+    "name": "Alaina Kutch",
+    "email": "alainakutch@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 4,
+    "section": "D",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-63356KAA",
-    "name": "Kiley Anderson",
+    "studentIdNumber": "25-36043LTX",
+    "name": "Lora Turner",
+    "email": "loraturner@student.laverdad.edu.ph",
     "program": "BSA",
-    "yearLevel": 2,
-    "section": "A",
+    "yearLevel": 3,
+    "section": "B",
     "profilePictureUrl": "/images/default-avatar.png"
   },
   {
-    "studentIdNumber": "25-60595KRS",
-    "name": "Kiera Rohan",
-    "program": "BSIS",
-    "yearLevel": 2,
-    "section": "A",
-    "profilePictureUrl": "/images/default-avatar.png"
-  },
-  {
-    "studentIdNumber": "25-23101VHS",
-    "name": "Viola Harvey",
+    "studentIdNumber": "25-55871TAL",
+    "name": "Tre Adams",
+    "email": "treadams@student.laverdad.edu.ph",
     "program": "BSAIS",
     "yearLevel": 3,
     "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-52091EOE",
+    "name": "Edgardo O'Keefe",
+    "email": "edgardoo'keefe@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-85333DSH",
+    "name": "Domingo Stark",
+    "email": "domingostark@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 4,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-31297KJF",
+    "name": "Kole Jerde",
+    "email": "kolejerde@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-97931SBG",
+    "name": "Simeon Bechtelar",
+    "email": "simeonbechtelar@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-99251DSR",
+    "name": "Dejuan Satterfield",
+    "email": "dejuansatterfield@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-65366PCU",
+    "name": "Price Corwin",
+    "email": "pricecorwin@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-73651EKB",
+    "name": "Effie Keebler",
+    "email": "effiekeebler@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 2,
+    "section": "D",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-38109KWO",
+    "name": "Kole Ward",
+    "email": "koleward@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 3,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-01427ARY",
+    "name": "Alicia Runte",
+    "email": "aliciarunte@student.laverdad.edu.ph",
+    "program": "BSAIS",
+    "yearLevel": 1,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-93708TKK",
+    "name": "Teagan Kuphal",
+    "email": "teagankuphal@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-83995DKO",
+    "name": "Darryl Keeling",
+    "email": "darrylkeeling@student.laverdad.edu.ph",
+    "program": "BSIS",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-37369EGK",
+    "name": "Edd Greenholt",
+    "email": "eddgreenholt@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-34231NGN",
+    "name": "Norbert Gislason",
+    "email": "norbertgislason@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 2,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-54483OWG",
+    "name": "Oswaldo Wuckert",
+    "email": "oswaldowuckert@student.laverdad.edu.ph",
+    "program": "BSA",
+    "yearLevel": 4,
+    "section": "A",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-57788EMT",
+    "name": "Eliseo Murray",
+    "email": "eliseomurray@student.laverdad.edu.ph",
+    "program": "BSSW",
+    "yearLevel": 2,
+    "section": "B",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "studentIdNumber": "25-59727EWE",
+    "name": "Ellen Wilderman",
+    "email": "ellenwilderman@student.laverdad.edu.ph",
+    "program": "ACT",
+    "yearLevel": 1,
+    "section": "A",
     "profilePictureUrl": "/images/default-avatar.png"
   }
 ]

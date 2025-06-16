@@ -2,23 +2,19 @@ const fs = require('fs');
 const path = require('path');
 const { faker } = require('@faker-js/faker');
 
-// --- Load programs from our single source of truth ---
 const programsFilePath = path.join(__dirname, '_data', 'programs.json');
 let ALLOWED_PROGRAMS = [];
 try {
     const programsData = fs.readFileSync(programsFilePath, 'utf-8');
     const programs = JSON.parse(programsData);
-    ALLOWED_PROGRAMS = programs.map(p => p.name); // Extract just the names (e.g., "BSIS")
+    ALLOWED_PROGRAMS = programs.map(p => p.name);
 } catch (error) {
     console.error(`Error: Could not read or parse programs.json at ${programsFilePath}`.red.bold);
-    console.error("Please ensure the file exists and is valid before generating students.".red);
-    process.exit(1); // Exit if programs can't be loaded
+    process.exit(1);
 }
-// ----------------------------------------------------
 
 const SECTIONS = ['A', 'B', 'C', 'D'];
 const NUM_STUDENTS = 150;
-
 const students = [];
 const usedStudentNumbers = new Set();
 
@@ -28,6 +24,11 @@ for (let i = 0; i < NUM_STUDENTS; i++) {
     const firstName = faker.person.firstName();
     const lastName = faker.person.lastName();
     const fullName = `${firstName} ${lastName}`;
+    
+    // --- THIS IS THE NEW LOGIC FOR EMAIL ---
+    const emailName = (firstName + lastName).replace(/\s+/g, '').toLowerCase();
+    const email = `${emailName}@student.laverdad.edu.ph`;
+    // -----------------------------------------
     
     const firstInitial = firstName.charAt(0).toUpperCase();
     const lastInitial = lastName.charAt(0).toUpperCase();
@@ -56,6 +57,7 @@ for (let i = 0; i < NUM_STUDENTS; i++) {
     students.push({
         studentIdNumber,
         name: fullName,
+        email: email, // Add the email field
         program,
         yearLevel,
         section,

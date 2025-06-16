@@ -19,7 +19,6 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
     const student = await Student.findOne({ studentIdNumber: studentIdNumber.trim() });
 
     if (!student) {
-        // Log the failed attempt first. This will now succeed because the model is fixed.
         await MealRecord.create({
             student: null,
             studentIdNumber: studentIdNumber.trim(),
@@ -28,8 +27,6 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
             dateChecked: new Date(),
             status: 'INELIGIBLE_STUDENT_NOT_FOUND',
         });
-
-        // Now, send the clean, user-friendly 404 response.
         return res.status(404).json({
             success: false,
             reason: "Student ID not found in masterlist."
@@ -55,6 +52,12 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
         status: mealRecordStatus,
     });
 
+    // --- THIS IS THE NEW LOGIC ---
+    // Create a dynamic avatar URL using the student's name.
+    const studentNameForAvatar = encodeURIComponent(student.name);
+    const dynamicAvatarUrl = `https://ui-avatars.com/api/?name=${studentNameForAvatar}&size=256&background=random&color=fff`;
+    // ----------------------------
+
     res.status(200).json({
         success: true,
         studentInfo: {
@@ -63,7 +66,7 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
             program: student.program,
             year: student.yearLevel,
             section: student.section || "N/A",
-            profilePictureUrl: student.profilePictureUrl,
+            profilePictureUrl: dynamicAvatarUrl, // Use the new dynamic URL
         },
         eligibilityStatus: isEligibleToday,
         reason: isEligibleToday ? "Eligible for meal." : `Not scheduled for eligibility on ${currentDay}.`,
