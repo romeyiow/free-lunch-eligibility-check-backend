@@ -14,15 +14,13 @@ const studentSchema = new mongoose.Schema(
             required: [true, 'Please add a student name'],
             trim: true,
         },
-        // --- NEW FIELD ---
         email: {
             type: String,
-            required: [true, 'Please add an email'],
+            required: [false, 'Please add an email'],
             unique: true,
             lowercase: true,
             trim: true,
         },
-        // -----------------
         program: {
             type: String,
             required: [true, 'Please specify the program'],
