@@ -14,36 +14,29 @@ const firebaseAdmin = require('../config/firebaseAdmin');
 const loginAdmin = async (req, res, next) => {
     const { email, password } = req.body;
 
-    // Basic Validation: Check if email and password exist
     if (!email || !password) {
-        res.status(400); // Bad Request
+        res.status(400);
         return next(new Error('Please provide both email and password'));
-        // Using return next(error) is better than just throwing error in async functions without asyncHandler
     }
 
-    // Find admin by email - use select('+password') to explicitly include the password field
-    // which we excluded by default in the AdminModel schema (select: false)
     const admin = await Admin.findOne({ email: email.toLowerCase() }).select('+password');
 
-    // Check if admin exists and if password matches
     if (admin && (await admin.matchPassword(password))) {
-        // Password matches - generate token
         const token = generateToken(admin._id);
 
-        // Send response with user info (excluding password) and token
         res.status(200).json({
             success: true,
             message: 'Login successful',
-            token, // Include the JWT in the response
-            admin: { // Send back some admin details (never the password)
+            token,
+            admin: {
                 _id: admin._id,
                 name: admin.name,
                 email: admin.email,
+                profilePictureUrl: admin.profilePictureUrl // <-- THIS IS THE FIX
             },
         });
     } else {
-        // Admin not found or password doesn't match
-        res.status(401); // Unauthorized
+        res.status(401);
         return next(new Error('Invalid email or password'));
     }
 };
