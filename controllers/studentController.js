@@ -1,64 +1,86 @@
 const mongoose = require('mongoose');
 const Student = require('../models/StudentModel');
-const Program = require('../models/ProgramModel'); // <-- Import Program model
+const Program = require('../models/ProgramModel');
 const asyncHandler = require('express-async-handler');
-const { body, validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 
-// Helper function for program validation
+// Helper to generate email from name
+const generateEmailFromName = (name) => {
+    return name.replace(/\s+/g, '').toLowerCase() + '@student.laverdad.edu.ph';
+};
+
 const validateProgramExists = async (programName) => {
     const program = await Program.findOne({ name: programName.toUpperCase() });
-    if (!program) {
-        throw new Error(`Program '${programName.toUpperCase()}' does not exist in the database.`);
-    }
+    if (!program) throw new Error(`Program '${programName.toUpperCase()}' does not exist.`);
     return true;
 };
 
-
-// @desc    Add a new student
-// @route   POST /api/v1/students
-// @access  Private (Admin Only)
 const addStudent = asyncHandler(async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        res.status(400);
-        return next(new Error(errors.array().map(err => err.msg).join(', ')));
-    }
+    const { studentIdNumber, name, program, yearLevel, section } = req.body;
+    let { email } = req.body; // Make email mutable
 
-    const { studentIdNumber, name, program, yearLevel, section, profilePictureUrl } = req.body;
+    if (!name || !studentIdNumber || !program || !yearLevel) {
+        return next(new Error('Name, Student ID, Program, and Year Level are required fields.'));
+    }
     
-    // Dynamic Program Validation
+    // --- THIS IS THE FIX: Auto-generate email if not provided ---
+    if (!email || email.trim() === '') {
+        email = generateEmailFromName(name);
+    }
+    // -----------------------------------------------------------
+
     await validateProgramExists(program);
 
-    const studentExists = await Student.findOne({ studentIdNumber: studentIdNumber.trim() });
+    const studentIdExists = await Student.findOne({ studentIdNumber: studentIdNumber.trim() });
+    if (studentIdExists) return next(new Error(`Student with ID ${studentIdNumber} already exists.`));
 
-    if (studentExists) {
-        res.status(400);
-        return next(new Error(`Student with ID ${studentIdNumber} already exists.`));
-    }
-
+    const emailExists = await Student.findOne({ email: email.toLowerCase().trim() });
+    if(emailExists) return next(new Error(`Student with email ${email} already exists.`));
+    
     if (program.toUpperCase() === 'ACT' && parseInt(yearLevel, 10) > 2) {
-        res.status(400);
         return next(new Error('ACT program is only available for Year 1 and 2.'));
     }
 
-    const student = new Student({
+    const student = await Student.create({
         studentIdNumber: studentIdNumber.trim(),
         name: name.trim(),
+        email: email.toLowerCase().trim(),
         program: program.trim().toUpperCase(),
         yearLevel: parseInt(yearLevel, 10),
         section: section ? section.trim().toUpperCase() : undefined,
-        profilePictureUrl: profilePictureUrl ? profilePictureUrl.trim() : undefined,
     });
 
-    const createdStudent = await student.save();
-
-    res.status(201).json({
-        success: true,
-        message: 'Student added successfully',
-        data: createdStudent,
-    });
+    res.status(201).json({ success: true, message: 'Student added successfully', data: student });
 });
 
+const updateStudent = asyncHandler(async (req, res, next) => {
+    let student = await Student.findById(req.params.id);
+    if (!student) return next(new Error(`Student not found with ID: ${req.params.id}`));
+
+    const { studentIdNumber, name, email, program, yearLevel, section, profilePictureUrl } = req.body;
+
+    // --- THIS IS THE FIX: Update email correctly ---
+    if (email && email.toLowerCase().trim() !== student.email) {
+        const emailExists = await Student.findOne({ email: email.toLowerCase().trim(), _id: { $ne: student._id } });
+        if (emailExists) return next(new Error(`Email ${email} is already in use.`));
+        student.email = email.toLowerCase().trim();
+    }
+    // ---------------------------------------------
+    
+    // ... (rest of update logic)
+    if (studentIdNumber) student.studentIdNumber = studentIdNumber.trim();
+    if (name) student.name = name.trim();
+    if (program) {
+        await validateProgramExists(program);
+        student.program = program.trim().toUpperCase();
+    }
+    if (yearLevel) student.yearLevel = parseInt(yearLevel, 10);
+    if (section) student.section = section.trim().toUpperCase();
+    if (profilePictureUrl) student.profilePictureUrl = profilePictureUrl.trim();
+
+    const updatedStudent = await student.save();
+    res.status(200).json({ success: true, message: 'Student updated successfully', data: updatedStudent });
+});
 
 // @desc    Get all students with filtering, sorting, pagination, and search
 // @route   GET /api/v1/students
@@ -155,74 +177,6 @@ const getStudentById = asyncHandler(async (req, res, next) => {
     }
 });
 
-// @desc    Update a student by ID
-// @route   PUT /api/v1/students/:id
-// @access  Private (Admin Only)
-const updateStudent = asyncHandler(async (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        res.status(400);
-        const errorMessages = errors.array().map(err => err.msg).join(', ');
-        return next(new Error(errorMessages || 'Validation failed'));
-    }
-
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-        res.status(400);
-        return next(new Error(`Invalid student ID format: ${req.params.id}`));
-    }
-
-    let student = await Student.findById(req.params.id);
-
-    if (!student) {
-        res.status(404);
-        return next(new Error(`Student not found with ID: ${req.params.id}`));
-    }
-
-    const { studentIdNumber, name, program, yearLevel, section, profilePictureUrl } = req.body;
-
-    if (studentIdNumber && studentIdNumber.trim() !== student.studentIdNumber) {
-        const existingStudentWithNewId = await Student.findOne({
-            studentIdNumber: studentIdNumber.trim(),
-            _id: { $ne: req.params.id }
-        });
-        if (existingStudentWithNewId) {
-            res.status(400);
-            return next(new Error(`Student ID ${studentIdNumber.trim()} is already assigned to another student.`));
-        }
-        student.studentIdNumber = studentIdNumber.trim();
-    }
-    
-    // Dynamic Program Validation
-    if (program) {
-        await validateProgramExists(program);
-    }
-
-    const newProgram = (program !== undefined) ? program.trim().toUpperCase() : student.program;
-    const newYearLevel = (yearLevel !== undefined) ? parseInt(yearLevel, 10) : student.yearLevel;
-
-    if (newProgram === 'ACT' && newYearLevel > 2) {
-        res.status(400);
-        return next(new Error('ACT program is only available for Year 1 and 2.'));
-    }
-
-    if (name !== undefined) student.name = name.trim();
-    if (program !== undefined) student.program = newProgram;
-    if (yearLevel !== undefined) student.yearLevel = newYearLevel;
-    if (section !== undefined) {
-        student.section = (section === null || String(section).trim() === '') ? undefined : String(section).trim().toUpperCase();
-    }
-    if (profilePictureUrl !== undefined) {
-        student.profilePictureUrl = (profilePictureUrl === null || String(profilePictureUrl).trim() === '') ? undefined : String(profilePictureUrl).trim();
-    }
-
-    const updatedStudent = await student.save();
-
-    res.status(200).json({
-        success: true,
-        message: 'Student updated successfully',
-        data: updatedStudent,
-    });
-});
 
 
 // @desc    Delete a student by ID
