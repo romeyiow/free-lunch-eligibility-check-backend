@@ -30,24 +30,59 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
         });
         return res.status(404).json({
             success: false,
+            eligibilityStatus: 'STUDENT_NOT_FOUND',
             reason: "Student ID not found in masterlist."
         });
     }
-    let profilePictureUrl = '/person-placeholder.jpg'; // Default placeholder
+
+    // --- NEW LOGIC STARTS HERE ---
+    
+    // Define the start and end of the current day in UTC
+    const todayStart = new Date();
+    todayStart.setUTCHours(0, 0, 0, 0);
+    const todayEnd = new Date();
+    todayEnd.setUTCHours(23, 59, 59, 999);
+
+    // Check if the student has already claimed a meal today
+    const existingRecord = await MealRecord.findOne({
+        student: student._id,
+        dateChecked: { $gte: todayStart, $lte: todayEnd },
+        status: 'CLAIMED'
+    });
+
+    let profilePictureUrl = '/person-placeholder.jpg';
     try {
-        // Use Firebase Admin to look up the user by their email from the student document
         const userRecord = await firebaseAdmin.auth().getUserByEmail(student.email);
         if (userRecord && userRecord.photoURL) {
-            // If user exists and has a photo, use the high-resolution version
             profilePictureUrl = userRecord.photoURL.replace('=s96-c', '=s256-c');
         }
     } catch (error) {
-        // This error is expected if the student email doesn't exist as a Firebase user.
-        // We can safely ignore it and use the default placeholder.
         if (error.code !== 'auth/user-not-found') {
             console.warn(`Firebase lookup warning for ${student.email}: ${error.code}`);
         }
-    } const currentDay = getCurrentDayOfWeek();
+    }
+    
+    const studentInfoPayload = {
+        studentIdNumber: student.studentIdNumber,
+        name: student.name,
+        program: student.program,
+        year: student.yearLevel,
+        section: student.section || "N/A",
+        profilePictureUrl: profilePictureUrl,
+    };
+
+    if (existingRecord) {
+        return res.status(200).json({
+            success: true,
+            studentInfo: studentInfoPayload,
+            eligibilityStatus: 'ALREADY_CLAIMED',
+            reason: "Meal has already been claimed today.",
+        });
+    }
+    
+    // --- END OF NEW LOGIC ---
+
+    const currentDay = getCurrentDayOfWeek();
     const scheduleEntry = await Schedule.findOne({
         program: student.program,
         yearLevel: student.yearLevel,
@@ -55,30 +90,40 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
     });
 
     const isEligibleToday = !!(scheduleEntry && scheduleEntry.isEligible);
-    const mealRecordStatus = isEligibleToday ? 'CLAIMED' : 'INELIGIBLE_NOT_SCHEDULED';
 
-    await MealRecord.create({
-        student: student._id,
-        studentIdNumber: student.studentIdNumber,
-        programAtTimeOfRecord: student.program,
-        yearLevelAtTimeOfRecord: student.yearLevel,
-        dateChecked: new Date(),
-        status: mealRecordStatus,
-    });
-
-    res.status(200).json({
-        success: true,
-        studentInfo: {
+    if (isEligibleToday) {
+        // If eligible, create the 'CLAIMED' record now
+        await MealRecord.create({
+            student: student._id,
             studentIdNumber: student.studentIdNumber,
-            name: student.name,
-            program: student.program,
-            year: student.yearLevel,
-            section: student.section || "N/A",
-            profilePictureUrl: profilePictureUrl, 
-        },
-        eligibilityStatus: isEligibleToday,
-        reason: isEligibleToday ? "Eligible for meal." : `Not scheduled for eligibility on ${currentDay}.`,
-    });
+            programAtTimeOfRecord: student.program,
+            yearLevelAtTimeOfRecord: student.yearLevel,
+            dateChecked: new Date(),
+            status: 'CLAIMED',
+        });
+        res.status(200).json({
+            success: true,
+            studentInfo: studentInfoPayload,
+            eligibilityStatus: 'ELIGIBLE',
+            reason: "Eligible for meal.",
+        });
+    } else {
+        // If not eligible, create an 'INELIGIBLE' record
+        await MealRecord.create({
+            student: student._id,
+            studentIdNumber: student.studentIdNumber,
+            programAtTimeOfRecord: student.program,
+            yearLevelAtTimeOfRecord: student.yearLevel,
+            dateChecked: new Date(),
+            status: 'INELIGIBLE_NOT_SCHEDULED',
+        });
+        res.status(200).json({
+            success: true,
+            studentInfo: studentInfoPayload,
+            eligibilityStatus: 'NOT_SCHEDULED',
+            reason: `Not scheduled for eligibility on ${currentDay}.`,
+        });
+    }
 });
 
 module.exports = {
