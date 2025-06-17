@@ -16,7 +16,6 @@ const studentSchema = new mongoose.Schema(
         },
         email: {
             type: String,
-            // We remove 'required' and 'unique' from here
             lowercase: true,
             trim: true,
         },
@@ -48,12 +47,9 @@ const studentSchema = new mongoose.Schema(
     }
 );
 
-// --- THIS IS YOUR CORRECT SOLUTION, IMPLEMENTED IN MONGOOSE ---
-// This tells Mongoose to create a special 'partial' index in MongoDB.
 studentSchema.index(
     { email: 1 }, 
     { unique: true, partialFilterExpression: { email: { $type: "string" } } }
 );
-// Note: Using { email: { $type: "string" } } is a common and robust way to ensure the index only applies to documents where email is a string.
 
 module.exports = mongoose.model('Student', studentSchema);
