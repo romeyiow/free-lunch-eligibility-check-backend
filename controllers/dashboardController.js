@@ -75,7 +75,7 @@ const getPerformanceSummary = asyncHandler(async (req, res) => {
     switch (filterPeriod.toLowerCase()) {
         case 'daily': {
             const weekRange = getPeriodRange('weekly');
-            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             for (let i = 0; i < 7; i++) {
                 const currentDay = new Date(weekRange.startDate);
                 currentDay.setUTCDate(currentDay.getUTCDate() + i);
