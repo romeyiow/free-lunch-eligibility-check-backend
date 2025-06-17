@@ -89,7 +89,7 @@ const updateStudent = asyncHandler(async (req, res, next) => {
         student.program = program.trim().toUpperCase();
     }
     if (yearLevel) student.yearLevel = parseInt(yearLevel, 10);
-    if (section !== undefined) student.section = section ? section.trim().toUpperCase() : null; // Allow clearing the section
+    if (section !== undefined) student.section = section ? section.trim().toUpperCase() : null;
     
     const updatedStudent = await student.save();
     res.status(200).json({ success: true, message: 'Student updated successfully', data: updatedStudent });
@@ -121,19 +121,22 @@ const getStudents = asyncHandler(async (req, res, next) => {
     let sortOptions = {};
     const { sortBy, order } = req.query;
 
-    if (sortBy) {
+   
+    if (req.query.program) {
+        sortOptions = { yearLevel: 1, name: 1 };
+    } else if (sortBy) {
         const allowedSortKeys = ['name', 'program', 'yearLevel', 'studentIdNumber', 'createdAt', 'updatedAt'];
         if (allowedSortKeys.includes(sortBy)) {
-            sortOptions[sortBy] = (order === 'desc' || order === -1 || order === '-1') ? -1 : 1;
+            sortOptions[sortBy] = (order === 'desc') ? -1 : 1;
         } else {
-            sortOptions.name = 1;
+            sortOptions.name = 1; 
         }
     } else {
         sortOptions.name = 1;
     }
 
     const page = parseInt(req.query.page, 10) || 1;
-    const limit = parseInt(req.query.limit, 10) || 10;
+    const limit = parseInt(req.query.limit, 10) || 8;
     const startIndex = (page - 1) * limit;
 
     const total = await Student.countDocuments(query);

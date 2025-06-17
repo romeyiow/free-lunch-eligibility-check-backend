@@ -16,16 +16,11 @@ const MealRecord = require('./models/MealRecordModel');
 // Connect to DB
 mongoose.connect(process.env.MONGO_URI, {});
 
-// Read JSON files
+// Read JSON files for initial seeding
 const admins = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'admins.json'), 'utf-8'));
 const programs = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'programs.json'), 'utf-8'));
 const students = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'students.json'), 'utf-8'));
 const scheduleTemplates = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'schedules.json'), 'utf-8'));
-
-const getDayOfWeekString = (date) => {
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    return days[date.getUTCDay()];
-};
 
 const importData = async () => {
     try {
@@ -39,16 +34,11 @@ const importData = async () => {
 
         console.log('--- Seeding new data... ---'.cyan);
 
+        // Step 1: Seed Admins, Programs, and Schedules
         await Admin.create(admins);
         await Program.create(programs);
-        console.log('Admins & Programs Imported...'.green);
-
-        const seededStudents = await Student.create(students);
-        console.log('Students Imported...'.green);
-
         const schedulesToCreate = [];
         const allDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
         for (const template of scheduleTemplates) {
             for (const day of allDays) {
                 schedulesToCreate.push({
@@ -60,71 +50,38 @@ const importData = async () => {
             }
         }
         await Schedule.create(schedulesToCreate);
-        console.log('Schedules Imported...'.green);
+        console.log('Admins, Programs, & Schedules Imported...'.green);
 
-        const mealRecordsToCreate = [];
-        const BATCH_SIZE = 1000;
+        // Step 2: Seed Students and create a lookup map of their REAL database IDs
+        const seededStudents = await Student.create(students);
+        const studentMap = new Map();
+        seededStudents.forEach(s => studentMap.set(s.studentIdNumber, s._id));
+        console.log('Students Imported and lookup map created...'.green);
 
-        console.log('Generating historical meal records for the last 90 days...'.cyan);
-        const allSchedules = await Schedule.find({ isEligible: true }).lean(); // use lean to reduce memory use
-        const today = new Date();
-
-        for (let i = 0; i < 180; i++) {
-            const currentDate = new Date(today);
-            currentDate.setUTCDate(currentDate.getUTCDate() - i);
-            currentDate.setUTCHours(12, 0, 0, 0);
-
-            const dayOfWeek = getDayOfWeekString(currentDate);
-            if (dayOfWeek === 'Sunday') continue;
-
-            const dailyClaimRate = Math.random() * (0.95 - 0.80) + 0.80;
-
-            // Filter once per day (cheaper than per student)
-            const schedulesForThisDay = new Map();
-            allSchedules
-                .filter(s => s.dayOfWeek === dayOfWeek)
-                .forEach(s => schedulesForThisDay.set(`${s.program}-${s.yearLevel}`, true));
-
-            if (schedulesForThisDay.size === 0) continue;
-
-            let mealRecordsBatch = [];
-
-            for (const student of seededStudents) {
-                const key = `${student.program}-${student.yearLevel}`;
-                if (!schedulesForThisDay.has(key)) continue;
-
-                const status = Math.random() < dailyClaimRate ? 'CLAIMED' : 'ELIGIBLE_BUT_NOT_CLAIMED';
-
-                mealRecordsBatch.push({
-                    student: student._id,
-                    studentIdNumber: student.studentIdNumber,
-                    programAtTimeOfRecord: student.program,
-                    yearLevelAtTimeOfRecord: student.yearLevel,
-                    dateChecked: currentDate,
-                    status: status,
-                });
-
-                // If batch size is reached, insert and reset
-                if (mealRecordsBatch.length >= BATCH_SIZE) {
-                    await MealRecord.insertMany(mealRecordsBatch);
-                    mealRecordsBatch = [];
-                }
+        // Step 3: Read the VERIFIED meal history file
+        console.log('Reading verified meal_history.json file...'.cyan);
+        const mealHistoryToSeed = JSON.parse(fs.readFileSync(path.join(__dirname, '_data', 'meal_history.json'), 'utf-8'));
+        
+        // Step 4: Map the history to the real student IDs and prepare for insertion
+        const mealRecordsToInsert = mealHistoryToSeed.map(record => {
+            const studentDbId = studentMap.get(record.student._id); 
+            if (!studentDbId) {
+                console.warn(`Warning: Student ID ${record.student._id} from JSON not found in DB. Skipping record.`);
+                return null;
             }
+            return {
+                student: studentDbId, // Use the actual MongoDB _id
+                studentIdNumber: record.student._id,
+                programAtTimeOfRecord: record.student.program,
+                yearLevelAtTimeOfRecord: record.student.yearLevel,
+                dateChecked: new Date(record.dateChecked),
+                status: record.status,
+            };
+        }).filter(Boolean); // Filter out any records that couldn't be matched
 
-            // Insert any leftover batch
-            if (mealRecordsBatch.length > 0) {
-                await MealRecord.insertMany(mealRecordsBatch);
-            }
-
-            console.log(`✔ Day ${i + 1}/180 processed.`);
-        }
-
-
-        if (mealRecordsToCreate.length > 0) {
-            await MealRecord.create(mealRecordsToCreate);
-            console.log(`${mealRecordsToCreate.length} historical meal records (claimed and unclaimed) created.`.green);
-        } else {
-            console.log('No historical meal records were generated.'.yellow);
+        if (mealRecordsToInsert.length > 0) {
+            await MealRecord.insertMany(mealRecordsToInsert);
+            console.log(`Successfully imported ${mealRecordsToInsert.length} records from meal_history.json`.green);
         }
 
         console.log('--- Data Import Complete ---'.green.bold);

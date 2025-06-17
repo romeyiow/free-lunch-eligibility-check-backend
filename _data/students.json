@@ -1,5 +1,59 @@
 [
   {
+    "name": "Jerome Imperial",
+    "email": "jeromeimperial@student.laverdad.edu.ph",
+    "studentIdNumber": "25-12345JCI",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "name": "Princess Olingay",
+    "email": "princessolingay@student.laverdad.edu.ph",
+    "studentIdNumber": "25-12345POO",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "name": "John Miguel Manabo",
+    "email": "johnmiguelmanabo@student.laverdad.edu.ph",
+    "studentIdNumber": "25-12345JMM",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "name": "Lianor Bagaporo",
+    "email": "lianorbagaporo@student.laverdad.edu.ph",
+    "studentIdNumber": "25-12345LBA",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "name": "Mark Joseph Santos",
+    "email": "markjosephsantos@student.laverdad.edu.ph",
+    "studentIdNumber": "25-12345MJS",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
+    "name": "Jean Rose Talen",
+    "email": "jeanrosetalen@student.laverdad.edu.ph",
+    "studentIdNumber": "25-12345JRT",
+    "program": "BSIS",
+    "yearLevel": 3,
+    "section": "C",
+    "profilePictureUrl": "/images/default-avatar.png"
+  },
+  {
     "studentIdNumber": "25-71992JHI",
     "name": "Jennifer Hilpert-Stroman",
     "email": "jenniferhilpert-stroman@student.laverdad.edu.ph",

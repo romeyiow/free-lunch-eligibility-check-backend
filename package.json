@@ -10,7 +10,8 @@
     "format": "prettier --write \"**/*.{js,json,md}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "data:import": "node seeder.js -i",
-    "data:destroy": "node seeder.js -d"
+    "data:destroy": "node seeder.js -d",
+    "data:generate-history": "node generateMealHistory.js"
   },
   "keywords": [],
   "author": "",
