@@ -293,7 +293,7 @@ const changePassword = asyncHandler(async (req, res, next) => {
 
     if (!(await admin.matchPassword(oldPassword))) {
         res.status(401);
-        throw new Error('Incorrect old password.');
+        throw new Error('Incorrect Password');
     }
 
     admin.password = newPassword;
