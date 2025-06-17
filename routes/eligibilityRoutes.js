@@ -8,7 +8,7 @@ const router = express.Router();
 // GET /api/v1/eligibility/:studentIdNumber - Check student eligibility
 router.get(
     '/:studentIdNumber',
-    protectKitchen, // Apply API Key protection middleware
+    // protectKitchen, // Apply API Key protection middleware
     checkStudentEligibility
 );
 
