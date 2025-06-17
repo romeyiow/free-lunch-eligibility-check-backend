@@ -111,7 +111,8 @@ const getPerformanceSummary = asyncHandler(async (req, res) => {
             const year = new Date().getFullYear();
             for (let m = 0; m < 12; m++) {
                 const monthRange = getPeriodRange('monthly', `${year}-${m + 1}`);
-                const summary = new Date(Date.UTC(year, m)).toLocaleString('en-US', { month: 'long', timeZone: 'UTC' });
+                const summary = await calculateSummaryForSinglePeriod(monthRange.startDate, monthRange.endDate);
+                const monthName = new Date(Date.UTC(year, m)).toLocaleString('en-US', { month: 'long', timeZone: 'UTC' });
                 responseData.push({ id: `${year}-${m+1}`, name: monthName, ...summary });
             }
             break;
