@@ -17,12 +17,13 @@ const getMealRecords = asyncHandler(async (req, res, next) => {
             query.dateChecked = { $gte: startDate, $lte: endDate };
         }
     }
-    if (req.query.status) {
-        query.status = req.query.status.toUpperCase();
-    }
+    
+    // --- THIS IS THE FIX ---
+    // We only care about records where the student was actually eligible.
+    query.status = { $in: ['CLAIMED', 'ELIGIBLE_BUT_NOT_CLAIMED'] };
+    // ----------------------
     
     // --- Program and Student Name Search ---
-    // These filters apply to the Student collection, not the MealRecord directly
     if (req.query.program) {
         studentQuery.program = req.query.program.toUpperCase();
     }
@@ -30,20 +31,18 @@ const getMealRecords = asyncHandler(async (req, res, next) => {
         studentQuery.name = new RegExp(req.query.searchStudentName, 'i');
     }
 
-    // If there are any student-specific filters, we need to find those students first
     if (Object.keys(studentQuery).length > 0) {
         const matchingStudents = await Student.find(studentQuery).select('_id');
         const studentIds = matchingStudents.map(student => student._id);
 
         if (studentIds.length === 0) {
-            // No students match, so no records will be found.
             return res.status(200).json({ success: true, count: 0, pagination: {}, data: [] });
         }
         query.student = { $in: studentIds };
     }
 
     // --- Sorting ---
-    let sort = { dateChecked: -1, 'student.name': 1 }; // Default sort
+    let sort = { 'student.name': 1, dateChecked: 1 }; // Sort by name, then date
     if (req.query.sortBy) {
         const order = req.query.order === 'asc' ? 1 : -1;
         sort = { [req.query.sortBy]: order };
@@ -51,33 +50,58 @@ const getMealRecords = asyncHandler(async (req, res, next) => {
 
     // --- Pagination ---
     const page = parseInt(req.query.page, 10) || 1;
-    const limit = parseInt(req.query.limit, 10) || 10;
+    const limit = parseInt(req.query.limit, 10) || 8; // Default limit to 8 as per UI
     const startIndex = (page - 1) * limit;
 
     // --- Database Query ---
-    const total = await MealRecord.countDocuments(query);
+    // Note: We cannot easily paginate a GROUPed query. The pagination must be done on the frontend
+    // after we have all the relevant sparse data for the month.
+    // The query now fetches all relevant records for the month for the given program filter.
+    
     const mealRecords = await MealRecord.find(query)
         .populate({
             path: 'student',
-            select: 'name studentIdNumber program yearLevel section'
+            select: 'name' // Only need name for display
         })
-        .sort(sort)
-        .skip(startIndex)
-        .limit(limit);
+        .sort(sort);
 
-    // --- Pagination Metadata ---
+    // --- Manual Grouping and Pagination ---
+    const studentData = mealRecords.reduce((acc, record) => {
+        const studentId = record.student?._id;
+        if (!studentId) return acc;
+
+        if (!acc[studentId]) {
+            acc[studentId] = {
+                _id: studentId,
+                name: record.student.name,
+                records: []
+            };
+        }
+        acc[studentId].records.push(record);
+        return acc;
+    }, {});
+    
+    const allStudents = Object.values(studentData);
+    const totalStudents = allStudents.length;
+
+    // Paginate the list of students
+    const paginatedStudents = allStudents.slice(startIndex, startIndex + limit);
+
+    // Create the final data structure for the response
+    const responseData = paginatedStudents.flatMap(student => student.records);
+    
     const pagination = {
         currentPage: page,
-        totalPages: Math.ceil(total / limit),
+        totalPages: Math.ceil(totalStudents / limit),
         limit,
-        totalItems: total,
+        totalItems: totalStudents,
     };
 
     res.status(200).json({
         success: true,
-        count: mealRecords.length,
+        count: responseData.length,
         pagination,
-        data: mealRecords,
+        data: responseData,
     });
 });
 
@@ -97,7 +121,6 @@ const generateUnclaimedRecords = asyncHandler(async (req, res, next) => {
         return next(new Error('Invalid date format. Please use YYYY-MM-DD.'));
     }
 
-    // Set date range for the entire target day in UTC
     const startDate = new Date(targetDate);
     startDate.setUTCHours(0, 0, 0, 0);
     const endDate = new Date(targetDate);
@@ -110,7 +133,6 @@ const generateUnclaimedRecords = asyncHandler(async (req, res, next) => {
         return next(new Error('Invalid day calculated from the provided date.'));
     }
 
-    // 1. Find all students scheduled to be eligible on that day
     const eligibleSchedules = await Schedule.find({ dayOfWeek: dayOfWeek, isEligible: true }).select('program yearLevel');
     if (eligibleSchedules.length === 0) {
         return res.status(200).json({
@@ -122,13 +144,11 @@ const generateUnclaimedRecords = asyncHandler(async (req, res, next) => {
     const eligibilityCriteria = eligibleSchedules.map(s => ({ program: s.program, yearLevel: s.yearLevel }));
     const allEligibleStudents = await Student.find({ $or: eligibilityCriteria }).select('_id studentIdNumber program yearLevel');
 
-    // 2. Find all students who already have a meal record (claimed or otherwise) on that day
     const studentsWithRecords = await MealRecord.find({
         dateChecked: { $gte: startDate, $lte: endDate }
     }).distinct('student');
     const studentsWithRecordsSet = new Set(studentsWithRecords.map(id => id.toString()));
 
-    // 3. Determine which eligible students do NOT have a record
     const studentsToMarkAsUnclaimed = allEligibleStudents.filter(student =>
         !studentsWithRecordsSet.has(student._id.toString())
     );
@@ -141,13 +161,12 @@ const generateUnclaimedRecords = asyncHandler(async (req, res, next) => {
         });
     }
 
-    // 4. Create "ELIGIBLE_BUT_NOT_CLAIMED" records for them
     const recordsToInsert = studentsToMarkAsUnclaimed.map(student => ({
         student: student._id,
         studentIdNumber: student.studentIdNumber,
         programAtTimeOfRecord: student.program,
         yearLevelAtTimeOfRecord: student.yearLevel,
-        dateChecked: startDate, // Set to the start of the day for consistency
+        dateChecked: startDate,
         status: 'ELIGIBLE_BUT_NOT_CLAIMED',
     }));
 
@@ -162,5 +181,5 @@ const generateUnclaimedRecords = asyncHandler(async (req, res, next) => {
 
 module.exports = {
     getMealRecords,
-    generateUnclaimedRecords, // <-- Export the new function
+    generateUnclaimedRecords,
 };
