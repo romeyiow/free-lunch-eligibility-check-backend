@@ -1,9 +1,8 @@
-// controllers/authController.js
 const colors = require('colors');
 const Admin = require('../models/AdminModel');
 const generateToken = require('../utils/generateToken');
 const asyncHandler = require('express-async-handler');
-const sendEmail = require('../utils/sendEmail'); // Import the sendEmail utility
+const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
 const firebaseAdmin = require('../config/firebaseAdmin');
 
@@ -32,7 +31,7 @@ const loginAdmin = async (req, res, next) => {
                 _id: admin._id,
                 name: admin.name,
                 email: admin.email,
-                profilePictureUrl: admin.profilePictureUrl // <-- THIS IS THE FIX
+                profilePictureUrl: admin.profilePictureUrl
             },
         });
     } else {
@@ -62,11 +61,6 @@ const getAdminProfile = asyncHandler((req, res, next) => {
 // @route   POST /api/v1/auth/logout
 // @access  Private (Requires JWT)
 const logoutAdmin = asyncHandler(async (req, res, next) => {
-    // For stateless JWTs, true logout is handled client-side by deleting the token.
-    // This backend endpoint can confirm the logout action and is protected
-    // to ensure only an authenticated user can "log out".
-    // If we were using sessions or a token blocklist, more logic would go here.
-
     res.status(200).json({
         success: true,
         message: 'Admin logged out successfully. Please clear token on client-side.',
@@ -87,7 +81,6 @@ const requestPasswordReset = asyncHandler(async (req, res, next) => {
     const admin = await Admin.findOne({ email: email.toLowerCase() });
 
     if (!admin) {
-        // To prevent email enumeration, send a generic success response.
         console.log(`Password reset requested for non-existent or non-admin email: ${email}`.yellow);
         return res.status(200).json({
             success: true,
@@ -126,19 +119,10 @@ const requestPasswordReset = asyncHandler(async (req, res, next) => {
         });
     } catch (error) {
         console.error('Failed to send password reset email:'.red, error);
-        // If email sending fails, we should ideally not leave the user thinking a code was sent.
-        // However, we also don't want to reveal too much.
-        // For simplicity in the capstone, we'll clear the token if the email fails,
-        // so the user isn't stuck with an unusable token.
         admin.passwordResetToken = undefined;
         admin.passwordResetExpires = undefined;
         await admin.save(); // Attempt to revert token saving
 
-        // It's important to let the calling client know that the operation as a whole may not have fully succeeded.
-        // You might return a more generic error or a specific one indicating email failure.
-        // For now, let's pass the error to the main error handler.
-        // next(new Error('There was an issue sending the password reset email. Please try again.'));
-        // Or, even better for the client, a success false with message
         res.status(500).json({ // Internal Server Error, as email sending is a server-side op
             success: false,
             error: { message: 'Failed to send password reset email. Please try again later.' }
@@ -242,7 +226,7 @@ const googleLogin = asyncHandler(async (req, res, next) => {
 
         const highResPictureUrl = picture ? picture.replace('=s96-c', '=s256-c') : null;
         admin.name = name;
-        admin.profilePictureUrl = highResPictureUrl; // Save the new URL
+        admin.profilePictureUrl = highResPictureUrl;
         await admin.save();
 
         // Generate your application's JWT for this admin
@@ -251,7 +235,7 @@ const googleLogin = asyncHandler(async (req, res, next) => {
         res.status(200).json({
             success: true,
             message: 'Google Sign-In successful.',
-            token: appToken, // Your application's JWT
+            token: appToken,
             admin: {
                 _id: admin._id,
                 name: admin.name,
@@ -263,15 +247,13 @@ const googleLogin = asyncHandler(async (req, res, next) => {
     } catch (error) {
         console.error('Google Sign-In backend error:'.red, error.message);
         if (error.code === 'auth/id-token-expired' || error.code === 'auth/argument-error' || error.code === 'auth/id-token-revoked') {
-            res.status(401); // Unauthorized
+            res.status(401);
             throw new Error('Invalid or expired Firebase token. Please try signing in again.');
         }
-        // Re-throw other errors to be handled by the global error handler,
-        // or handle them specifically if they are thrown by our custom logic above (like 403 errors)
-        if (!res.headersSent) { // If we haven't already sent a response
+        if (!res.headersSent) {
             res.status(error.statusCode || 500);
         }
-        throw error; // Let asyncHandler pass it to your global errorHandler
+        throw error;
     }
 });
 

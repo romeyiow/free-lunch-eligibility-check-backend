@@ -2,6 +2,7 @@ const Student = require('../models/StudentModel');
 const Schedule = require('../models/ScheduleModel');
 const MealRecord = require('../models/MealRecordModel');
 const asyncHandler = require('express-async-handler');
+const firebaseAdmin = require('../config/firebaseAdmin');
 
 const getCurrentDayOfWeek = () => {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -32,15 +33,28 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
             reason: "Student ID not found in masterlist."
         });
     }
-
-    const currentDay = getCurrentDayOfWeek();
+    let profilePictureUrl = '/person-placeholder.jpg'; // Default placeholder
+    try {
+        // Use Firebase Admin to look up the user by their email from the student document
+        const userRecord = await firebaseAdmin.auth().getUserByEmail(student.email);
+        if (userRecord && userRecord.photoURL) {
+            // If user exists and has a photo, use the high-resolution version
+            profilePictureUrl = userRecord.photoURL.replace('=s96-c', '=s256-c');
+        }
+    } catch (error) {
+        // This error is expected if the student email doesn't exist as a Firebase user.
+        // We can safely ignore it and use the default placeholder.
+        if (error.code !== 'auth/user-not-found') {
+            console.warn(`Firebase lookup warning for ${student.email}: ${error.code}`);
+        }
+    } const currentDay = getCurrentDayOfWeek();
     const scheduleEntry = await Schedule.findOne({
         program: student.program,
         yearLevel: student.yearLevel,
         dayOfWeek: currentDay,
     });
 
-    const isEligibleToday = scheduleEntry && scheduleEntry.isEligible;
+    const isEligibleToday = !!(scheduleEntry && scheduleEntry.isEligible);
     const mealRecordStatus = isEligibleToday ? 'CLAIMED' : 'INELIGIBLE_NOT_SCHEDULED';
 
     await MealRecord.create({
@@ -52,12 +66,6 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
         status: mealRecordStatus,
     });
 
-    // --- THIS IS THE NEW LOGIC ---
-    // Create a dynamic avatar URL using the student's name.
-    const studentNameForAvatar = encodeURIComponent(student.name);
-    const dynamicAvatarUrl = `https://ui-avatars.com/api/?name=${studentNameForAvatar}&size=256&background=random&color=fff`;
-    // ----------------------------
-
     res.status(200).json({
         success: true,
         studentInfo: {
@@ -66,7 +74,7 @@ const checkStudentEligibility = asyncHandler(async (req, res, next) => {
             program: student.program,
             year: student.yearLevel,
             section: student.section || "N/A",
-            profilePictureUrl: dynamicAvatarUrl, // Use the new dynamic URL
+            profilePictureUrl: profilePictureUrl, 
         },
         eligibilityStatus: isEligibleToday,
         reason: isEligibleToday ? "Eligible for meal." : `Not scheduled for eligibility on ${currentDay}.`,

@@ -13,5 +13,32 @@
         "name": "Jerome Imperial",
         "email": "jeromeimperial@student.laverdad.edu.ph",
         "password": "demopassword"
+    },
+    
+    
+    {
+        "name": "Princess Olingay", 
+        "email": "princessolingay@student.laverdad.edu.ph",
+        "password": "demopassword"
+    },
+    {
+        "name": "John Miguel Manabo",
+        "email": "johnmiguelmanabo@student.laverdad.edu.ph",
+        "password": "demopassword"
+    },
+    {
+        "name": "Lianor Bagaporo",
+        "email": "lianorbagaporo@student.laverdad.edu.ph",
+        "password": "demopassword"
+    },
+    {
+        "name": "Mark Joseph Santos",
+        "email": "markjosephsantos@student.laverdad.edu.ph",
+        "password": "demopassword"
+    },
+    {
+        "name": "Jean Rose Talen",
+        "email": "jeanrosetalen@student.laverdad.edu.ph",
+        "password": "demopassword"
     }
 ]
