@@ -66,13 +66,4 @@ adminSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 };
 
-// Optional: Method to generate and hash password token (can be added to the instance)
-// This is a common pattern, but for now, we'll generate the simple code in the controller.
-// adminSchema.methods.getResetPasswordToken = function() {
-//     // Generate token (e.g. crypto.randomBytes(20).toString('hex'))
-//     // Hash token and set to passwordResetToken field
-//     // Set passwordResetExpires
-//     // return unhashedToken;
-// };
-
 module.exports = mongoose.model('Admin', adminSchema);
