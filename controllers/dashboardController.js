@@ -79,7 +79,11 @@ const getPerformanceSummary = asyncHandler(async (req, res) => {
             for (let i = 0; i < 7; i++) {
                 const currentDay = new Date(weekRange.startDate);
                 currentDay.setUTCDate(currentDay.getUTCDate() + i);
-                const summary = await calculateSummaryForSinglePeriod(currentDay, new Date(currentDay).setUTCHours(23, 59, 59, 999));
+                
+                const endOfDay = new Date(currentDay);
+                endOfDay.setUTCHours(23, 59, 59, 999);
+
+                const summary = await calculateSummaryForSinglePeriod(currentDay, endOfDay);
                 responseData.push({ id: currentDay.toISOString().split('T')[0], name: days[i], ...summary });
             }
             break;
@@ -92,7 +96,6 @@ const getPerformanceSummary = asyncHandler(async (req, res) => {
                 const weekRange = getPeriodRange('weekly', weekStart.toISOString());
                 const summary = await calculateSummaryForSinglePeriod(weekRange.startDate, weekRange.endDate);
                 
-                // THIS IS THE FIX: The ID is now the actual start date of the week.
                 responseData.push({ 
                     id: weekRange.startDate.toISOString().split('T')[0], 
                     name: `Week ${weekCounter}`, 
@@ -108,8 +111,7 @@ const getPerformanceSummary = asyncHandler(async (req, res) => {
             const year = new Date().getFullYear();
             for (let m = 0; m < 12; m++) {
                 const monthRange = getPeriodRange('monthly', `${year}-${m + 1}`);
-                const summary = await calculateSummaryForSinglePeriod(monthRange.startDate, monthRange.endDate);
-                const monthName = new Date(Date.UTC(year, m)).toLocaleString('en-US', { month: 'long', timeZone: 'UTC' });
+                const summary = new Date(Date.UTC(year, m)).toLocaleString('en-US', { month: 'long', timeZone: 'UTC' });
                 responseData.push({ id: `${year}-${m+1}`, name: monthName, ...summary });
             }
             break;
