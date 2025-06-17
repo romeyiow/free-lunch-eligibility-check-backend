@@ -1,7 +1,7 @@
 // routes/eligibilityRoutes.js
 const express = require('express');
 const { checkStudentEligibility } = require('../controllers/eligibilityController');
-const { protectKitchen } = require('../middleware/authMiddleware'); // Import the API Key protection
+// const { protectKitchen } = require('../middleware/authMiddleware'); // Import the API Key protection
 
 const router = express.Router();
 

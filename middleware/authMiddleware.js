@@ -125,7 +125,7 @@ const errorHandler = (err, req, res, next) => {
 
 module.exports = {
     protect,
-    protectKitchen, // Add this line
+    // protectKitchen, // Add this line
     notFound,
     errorHandler
 };

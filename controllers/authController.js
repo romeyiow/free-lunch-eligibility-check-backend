@@ -67,7 +67,7 @@ const logoutAdmin = asyncHandler(async (req, res, next) => {
     });
 });
 
-// @desc    Request Password Reset (generates code/token and sends email)
+// @desc    Request Password Reset (generates code and sends email)
 // @route   POST /api/v1/auth/request-password-reset
 // @access  Public
 const requestPasswordReset = asyncHandler(async (req, res, next) => {
@@ -79,56 +79,62 @@ const requestPasswordReset = asyncHandler(async (req, res, next) => {
     }
 
     const admin = await Admin.findOne({ email: email.toLowerCase() });
-
-    if (!admin) {
-        console.log(`Password reset requested for non-existent or non-admin email: ${email}`.yellow);
-        return res.status(200).json({
-            success: true,
-            message: 'If an account with that email exists, instructions to reset your password have been sent.',
-        });
+    
+    // --- THIS IS THE NEW LOGIC ---
+    let useGmailForSending = false;
+    let recipientEmail = process.env.ETHEREAL_CATCH_ALL_EMAIL || 'test@example.com'; // A fallback for ethereal
+    let resetCode = '123456'; // A dummy code for non-existent users
+    
+    if (admin) {
+        // If admin exists, use real logic
+        useGmailForSending = true;
+        recipientEmail = admin.email;
+        resetCode = Math.floor(100000 + Math.random() * 900000).toString();
+        
+        const resetCodeExpires = Date.now() + 10 * 60 * 1000; // 10 minutes
+        admin.passwordResetToken = resetCode;
+        admin.passwordResetExpires = resetCodeExpires;
+        await admin.save();
+    } else {
+        // If admin does not exist, we prepare to send to Ethereal
+        console.log(`Password reset requested for non-existent email: ${email}. Logging to Ethereal.`.yellow);
     }
+    // ----------------------------
 
-    // Generate a simple 6-digit reset code
-    const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
-    const resetCodeExpires = Date.now() + 10 * 60 * 1000; // 10 minutes in milliseconds
-
-    admin.passwordResetToken = resetCode;
-    admin.passwordResetExpires = resetCodeExpires;
-
-    await admin.save(); // Validate and save the updated admin document
-
-    // Prepare email content
     const resetEmailSubject = 'Your Password Reset Code';
-    const resetEmailText = `You are receiving this email because you (or someone else) has requested the reset of a password for your account.\n\nYour password reset code is: ${resetCode}\n\nThis code will expire in 10 minutes.\n\nIf you did not request this, please ignore this email and your password will remain unchanged.\n`;
-    const resetEmailHtml = `<p>You are receiving this email because you (or someone else) has requested the reset of a password for your account.</p>
-                           <p>Your password reset code is: <strong>${resetCode}</strong></p>
-                           <p>This code will expire in 10 minutes.</p>
-                           <p>If you did not request this, please ignore this email and your password will remain unchanged.</p>`;
+    const resetEmailText = `You requested a password reset. Your code is: ${resetCode}\nThis code expires in 10 minutes. If you did not request this, please ignore this email.`;
+    const resetEmailHtml = `<p>You requested a password reset. Your code is: <strong>${resetCode}</strong></p><p>This code expires in 10 minutes.</p><p>If you did not request this, please ignore this email.</p>`;
 
     try {
         await sendEmail({
-            to: admin.email,
+            to: recipientEmail,
             subject: resetEmailSubject,
             text: resetEmailText,
             html: resetEmailHtml,
+            useGmail: useGmailForSending // Pass the flag to the email utility
         });
-
+        
+        // Always send a generic success response to the user to prevent email enumeration
         res.status(200).json({
             success: true,
-            message: `Password reset instructions have been sent to ${admin.email}.`,
+            message: 'If an account with that email exists, instructions to reset your password have been sent.',
         });
-    } catch (error) {
-        console.error('Failed to send password reset email:'.red, error);
-        admin.passwordResetToken = undefined;
-        admin.passwordResetExpires = undefined;
-        await admin.save(); // Attempt to revert token saving
 
-        res.status(500).json({ // Internal Server Error, as email sending is a server-side op
+    } catch (error) {
+        // If email sending fails, we should ideally not leave the user thinking a code was sent.
+        if (admin) {
+            admin.passwordResetToken = undefined;
+            admin.passwordResetExpires = undefined;
+            await admin.save();
+        }
+        res.status(500).json({
             success: false,
             error: { message: 'Failed to send password reset email. Please try again later.' }
         });
     }
 });
+
+
 // @desc    Reset Password using Reset Code
 // @route   POST /api/v1/auth/reset-password
 // @access  Public
