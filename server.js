@@ -49,17 +49,13 @@ const limiter = rateLimit({
     max: 1000, // Limit each IP to 1000 requests per windowMs
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers (legacy)
-    // Message sent when rate limit is exceeded
     message: {
         success: false,
         error: {
             message: 'Too many requests created from this IP, please try again after 15 minutes',
         },
     },
-    // Optional: Customize key generation (e.g., use user ID after login)
-    // keyGenerator: (req, res) => { /* ... */ },
-    // Optional: Skip certain requests (e.g., OPTIONS pre-flight requests)
-    // skip: (req, res) => { /* return true to skip */ },
+    
 });
 
 // Apply the rate limiting middleware to all requests starting with /api

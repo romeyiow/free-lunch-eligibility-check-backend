@@ -80,13 +80,13 @@ const requestPasswordReset = asyncHandler(async (req, res, next) => {
 
     const admin = await Admin.findOne({ email: email.toLowerCase() });
     
-    // --- THIS IS THE NEW LOGIC ---
+   
     let useGmailForSending = false;
     let recipientEmail = process.env.ETHEREAL_CATCH_ALL_EMAIL || 'test@example.com'; // A fallback for ethereal
     let resetCode = '123456'; // A dummy code for non-existent users
     
     if (admin) {
-        // If admin exists, use real logic
+     
         useGmailForSending = true;
         recipientEmail = admin.email;
         resetCode = Math.floor(100000 + Math.random() * 900000).toString();
@@ -99,7 +99,7 @@ const requestPasswordReset = asyncHandler(async (req, res, next) => {
         // If admin does not exist, we prepare to send to Ethereal
         console.log(`Password reset requested for non-existent email: ${email}. Logging to Ethereal.`.yellow);
     }
-    // ----------------------------
+    
 
     const resetEmailSubject = 'Your Password Reset Code';
     const resetEmailText = `You requested a password reset. Your code is: ${resetCode}\nThis code expires in 10 minutes. If you did not request this, please ignore this email.`;
